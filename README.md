@@ -1,11 +1,12 @@
-# Alternative VRP
+# Alternative vRP
 
-[![Discord Channel](https://img.shields.io/discord/1010002981023916122?label=Discord&logo=discord&logoColor=%23fff)](https://https://discord.gg/FztqPgXNFD)
+[![Discord Channel](https://img.shields.io/discord/1010002981023916122?label=Discord&logo=discord&logoColor=%23fff)](https://discord.gg/FztqPgXNFD)
 
 ## Project
 
 
 ### Getting Started
+  * [Running Alternative vRP on Windows]()
 
 ### Special Thanks
   * our partners

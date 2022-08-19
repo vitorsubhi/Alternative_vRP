@@ -1,0 +1,7 @@
+cache/*
+artifacts/*
+txData/*
+resources/\[Addons\]/*
+resources/.idea
+resources/.vs
+!.gitkeep
