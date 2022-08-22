@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>#Prime</title>
+		<script src="nui://game/ui/jquery.js"></script>
+		<link href="css.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<!--<video src="video.mp4" autoplay muted loop></video>
+		<audio id="musica" autoplay="autoplay">
+			<source hidden="true" autostart="true" loop="true" src="musica.mp3" />
+		</audio>-->
+		<script type="text/javascript">
+			var music = document.getElementById("musica");
+			music.volume = 0.1;
+			document.addEventListener('keypress', (event) => {
+				if(event.key == "p") {
+					if(music.paused) {
+						music.play();
+					}else{
+						music.pause();
+				  	}
+			  	} else if(event.key == "s") {
+					music.volume = music.volume-0.05;
+			  	} else if(event.key == "w") {
+					music.volume = music.volume+0.05;
+				}
+			});
+		</script>
+	</body>
+</html>
