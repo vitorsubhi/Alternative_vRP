@@ -4,4 +4,5 @@ txData/*
 resources/\[Addons\]/*
 resources/.idea
 resources/.vs
+server.cfg
 !.gitkeep
