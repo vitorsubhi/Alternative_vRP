@@ -1,0 +1,50 @@
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- WEAPONAMMOS
+-----------------------------------------------------------------------------------------------------------------------------------------
+weaponAmmos = {
+	["WEAPON_PISTOL_AMMO"] = {
+		"WEAPON_PISTOL",
+		"WEAPON_PISTOL_MK2",
+		"WEAPON_PISTOL50",
+		"WEAPON_REVOLVER",
+		"WEAPON_COMBATPISTOL",
+		"WEAPON_APPISTOL",
+		"WEAPON_HEAVYPISTOL",
+		"WEAPON_SNSPISTOL",
+		"WEAPON_SNSPISTOL_MK2",
+		"WEAPON_VINTAGEPISTOL"
+	},
+	["WEAPON_SMG_AMMO"] = {
+		"WEAPON_COMPACTRIFLE",
+		"WEAPON_MICROSMG",
+		"WEAPON_MINISMG",
+		"WEAPON_SMG",
+		"WEAPON_SMG_MK2",
+		"WEAPON_ASSAULTSMG",
+		"WEAPON_GUSENBERG",
+		"WEAPON_MACHINEPISTOL"
+	},
+	["WEAPON_RIFLE_AMMO"] = {
+		"WEAPON_CARBINERIFLE",
+		"WEAPON_CARBINERIFLE_MK2",
+		"WEAPON_BULLPUPRIFLE",
+		"WEAPON_BULLPUPRIFLE_MK2",
+		"WEAPON_ADVANCEDRIFLE",
+		"WEAPON_ASSAULTRIFLE",
+		"WEAPON_ASSAULTRIFLE_MK2",
+		"WEAPON_SPECIALCARBINE",
+		"WEAPON_SPECIALCARBINE_MK2"
+	},
+	["WEAPON_SHOTGUN_AMMO"] = {
+		"WEAPON_PUMPSHOTGUN",
+		"WEAPON_PUMPSHOTGUN_MK2",
+		"WEAPON_SAWNOFFSHOTGUN"
+	},
+	["WEAPON_MUSKET_AMMO"] = {
+		"WEAPON_SNIPERRIFLE",
+		"WEAPON_MUSKET"
+	},
+	["WEAPON_PETROLCAN_AMMO"] = {
+		"WEAPON_PETROLCAN"
+	}
+}
