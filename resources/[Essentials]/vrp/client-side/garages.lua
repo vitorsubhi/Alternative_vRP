@@ -924,47 +924,6 @@ local vehList = {
 	[-389059789] = { "WRbmwx7",false },
 	[-922043421] = { "WRgle",false },
 
-	-----------Lc Pack
-	[994900922] = { "sil80",false },
-	[1079583904] = { "rm3e36",false },
-	[-1908074395] = { "bnr32",false },
-	[560979680] = { "crxds",false },
-	[1603211447] = { "eclipse",false },
-	[1328869613] = { "er34",false },
-	[383323718] = { "cp9a",false },
-	[-565536581] = { "gt86",false },
-	[-1549019518] = { "ap2",false },
-	[-1395656241] = { "m3e",false },
-	[-1135287548] = { "miata3",false },
-	[-1539291163] = { "na6",false },
-	[624293437] = { "z32",false },
-	[871327565] = { "na1",false },
-	[-1589129298] = { "fd",false },
-	[3467202] = { "fc3s",false },
-	[1752384486] = { "rx7veilside",false },
-	[1385792025] = { "silvia3",false },
-	[-1823041382] = { "sentinel6str2",false },
-	[-496188047] = { "gz20",false },
-	[-854696721] = { "sultanrsv8",false },
-	[-1210451983] = { "tampa3",false },
-	[-1890188908] = { "cam8tun",false },
-	[1136899243] = { "mr2sw20",false },
-	[905300718] = { "a80",false },
-	[1372921020] = { "a45policia",false },
-	[1346171487] = { "as350",false },
-	[-399225443] = { "audirs62",false },
-	[1152456573] = { "b412",false },
-	[-978474082] = { "cb500xpol",false },
-	[1586972973] = { "ducati1200",false },
-	[1685324829] = { "challenger",false },
-	[1106910537] = { "fordmustanggt",false },
-	[1954121213] = { "nspeedo",false },
-	[509544490] = { "tahoe",false },
-	[1947925897] = { "bcat",false },
-	[431385387] = { "wrclassxv2",false },
-    [905399718] = { "a80",false }
-
-
 
 }
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -1029,9 +988,10 @@ end
 function tvRP.vehicleName()
 	local ped = PlayerPedId()
 	if IsPedInAnyVehicle(ped) then
-		local veh = GetVehiclePedIsUsing(ped)
+		local vehicle = GetVehiclePedIsUsing(ped)
+		local vehicleModel = GetEntityModel(vehicle)
 
-		return vehList[GetEntityModel(veh)][1]
+		return vehList[vehicleModel][1]
 	end
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -1052,8 +1012,9 @@ end
 function tvRP.vehicleHash()
 	local ped = PlayerPedId()
 	if IsPedInAnyVehicle(ped) then
-		local veh = GetVehiclePedIsUsing(ped)
+		local vehicle = GetVehiclePedIsUsing(ped)
+		local vehicleModel = GetEntityModel(vehicle)
 
-		return GetEntityModel(veh)
+		return vehicleModel
 	end
 end
