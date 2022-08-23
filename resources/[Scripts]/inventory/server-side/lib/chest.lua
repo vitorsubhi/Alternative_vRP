@@ -30,7 +30,7 @@ function cRP.takeItem(nameItem,slot,amount,target,chestName)
 		local consultChest = vRP.query("chests/getChests",{ name = chestName })
 		if consultChest[1] then
 			if vRP.tryChest(user_id,"stackChest:"..chestName,amount,slot,target) then
-				TriggerClientEvent("chest:Update",source,"requestChest")
+				TriggerClientEvent("inventory:update",source,"updateMochila")
 			else
 				local result = vRP.getSrvdata("stackChest:"..chestName)
 				TriggerClientEvent("chest:UpdateWeight",source,vRP.inventoryWeight(user_id),vRP.getBackpack(user_id),vRP.chestWeight(result),consultChest[1]["weight"])
@@ -135,7 +135,7 @@ function cRP.storeItem(nameItem,slot,amount,target,chestName)
 		local consultChest = vRP.query("chests/getChests",{ name = chestName })
 		if consultChest[1] then
 			if vRP.storeChest(user_id,"stackChest:"..chestName,amount,consultChest[1]["weight"],slot,target) then
-				TriggerClientEvent("chest:Update",source,"requestChest")
+				TriggerClientEvent("inventory:update",source,"updateMochila")
 			else
 				local result = vRP.getSrvdata("stackChest:"..chestName)
 				TriggerClientEvent("chest:UpdateWeight",source,vRP.inventoryWeight(user_id),vRP.getBackpack(user_id),vRP.chestWeight(result),consultChest[1]["weight"])
@@ -181,14 +181,14 @@ function cRP.updateChest(slot,target,amount,chestName)
 	local user_id = vRP.getUserId(source)
 	if user_id then
 		if vRP.updateChest(user_id,"stackChest:"..chestName,slot,target,amount) then
-			TriggerClientEvent("chest:Update",source,"requestChest")
+			TriggerClientEvent("inventory:update",source,"updateMochila")
 		end
 	end
 end
 
 AddEventHandler('onResourceStart', function(resource)
-	if resource == "chest" then
+	if resource == "inventory" then
 		Wait(10000)
-			TriggerClientEvent("chest:Update",-1,"requestChest")
+			TriggerClientEvent("inventory:update",-1,"updateMochila")
     end
 end)

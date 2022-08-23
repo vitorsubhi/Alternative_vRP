@@ -15,5 +15,61 @@ chestCoords = {
 	{ "Linos", -1259.11,-283.95,37.39,252.29},-- Linos
 	{ "LinosFood", -1262.43,-288.35,37.37,14.18},
 	{ "Hospital", -1257.16,317.36,65.5,150.24}, -- Hp
-	{ "Bullguer",-571.97,-892.54,25.7,87.88,true }
+	{ "Bullguer",-571.97,-892.54,25.7,87.88 }
 }
+Citizen.CreateThread(function()
+	SetNuiFocus(false,false)
+
+	for k,v in pairs(chestCoords) do
+		if v[6] then
+			exports["target"]:AddCircleZone("chest:"..k,vector3(v[2],v[3],v[4]),1.0,{
+				name = "chest:"..k,
+				heading = v[5]
+			},{
+				shop = {type = "chest", id = k},
+				distance = 1.0,
+				options = {
+					{
+						event = "inventory:open",
+						label = "Abrir",
+						tunnel = "shop"
+					}
+				}
+			})
+		else
+			exports["target"]:AddCircleZone("chest:"..k,vector3(v[2],v[3],v[4]),1.0,{
+				name = "chest:"..k,
+				heading = v[5]
+			},{
+				shop = {type = "chest", id = k},
+				distance = 1.0,
+				options = {
+					{
+						event = "inventory:open",
+						label = "Abrir",
+						tunnel = "shop"
+					},{
+						event = "chest:upgradeSystem",
+						label = "Aumentar",
+						tunnel = "shop"
+					}
+				}
+			})
+		end
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- CHEST:UPGRADESYSTEM
+-----------------------------------------------------------------------------------------------------------------------------------------
+AddEventHandler("chest:upgradeSystem",function(inventoryData)
+	local chestId = inventoryData["id"]
+	vSERVER.upgradeSystem(chestCoords[chestId][1])
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- CHEST:UPDATEWEIGHT
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("chest:UpdateWeight")
+AddEventHandler("chest:UpdateWeight",function(invPeso,invMaxpeso,chestPeso,chestMaxpeso)
+	SendNUIMessage({ action = "updateWeight", type = "chest", invPeso = invPeso, invMaxpeso = invMaxpeso, chestPeso = chestPeso, chestMaxpeso = chestMaxpeso })
+end)

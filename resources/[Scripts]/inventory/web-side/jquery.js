@@ -7,26 +7,30 @@ $(document).ready(function(){
 			case "showInventory":
 				updateMochila();
 				
+				$(".inventory").css("display","flex");
 				$("#weight").css("max-width", "596px");
 				$("#weightTextRight").css("display", "none");
 				$("#weightBarRight").css("display", "none");
-				$(".inventory").css("display","flex");
 			break;
 
 			case "showChest":
 				updateMochila();
 				//requestChest();
 				
+				$(".inventory").css("display","flex");
 				$("#weight").css("max-width", "1338px");
 				$("#weightTextRight").css("display", "flex");
 				$("#weightBarRight").css("display", "flex");
-				$(".inventory").css("display","flex");
 			break;
 
 			case "showCrafting":
 				selectCraft = event.data.name;
-				$(".inventory").css("display","flex");
 				updateMochila();
+
+				$(".inventory").css("display","flex");
+				$("#weight").css("max-width", "596px");
+				$("#weightTextRight").css("display", "none");
+				$("#weightBarRight").css("display", "none");
 				//requestCrafting();
 			break;
 
@@ -37,14 +41,6 @@ $(document).ready(function(){
 
 			case "updateMochila":
 				updateMochila();
-			break;
-
-			case "requestChest":
-				requestChest();
-			break;
-
-			case "requestCrafting":
-				requestCrafting();
 			break;
 
 			case "updateWeight":

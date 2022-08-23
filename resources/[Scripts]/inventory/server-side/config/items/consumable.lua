@@ -57,22 +57,6 @@ local consumable = {
         ["upgradeHunger"] = 35,
         ["upgradeThirst"] = 0
     },
-    ["coxinha"] = {
-        ["ProgressTimer"] = 15,
-        ["blockButtons"] = true,
-        ["animation"] = {"mp_player_inteat@burger","mp_player_int_eat_burger","offstore_cupcake",49,18905,0.10,0.02,0.05,150.0,320.0,180.0},
-        ["downgradeStress"] = 30,
-        ["upgradeHunger"] = 15,
-        ["upgradeThirst"] = 0
-    },
-    ["cupcake"] = {
-        ["ProgressTimer"] = 15,
-        ["blockButtons"] = true,
-        ["animation"] = {"mp_player_inteat@burger","mp_player_int_eat_burger","offstore_cupcake",49,18905,0.10,0.02,0.05,150.0,320.0,180.0},
-        ["downgradeStress"] = 30,
-        ["upgradeHunger"] = 15,
-        ["upgradeThirst"] = 0
-    },
     ["dewars"] = {
         ["ProgressTimer"] = 15,
         ["blockButtons"] = true,
@@ -140,14 +124,6 @@ local consumable = {
         ["upgradeHunger"] = 0,
         ["upgradeThirst"] = 5,
         ["chemicalTimer"] = 3
-    },
-    ["sanduiche"] = {
-        ["ProgressTimer"] = 15,
-        ["blockButtons"] = true,
-        ["animation"] = {"mp_player_inteat@burger","mp_player_int_eat_burger","prop_sandwich_01",49,18905,0.13,0.05,0.02,-50.0,16.0,60.0},
-        ["downgradeStress"] = 10,
-        ["upgradeHunger"] = 50,
-        ["upgradeThirst"] = 0
     },
     ["sandwich"] = {
         ["ProgressTimer"] = 15,

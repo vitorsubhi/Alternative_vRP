@@ -14,3 +14,27 @@ craftList = {
 	{ 1389.24,3604.94,38.94,297.64,"Drogas"},
 	{ 2433.35,4968.82,42.34,56.7,"Drogas"}
 }
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- THREADTARGET
+-----------------------------------------------------------------------------------------------------------------------------------------
+Citizen.CreateThread(function()
+	SetNuiFocus(false,false)
+
+	for k,v in pairs(craftList) do
+		exports["target"]:AddCircleZone("crafting:"..k,vector3(v[1],v[2],v[3]),1.0,{
+			name = "crafting:"..k,
+			heading = v[4]
+		},{
+			shop = {type = "crafting", id = k},
+			distance = 1.0,
+			options = {
+				{
+					event = "inventory:open",
+					label = "Abrir",
+					tunnel = "shop"
+				}
+			}
+		})
+	end
+end)

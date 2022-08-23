@@ -22,73 +22,6 @@ local storeWeaponHands = false
 local timeReload = GetGameTimer()
 
 -----------------------------------------------------------------------------------------------------------------------------------------
--- THREADTARGET
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	SetNuiFocus(false,false)
-
-	for k,v in pairs(chestCoords) do
-		if v[6] then
-			exports["target"]:AddCircleZone("chest:"..k,vector3(v[2],v[3],v[4]),1.0,{
-				name = "chest:"..k,
-				heading = v[5]
-			},{
-				shop = {type = "chest", id = k},
-				distance = 1.0,
-				options = {
-					{
-						event = "inventory:open",
-						label = "Abrir",
-						tunnel = "shop"
-					}
-				}
-			})
-		else
-			exports["target"]:AddCircleZone("chest:"..k,vector3(v[2],v[3],v[4]),1.0,{
-				name = "chest:"..k,
-				heading = v[5]
-			},{
-				shop = {type = "chest", id = k},
-				distance = 1.0,
-				options = {
-					{
-						event = "inventory:open",
-						label = "Abrir",
-						tunnel = "shop"
-					},{
-						event = "chest:upgradeSystem",
-						label = "Aumentar",
-						tunnel = "shop"
-					}
-				}
-			})
-		end
-	end
-	for k,v in pairs(craftList) do
-		exports["target"]:AddCircleZone("crafting:"..k,vector3(v[1],v[2],v[3]),1.0,{
-			name = "crafting:"..k,
-			heading = v[4]
-		},{
-			shop = {type = "crafting", id = k},
-			distance = 1.0,
-			options = {
-				{
-					event = "inventory:open",
-					label = "Abrir",
-					tunnel = "shop"
-				}
-			}
-		})
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- CHEST:UPGRADESYSTEM
------------------------------------------------------------------------------------------------------------------------------------------
-AddEventHandler("chest:upgradeSystem",function(inventoryData)
-	local chestId = inventoryData["id"]
-	vSERVER.upgradeSystem(chestCoords[chestId][1])
-end)
------------------------------------------------------------------------------------------------------------------------------------------
 -- TAKEITEM
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNUICallback("takeItem",function(data)
@@ -116,18 +49,11 @@ RegisterNUICallback("requestchest",function(data,cb)
 	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- CHEST:UPDATE
+-- Inventory:UPDATE
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("chest:Update")
-AddEventHandler("chest:Update",function(action)
-	SendNUIMessage({ action = action })
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- CHEST:UPDATEWEIGHT
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("chest:UpdateWeight")
-AddEventHandler("chest:UpdateWeight",function(invPeso,invMaxpeso,chestPeso,chestMaxpeso)
-	SendNUIMessage({ action = "updateWeight", invPeso = invPeso, invMaxpeso = invMaxpeso, chestPeso = chestPeso, chestMaxpeso = chestMaxpeso })
+RegisterNetEvent("inventory:update")
+AddEventHandler("inventory:update",function(action)
+	SendNUIMessage({ action = action, type = "chest" })
 end)
 
 -----------------------------------------------------------------------------------------------------------------------------------------
