@@ -10,137 +10,6 @@ local itemlist = {
 		weight = 0.35,
 		max = 1
 	},
-	["sanduiche"] = {
-		index = "sanduiche",
-		name = "Sanduiche",
-		type = "Consumable",
-		weight = 0.35,
-		max = 2
-	},
-	["coxinha"] = {
-		index = "coxinha",
-		name = "Coxinha",
-		type = "Consumable",
-		weight = 0.35,
-		max = 2
-	},
-	["paocomgeleia"] = {
-		index = "paocomgeleia",
-		name = "Pão com geleia",
-		type = "Usável",
-		weight = 0.35,
-		max = 2
-	},
-	["kibe"] = {
-		index = "kibe",
-		name = "Kibe",
-		type = "Usável",
-		weight = 0.35,
-		max = 2
-	},
-	["pretzels"] = {
-		index = "pretzels",
-		name = "Pretzels",
-		type = "Usável",
-		weight = 0.35,
-		max = 2
-	},
-	["crepe"] = {
-		index = "crepe",
-		name = "Crepe",
-		type = "Usável",
-		weight = 0.35,
-		max = 2
-	},
-	["cafecomleite"] = {
-		index = "cafecomleite",
-		name = "Café com leite",
-		type = "Usável",
-		weight = 0.35,
-		max = 3
-	},
-	["cappuccino"] = {
-		index = "cappuccino",
-		name = "Cappuccino",
-		type = "Usável",
-		weight = 0.35,
-		max = 3
-	},
-	["cafeexpresso"] = {
-		index = "cafeexpresso",
-		name = "Café Expresso",
-		type = "Usável",
-		weight = 0.35,
-		max = 3
-	},
-	["cafegelado"] = {
-		index = "cafegelado",
-		name = "Café Gelado",
-		type = "Usável",
-		weight = 0.35,
-		max = 3
-	},
-	["refricocacola"] = {
-		index = "refricocacola",
-		name = "Coca Cola",
-		type = "Usável",
-		weight = 0.35,
-		max = 3
-	},
-	["limonada"] = {
-		index = "limonada",
-		name = "Limonada",
-		type = "Usável",
-		weight = 0.35,
-		max = 4
-	},
-	["cookie"] = {
-		index = "cookie",
-		name = "Cookie",
-		type = "Consumable",
-		weight = 0.15
-	},
-	["cheesecake"] = {
-		index = "cheesecake",
-		name = "Cheesecake",
-		type = "Comum",
-		weight = 0.15,
-		max = 1
-	},
-	["churros"] = {
-		index = "churros",
-		name = "Churros",
-		type = "Comum",
-		weight = 1.00,
-		max = 3
-	},
-	["cupcake"] = {
-		index = "cupcake",
-		name = "Cupcake",
-		type = "Consumable",
-		weight = 1.00
-	},
-	["macaroon"] = {
-		index = "macaroon",
-		name = "Macaroon",
-		type = "Comum",
-		weight = 1.00,
-		max = 3
-	},
-	["croquete"] = {
-		index = "croquete",
-		name = "Croquete",
-		type = "Comum",
-		weight = 1.00,
-		max = 3
-	},
-	["chips"] = {
-		index = "chips",
-		name = "Ficha",
-		type = "Comum",
-		economy = 1,
-		weight = 0.0001
-	},
 	["wheelchair"] = {
 		index = "wheelchair",
 		name = "Cadeira de Rodas",
@@ -873,14 +742,6 @@ local itemlist = {
 		weight = 0.15,
 		max = 4
 	},
-	["coffeex"] = {
-		index = "coffeex",
-		name = "Café Especial",
-		type = "Usável",
-		economy = 20,
-		weight = 0.15,
-		max = 4
-	},
 	["cola"] = {
 		index = "cola",
 		name = "Cola",
@@ -1032,38 +893,6 @@ local itemlist = {
 		weight = 0.35,
 		max = 4
 	},
-	["hamburger2"] = {
-		index = "hamburger2",
-		name = "X-Burguer",
-		type = "Usável",
-		economy = 50,
-		weight = 0.55,
-		max = 4
-	},
-	["hamburger3"] = {
-		index = "hamburger3",
-		name = "X-Salada",
-		type = "Usável",
-		economy = 60,
-		weight = 0.55,
-		max = 4
-	},
-	["hamburger4"] = {
-		index = "hamburger4",
-		name = "X-Bacon",
-		type = "Usável",
-		economy = 70,
-		weight = 0.55,
-		max = 4
-	},
-	["hamburger5"] = {
-		index = "hamburger5",
-		name = "X-Picanha",
-		type = "Usável",
-		economy = 80,
-		weight = 0.55,
-		max = 4
-	},
 	["hotdog"] = {
 		index = "hotdog",
 		name = "Cachorro-Quente",
@@ -1109,13 +938,6 @@ local itemlist = {
 		economy = 500,
 		weight = 1.75,
 		max = 5
-	},
-	["notepad"] = {
-		index = "notepad",
-		name = "Bloco de Notas",
-		type = "Usável",
-		economy = 10,
-		weight = 0.25
 	},
 	["tires"] = {
 		index = "tires",
