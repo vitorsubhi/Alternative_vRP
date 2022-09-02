@@ -1,0 +1,446 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*
+=========================================
+  Logo
+=========================================
+*/
+
+#logo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  opacity: 1.0;
+  max-width: 80px;
+  transform: translate(-50%,0);
+}
+
+.logo {
+	top: 13px;
+	right: 13px;
+	width: 120px;
+	height: 118px;
+	position: absolute !important;
+    background: url("https://cdn.discordapp.com/attachments/915766488772792360/936168707804254228/prime.png") no-repeat;
+	animation: creative 10s ease-out infinite;
+}
+
+/*
+=========================================
+  Player Hud
+=========================================
+*/
+
+.playerHud {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transform: translate(0,-50%);
+}
+
+.playerHud .progressBar .circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 100%;
+  margin-bottom: 45px;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;justify-content: center;
+}
+
+.playerHud .circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 100%;
+  margin-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;justify-content: center;
+}
+
+.playerHud .circle i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.playerHud .circle:last-child {
+  margin-bottom: 0;
+}
+
+.playerHud .microphone {
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  border-radius: 15px;
+  padding-bottom: 7px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.playerHud .microphone i {
+  margin-bottom: 3px;
+  font-size: 22px;
+}
+
+.playerHud .microphone .micStatus {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 5px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.playerHud .microphone .active {background-color: #fff;}
+
+/*
+=========================================
+  Velocimeter
+=========================================
+*/
+
+.velocimeterHud {
+  position: absolute;
+  right: 65px;
+  bottom: 65px;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  flex-direction: column;
+}
+
+.velocimeterHud .carMarch {
+  position: relative;
+  top: -3px;
+  display: flex;
+  align-items: center;
+}
+
+.velocimeterHud .carMarch small {
+  font-size: 10px;
+  font-weight: 500;
+  color: #ffffff63;
+}
+
+.velocimeterHud .carMarch div {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  margin: 0 6px;
+  font-size: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d99742;
+}
+
+.velocimeterHud h1 {
+  width: 80px;
+  font-size: 40px;
+  margin-top: -4px;
+  margin-bottom: -6px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.velocimeterHud h1 b {
+  color: #fff;
+}
+
+.velocimeterHud span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.velocimeterHud .carInfo {
+  position: relative;
+  left: -10px;
+  font-size: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.velocimeterHud .carInfo img {
+  opacity: .5;
+  margin: 0 5px;
+  max-width: 12px;
+  transition: all .2s;
+}
+
+.velocimeterHud .carInfo img:nth-child(1) {
+  position: relative;
+  opacity: 1;
+  top: -1px;
+}
+
+.velocimeterHud .carInfo .activeBelt {animation: lightBlink infinite 1s ease-in;}
+.velocimeterHud .carInfo .activeLight {animation: lightBlink infinite .5s ease-in;}
+
+@keyframes lightBlink {
+  0% {
+    opacity: .5;
+  }
+  80%  {
+    opacity: 1;
+  }
+  100% {
+    opacity: .5;
+  }
+}
+
+.velocimeterHud .circle {
+  position: absolute;
+  top: 40%;
+  left: 10px;
+  transform: translate(0,-50%) scale(3.5);
+}
+
+.velocimeterHud .carFuel {
+  position: absolute;
+  left: -70px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.velocimeterHud .carFuel span {
+  position: relative;
+  left: -5px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.velocimeterHud .carFuel i {
+  font-size: 10px;
+  position: relative;
+  left: -5px;
+}
+
+.velocimeterHud .carFuel .fuelCircle {
+  position: absolute;
+  left: -8px;
+  transform: rotate(20deg) scale(2.2);
+}
+
+.velocimeterHud .carFuel span b {
+  opacity: .5;
+}
+
+.velocimeterHud .engineCircle {
+  position: absolute;
+  bottom: 2px;
+  right: -40px;
+  zoom: .7;
+}
+
+.velocimeterHud .engineCircle i {
+  position: absolute;
+  left: 51%;
+  top: 45%;
+  font-size: 12px;
+  transform: translate(-50%,-50%);
+}
+
+.outer {
+  -webkit-transform: rotate(130deg);
+  -ms-transform: rotate(130deg);
+  transform: rotate(130deg) scale(.9);
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%; 
+}
+
+.progress {
+  -webkit-transition: 0.35s stroke-dashoffset;
+  -o-transition: 0.35s stroke-dashoffset;
+  transition: 0.35s stroke-dashoffset;
+  -webkit-transform: rotate(130deg);
+  -ms-transform: rotate(130deg);
+  transform: rotate(130deg) scale(.9);
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%; 
+}
+
+/*
+=========================================
+  Server Info
+=========================================
+*/
+
+.serverInfos {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.serverInfos .item {
+  color: #fff;
+  font-size: 9px;
+  display: flex;
+  font-weight: 600;
+  margin-left: 20px;
+  padding-right: 5px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.serverInfos .item .icon {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  margin-right: 7px;
+  align-items: center;
+  border-radius: 100%;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.serverInfos .item .icon i {
+  position: relative;
+  left: .5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location b {
+  color: #848ceb;
+  font-weight: 600;
+}
+
+/*
+=========================================
+  SVG CIRCLE
+=========================================
+*/
+
+.svgCircle {
+  height: 50px;
+  width: 50px;
+}
+
+.svgCircle circle {
+  fill: none;
+  stroke-width: 3px;
+  stroke-dasharray: 113;
+  transition: all .5s;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.circleFill {
+  stroke: #d99742;
+  stroke-dashoffset: 100;
+}
+
+.lifeFill{
+  stroke: #5dab61;
+  stroke-dashoffset: 100;
+}
+
+.shieldFill{
+  stroke: #c75094;
+  stroke-dashoffset: 100;
+}
+
+.foodFill {
+  stroke: #dc7744;
+  stroke-dashoffset: 100;
+}
+
+.waterFill {
+  stroke: #4c89cd;
+  stroke-dashoffset: 100;
+}
+
+.stressFill {
+  stroke: #79608a;
+  stroke-dashoffset: 100;
+}
+
+.circleBack {
+  stroke: #ffffff41;
+  stroke-width: 3.5px;
+}
+
+
+#movieTop {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 12%;
+	display: none;
+	background: #000;
+	position: absolute !important;
+}
+
+#movieBottom {
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 12vw;
+	display: none;
+	background: #000;
+	position: absolute !important;
+}
+
+#hoodDisplay {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	background: #000;
+	position: absolute !important;
+}

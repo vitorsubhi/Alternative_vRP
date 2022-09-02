@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/app.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+</head>
+  <body style="display: none;">
+
+    <img id="logo" src="">
+
+    <div class="playerHud">
+      <div class="progressBar circle" style="display: none; transform: scaleX(-1);">
+        <svg class="svgCircle">
+            <circle circle class="circleBack" r="18" cx="50%" cy="50%" ></circle>
+            <circle class="circleFill" r="18" cx="50%" cy="50%" ></circle>
+        </svg>
+        <i class="fa-solid fa-timer"></i>
+      </div>
+      <div class="circle" style="transform: scaleX(-1);">
+        <svg class="svgCircle">
+            <circle circle class="circleBack" r="18" cx="50%" cy="50%" ></circle>
+            <circle class="lifeFill" r="18" cx="50%" cy="50%" ></circle>
+        </svg>
+        <i class="fa-solid fa-heart-pulse"></i>
+      </div>
+
+      <div class="circle">
+        <svg class="svgCircle">
+            <circle circle class="circleBack" r="18" cx="50%" cy="50%" ></circle>
+            <circle class="shieldFill" r="18" cx="50%" cy="50%" ></circle>
+        </svg>
+        <i class="fa-solid fa-shield-blank"></i>
+      </div>
+
+      <div class="circle">
+        <svg class="svgCircle">
+            <circle circle class="circleBack" r="18" cx="50%" cy="50%" ></circle>
+            <circle class="stressFill" r="18" cx="50%" cy="50%" ></circle>
+        </svg>
+        <i class="fa-solid fa-brain"></i>
+      </div>
+
+      <div class="circle">
+        <svg class="svgCircle">
+            <circle circle class="circleBack" r="18" cx="50%" cy="50%" ></circle>
+            <circle class="foodFill" r="18" cx="50%" cy="50%" ></circle>
+        </svg>
+        <i class="fa-solid fa-burger-cheese"></i>
+      </div>
+
+      <div class="circle">
+        <svg class="svgCircle">
+            <circle circle class="circleBack" r="18" cx="50%" cy="50%" ></circle>
+            <circle class="waterFill" r="18" cx="50%" cy="50%" ></circle>
+        </svg>
+        <i class="fa-solid fa-droplet"></i>
+      </div>
+      <div class="microphone">
+        <i class="fa-solid fa-circle-microphone"></i>
+        <test style="transform: rotate(180deg);">
+          <div class="micStatus qTalk"></div>
+          <div class="micStatus qTalk"></div>
+          <div class="micStatus qTalk"></div>
+          <div class="micStatus qTalk"></div>
+        </test>
+      </div>
+    </div>
+
+    <div class="velocimeterHud" style="display: none;">
+      <svg class="circle" width="50" height="50">
+        <circle class="outer" stroke="#FFFFFF" stroke-width="1.5" style="stroke-opacity: 0.2;" fill="transparent" r="18" cx="26" cy="26" stroke-dasharray="45.7 90" stroke-dashoffset="0"/>
+        <circle class="progress progress-speed" stroke="url(#gradient)" stroke-width="1.5" style="stroke-opacity: 1;" fill="transparent" r="18" cx="26" cy="26" stroke-dasharray="45.7 90" stroke-dashoffset="0"/>
+        <defs>
+          <linearGradient id="gradient">
+            <stop offset="30%" stop-color="#ffff" />
+            <stop offset="100%" stop-color="#fff" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="engineCircle">
+        <svg class="svgCircle">
+            <circle circle class="circleBack" r="18" cx="50%" cy="50%" ></circle>
+            <circle class="engineFill circleFill" r="18" cx="50%" cy="50%" ></circle>
+        </svg>
+        <i class="fa-solid fa-wrench"></i>
+      </div>
+
+      <div class="carFuel">
+        <svg class="fuelCircle" width="50" height="50">
+          <circle class="outer" stroke="#FFFFFF" stroke-width="1.5" style="stroke-opacity: 0.2;" fill="transparent" r="18" cx="26" cy="26" stroke-dasharray="45.5 90" stroke-dashoffset="0"/>
+          <circle class="progress progress-fuel" stroke="url(#gradient)" stroke-width="1.5" style="stroke-opacity: 1;" fill="transparent" r="18" cx="26" cy="26" stroke-dasharray="45.5 90" stroke-dashoffset="0"/>
+          <defs>
+            <linearGradient id="gradient">
+              <stop offset="30%" stop-color="#ffff" />
+              <stop offset="100%" stop-color="#fff" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="gasAmount">0</span>
+        <i class="fa-solid fa-gas-pump"></i>
+      </div>
+
+      <div class="carMarch"></div>
+      <h1 class="velo">0<b>96</b></h1>
+      <span>KM/H</span>
+      <div class="carInfo">
+        <img src="src/img/belt.svg" class="seatbelt">
+        <img src="src/img/arrow.svg" class="lightCar" id="lightLeft" style="transform: scaleX(-1);">
+        <img src="src/img/arrow.svg" class="lightCar" id="lightRight">
+      </div>
+    </div>
+
+    <div class="serverInfos">
+      <!--<div class="progressBar" style="display:none"><div class="fill"></div></div>-->
+      <div class="item radio" style="display: none;"></div>
+      <div class="item">
+        <div class="icon">
+          <i class="fa-solid fa-clock-seven"></i>
+        </div>
+        <span class="hour">00:00</span>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <span class="location">...</span>
+      </div>
+    </div>
+  </body>
+  <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="src/js/app.js"></script>
+</html>
