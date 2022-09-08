@@ -20,7 +20,7 @@ PerformHttpRequest("https://raw.githubusercontent.com/vitorsubhi/Alternative_vRP
 	else
 		print("^5[Alternative]: ^1Não foi possível verificar versão remota.^7")
 	end
-	end, "GET", "")
+end, "GET", "")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
