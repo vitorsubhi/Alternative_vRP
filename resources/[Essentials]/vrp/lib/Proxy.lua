@@ -37,8 +37,8 @@ local function proxy_resolve(itable,key)
 		if not no_wait then
 			return r:wait()
 		end
+	end
 	itable[key] = fcall
-	
 	return fcall
 end
 
