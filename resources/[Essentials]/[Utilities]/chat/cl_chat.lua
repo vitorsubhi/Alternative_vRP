@@ -108,7 +108,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHAT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("chat",function(source,args)
+RegisterCommand("chat",function(source,args,rawCommand)
 	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
 		if chatOpen then
 			if chatActive then
@@ -130,7 +130,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- OPENCHAT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("openChat",function(source,args)
+RegisterCommand("openChat",function(source,args,rawCommand)
 	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
 		chatOpen = true
 		SetNuiFocus(true)

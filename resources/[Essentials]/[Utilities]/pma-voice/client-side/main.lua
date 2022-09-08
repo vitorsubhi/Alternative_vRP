@@ -18,7 +18,7 @@ AddEventHandler("pma-voice:settingsCallback",function(cb)
 	cb(Cfg)
 end)
 
-RegisterCommand("volume",function(source,args)
+RegisterCommand("volume",function(source,args,rawCommand)
 	if args[1] then
 		if tonumber(args[1]) >= 1 and tonumber(args[1]) <= 100 then
 			local volume = tonumber(args[1])
