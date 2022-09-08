@@ -47,10 +47,25 @@ function tvRP.nearestPlayers(vDistance)
 
 	return userList
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- ACTIVEPLAYERS
+-----------------------------------------------------------------------------------------------------------------------------------------
+function tvRP.activePlayers()
+	local activePlayers = {}
+	for _,v in ipairs(GetActivePlayers()) do
+		activePlayers[#activePlayers + 1] = GetPlayerServerId(v)
+	end
+
+	return activePlayers
+end
+
+-----------------------------------------------------------------------------------------------------------------------------------------																																		 
 -- NEARESTPLAYER
 -----------------------------------------------------------------------------------------------------------------------------------------
 function tvRP.nearestPlayer(radius)
+	if radius == nil then
+		radius = 2
 	local userSelect = false
 	local minRadius = radius + 0.0001
 	local userList = tvRP.nearestPlayers(radius)
@@ -246,3 +261,9 @@ function DrawText3D(x,y,z,text)
 		DrawRect(_x,_y + 0.0125,width,0.03,45,39,64,200)
 	end
 end
+																																		 -----------------------------------------------------------------------------------------------------------------------------------------
+-- ONRESOURCESTOP
+-----------------------------------------------------------------------------------------------------------------------------------------
+AddEventHandler("onResourceStop",function(resource)
+	TriggerServerEvent("vRP:Print","pausou o resource "..resource)
+end)									   

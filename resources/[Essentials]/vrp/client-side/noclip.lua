@@ -10,9 +10,11 @@ function tvRP.noClip()
 	local ped = PlayerPedId()
 
 	if noclip then
+		LocalPlayer["state"]["Invisible"] = true				  
 		SetEntityInvincible(ped,true)
 		SetEntityVisible(ped,false,false)
 	else
+		LocalPlayer["state"]["Invisible"] = false
 		SetEntityInvincible(ped,false)
 		SetEntityVisible(ped,true,false)
 	end

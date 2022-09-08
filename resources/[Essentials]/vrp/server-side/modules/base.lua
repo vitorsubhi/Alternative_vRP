@@ -4,6 +4,23 @@
 local Proxy = module("lib/Proxy")
 local Tunnel = module("lib/Tunnel")
 vRPC = Tunnel.getInterface("vRP")
+
+local version = module("version")
+PerformHttpRequest("https://raw.githubusercontent.com/vitorsubhi/Alternative_vRP/master/resources/%5BEssentials%5D/vrp/version.lua",function(err,text,headers)
+	if err == 200 then
+		text = string.gsub(text,"return ","")
+		local r_version = tonumber(text)
+		if version ~= r_version then
+			print("\n^5[Alternative]: ^1Uma atualização da Alternative vRP foi detectada em:\n^2https://github.com/vitorsubhi/Alternative_vRP")
+			print("^4[Última versão]: ".. r_version)
+			print("^3[Versão atual]: ".. version.."^7")
+		else 
+			print("^5[Alternative]: ^7Você está utilizando a versão mais recente da base Alternative.^7")
+		end
+	else
+		print("^5[Alternative]: ^1Não foi possível verificar versão remota.^7")
+	end
+	end, "GET", "")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -49,18 +66,18 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REGISTERDBDRIVER
 -----------------------------------------------------------------------------------------------------------------------------------------
-function vRP.registerDBDriver(name,on_init,on_prepare,on_query)
+function vRP.registerDBDriver(name,onInit,onPrepare,onQuery)
 	if not userSql[name] then
-		userSql[name] = { on_init,on_prepare,on_query }
+		userSql[name] = { onInit,onPrepare,onQuery }
 		mysqlDriver = userSql[name]
 		mysqlInit = true
 
 		for _,prepare in pairs(cachePrepare) do
-			on_prepare(table.unpack(prepare,1,table.maxn(prepare)))
+			onPrepare(table.unpack(prepare,1,table.maxn(prepare)))
 		end
 
 		for _,query in pairs(cacheQuery) do
-			query[2](on_query(table.unpack(query[1],1,table.maxn(query[1]))))
+			query[2](onQuery(table.unpack(query[1],1,table.maxn(query[1]))))
 		end
 
 		cachePrepare = {}
@@ -248,7 +265,7 @@ end
 -- GETDATATABLE
 -----------------------------------------------------------------------------------------------------------------------------------------
 function vRP.getDatatable(user_id)
-	return vRP.userTables[parseInt(user_id)]
+	return vRP.userTables[parseInt(user_id)] or false
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PLAYERDROPPED
@@ -358,6 +375,18 @@ end
 Citizen.CreateThread(function()
 	SetGameType("Bahamas")
 	SetMapName("www.bahamascity.com.br")
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- ADMIN:PRINT
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterServerEvent("vRP:Print")
+AddEventHandler("vRP:Print",function(message)
+	local source = source
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		TriggerEvent("discordLogs","Hackers","Passaporte **"..user_id.."** "..message..".",3092790)
+	end
 end)
 
 vRP.getUserSource = vRP.userSource

@@ -3,7 +3,6 @@ local Tools = module("lib/Tools")
 local Proxy = {}
 
 local callbacks = setmetatable({}, { __mode = "v" })
-local rscname = GetCurrentResourceName()
 
 local function proxy_resolve(itable,key)
 	local mtable = getmetatable(itable)
@@ -38,8 +37,8 @@ local function proxy_resolve(itable,key)
 		if not no_wait then
 			return r:wait()
 		end
-	end
 	itable[key] = fcall
+	
 	return fcall
 end
 
@@ -57,10 +56,14 @@ function Proxy.addInterface(name,itable)
 end
 
 function Proxy.getInterface(name,identifier)
-	if not identifier then identifier = GetCurrentResourceName() end
-	local ids = Tools.newIDGenerator()
+	if not identifier then
+		identifier = GetCurrentResourceName()
+	end
+	
 	local callbacks = {}
+	local ids = Tools.newIDGenerator()							   
 	local r = setmetatable({},{ __index = proxy_resolve, name = name, ids = ids, callbacks = callbacks, identifier = identifier })
+
 	AddEventHandler(name..":"..identifier..":proxy_res", function(rid,rets)
 		local callback = callbacks[rid]
 		if callback then
@@ -69,6 +72,7 @@ function Proxy.getInterface(name,identifier)
 			callback(table.unpack(rets,1,table.maxn(rets)))
 		end
 	end)
+	
 	return r
 end
 

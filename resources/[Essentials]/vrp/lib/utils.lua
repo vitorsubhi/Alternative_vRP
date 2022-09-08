@@ -19,33 +19,33 @@ end
 -- MODULE
 -----------------------------------------------------------------------------------------------------------------------------------------
 local modules = {}
-function module(rsc,path)
+function module(resource,path)
 	if path == nil then
-		path = rsc
-		rsc = "vrp"
+		path = resource
+		resource = "vrp"
 	end
 
-	local key = rsc..path
+	local key = resource..path
 	local module = modules[key]
 	if module then
 		return module
 	else
-		local code = LoadResourceFile(rsc,path..".lua")
+		local code = LoadResourceFile(resource,path..".lua")
 		if code then
-			local f,err = load(code,rsc.."/"..path..".lua")
+			local f,err = load(code,resource.."/"..path..".lua")
 			if f then
 				local ok,res = xpcall(f,debug.traceback)
 				if ok then
 					modules[key] = res
 					return res
 				else
-					error("error loading module "..rsc.."/"..path..":"..res)
+					error("error loading module "..resource.."/"..path..":"..res)
 				end
 			else
-				error("error parsing module "..rsc.."/"..path..":"..debug.traceback(err))
+				error("error parsing module "..resource.."/"..path..":"..debug.traceback(err))
 			end
 		else
-			error("resource file "..rsc.."/"..path..".lua not found")
+			error("resource file "..resource.."/"..path..".lua not found")
 		end
 	end
 end
@@ -55,7 +55,9 @@ end
 local function wait(self)
 	local rets = Citizen.Await(self.p)
 	if not rets then
-		rets = self.r
+		if self.r then
+			rets = self.r
+		end
 	end
 
 	return table.unpack(rets,1,table.maxn(rets))
@@ -81,11 +83,11 @@ end
 -- PARSEINT
 -----------------------------------------------------------------------------------------------------------------------------------------
 function parseInt(v)
-	local n = tonumber(v)
-	if n == nil then
+	local number = tonumber(v)
+	if number == nil then
 		return 0
 	else
-		return math.floor(n)
+		return math.floor(number)
 	end
 end
 -----------------------------------------------------------------------------------------------------------------------------------------

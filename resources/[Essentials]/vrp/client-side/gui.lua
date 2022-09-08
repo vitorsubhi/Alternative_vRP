@@ -281,7 +281,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CANCELF6
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cRcancelf6",function(source,args)
+RegisterCommand("cRcancelf6",function(source,args,rawCommand)
 	if GetGameTimer() >= cdBtns then
 		cdBtns = GetGameTimer() + 1000
 
@@ -294,7 +294,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HANDSUP
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cRhandsup",function(source,args)
+RegisterCommand("cRhandsup",function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not IsPedInAnyVehicle(ped) and not celular and GetEntityHealth(ped) > 101 and not cancelando then
 		if IsEntityPlayingAnim(ped,"random@mugging3","handsup_standing_base",3) then
@@ -308,7 +308,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- POINT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cRpoint",function(source,args)
+RegisterCommand("cRpoint",function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not casinoActive and not cancelando and not celular and not IsPedInAnyVehicle(ped) and GetEntityHealth(ped) > 101 then
 		tvRP.loadAnimSet("anim@mp_point")
@@ -333,7 +333,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- LIGARVEH / AGACHAR
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cRenginecrouch",function(source,args)
+RegisterCommand("cRenginecrouch",function(source,args,rawCommand)
 	if GetGameTimer() >= cdBtns then
 		cdBtns = GetGameTimer() + 1000
 
@@ -372,7 +372,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- BIND
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cRbind",function(source,args)
+RegisterCommand("cRbind",function(source,args,rawCommand)
 	if GetGameTimer() >= cdBtns then
 		cdBtns = GetGameTimer() + 1000
 
@@ -439,19 +439,19 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ACCEPT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cRaccept",function(source,args)
+RegisterCommand("cRaccept",function(source,args,rawCommand)
 	SendNUIMessage({ act = "event", event = "Y" })
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REJECT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cRreject",function(source,args)
+RegisterCommand("cRreject",function(source,args,rawCommand)
 	SendNUIMessage({ act = "event", event = "U" })
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- LOCKVEHICLES
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("lockVehicles",function(source,args)
+RegisterCommand("lockVehicles",function(source,args,rawCommand)
 	if GetGameTimer() >= cdBtns then
 		cdBtns = GetGameTimer() + 1000
 
@@ -467,23 +467,23 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- KEYMAPPING
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterKeyMapping("cRcancelf6","Cancelar animações","keyboard","F6")
-RegisterKeyMapping("cRhandsup","Levantar as mãos","keyboard","X")
-RegisterKeyMapping("cRpoint","Apontar os dedos","keyboard","B")
-RegisterKeyMapping("cRenginecrouch","Agachar / Ligar veículo","keyboard","Z")
-RegisterKeyMapping("cRbind 1","Bind 1","keyboard","1")
-RegisterKeyMapping("cRbind 2","Bind 2","keyboard","2")
-RegisterKeyMapping("cRbind 3","Bind 3","keyboard","3")
-RegisterKeyMapping("cRbind 4","Bind 4","keyboard","4")
-RegisterKeyMapping("cRbind 5","Bind 5","keyboard","5")
-RegisterKeyMapping("cRbind 6","Bind 6","keyboard","6")
-RegisterKeyMapping("cRbind 7","Bind 7","keyboard","7")
-RegisterKeyMapping("cRbind 8","Bind 8","keyboard","8")
-RegisterKeyMapping("cRbind 9","Bind 9","keyboard","9")
+RegisterKeyMapping("cRcancelf6","Cancelar todas as ações.","keyboard","F6")
+RegisterKeyMapping("cRhandsup","Levantar as mãos.","keyboard","X")
+RegisterKeyMapping("cRpoint","Apontar os dedos.","keyboard","B")
+RegisterKeyMapping("cRenginecrouch","Agachar/Ligar veículo.","keyboard","Z")
+RegisterKeyMapping("cRbind 1","Bind 1.","keyboard","1")
+RegisterKeyMapping("cRbind 2","Bind 2.","keyboard","2")
+RegisterKeyMapping("cRbind 3","Bind 3.","keyboard","3")
+RegisterKeyMapping("cRbind 4","Bind 4.","keyboard","4")
+RegisterKeyMapping("cRbind 5","Bind 5.","keyboard","5")
+RegisterKeyMapping("cRbind 6","Bind 6.","keyboard","6")
+RegisterKeyMapping("cRbind 7","Bind 7.","keyboard","7")
+RegisterKeyMapping("cRbind 8","Bind 8.","keyboard","8")
+RegisterKeyMapping("cRbind 9","Bind 9.","keyboard","9")
 RegisterKeyMapping("cRbind left","Bind Left","keyboard","LEFT")
 RegisterKeyMapping("cRbind right","Bind Right","keyboard","RIGHT")
 RegisterKeyMapping("cRbind up","Bind Up","keyboard","UP")
 RegisterKeyMapping("cRbind down","Bind Down","keyboard","DOWN")
-RegisterKeyMapping("cRaccept","Aceitar chamado","keyboard","Y")
-RegisterKeyMapping("cRreject","Rejeitar chamado","keyboard","U")
-RegisterKeyMapping("lockVehicles","Trancar veículo","keyboard","L")
+RegisterKeyMapping("cRaccept","Aceitar as notificações.","keyboard","Y")
+RegisterKeyMapping("cRreject","Rejeitar as notificações.","keyboard","U")
+RegisterKeyMapping("lockVehicles","Trancar/Destrancar o veículo.","keyboard","L")

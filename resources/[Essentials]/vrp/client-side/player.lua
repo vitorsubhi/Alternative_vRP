@@ -9,7 +9,8 @@ end)
 -- SETHEALTH
 -----------------------------------------------------------------------------------------------------------------------------------------
 function tvRP.setHealth(health)
-	SetEntityHealth(PlayerPedId(),parseInt(health))
+	local ped = PlayerPedId()
+	SetEntityHealth(ped,parseInt(health))
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- UPDATEHEALTH
@@ -51,3 +52,17 @@ function tvRP.applySkin(mHash)
 		SetModelAsNoLongerNeeded(mHash)
 	end
 end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- GETENTITYCOORDS
+-----------------------------------------------------------------------------------------------------------------------------------------
+function tvRP.getEntityCoords()
+	local ped = PlayerPedId()
+	local coords = GetEntityCoords(ped)
+	local _,GroundZ = GetGroundZFor_3dCoord(coords["x"],coords["y"],coords["z"])
+
+	return {
+		["x"] = coords["x"],
+		["y"] = coords["y"],
+		["z"] = GroundZ
+	}
+end					

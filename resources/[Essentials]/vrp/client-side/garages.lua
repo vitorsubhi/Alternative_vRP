@@ -930,17 +930,22 @@ local vehList = {
 -- VEHLIST
 -----------------------------------------------------------------------------------------------------------------------------------------
 function tvRP.vehList(radius)
-	local veh = nil
+	local vehicle = nil
 	local ped = PlayerPedId()
 	if IsPedInAnyVehicle(ped) then
-		veh = GetVehiclePedIsUsing(ped)
+		vehicle = GetVehiclePedIsUsing(ped)
 	else
-		veh = tvRP.nearVehicle(radius)
+		vehicle = tvRP.nearVehicle(radius)
 	end
 
-	if IsEntityAVehicle(veh) then
-		local model = GetEntityModel(veh)
-		return veh,NetworkGetNetworkIdFromEntity(veh),GetVehicleNumberPlateText(veh),vehList[model][1],GetVehicleDoorsLockedForPlayer(veh,PlayerId()),vehList[model][2],GetEntityHealth(veh),GetVehicleClass(veh),GetVehicleBodyHealth(veh),GetVehicleEngineHealth(veh)
+	if IsEntityAVehicle(vehicle) then
+		local vehModel = GetEntityModel(vehicle)
+		local vehClass = GetVehicleClass(vehicle)
+		local vehHealth = GetEntityHealth(vehicle)
+		local vehBody = GetVehicleBodyHealth(vehicle)
+		local vehEngine = GetVehicleEngineHealth(vehicle)
+		local vehPlate = GetVehicleNumberPlateText(vehicle)
+		return vehicle,NetworkGetNetworkIdFromEntity(vehicle),vehPlate,vehList[vehModel][1],GetVehicleDoorsLockedForPlayer(vehicle,PlayerId()),vehList[vehModel][2],GetEntityHealth(vehicle),vehClass,vehBody,vehHealth
 	end
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -971,6 +976,7 @@ function tvRP.vehSitting()
 		return veh,NetworkGetNetworkIdFromEntity(veh),GetVehicleNumberPlateText(veh),vehList[model][1]
 	end
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLEPLATE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -982,6 +988,7 @@ function tvRP.vehiclePlate()
 		return GetVehicleNumberPlateText(veh)
 	end
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLENAME
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -994,18 +1001,21 @@ function tvRP.vehicleName()
 		return vehList[vehicleModel][1]
 	end
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLEMODEL
 -----------------------------------------------------------------------------------------------------------------------------------------
 function tvRP.vehicleModel(model)
 	return vehList[model][1]
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLEBLOCK
 -----------------------------------------------------------------------------------------------------------------------------------------
 function tvRP.vehicleBlock(model)
 	return vehList[model][2]
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLEHASH
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -1017,4 +1027,18 @@ function tvRP.vehicleHash()
 
 		return vehicleModel
 	end
+end
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- LASTVEHICLE
+-----------------------------------------------------------------------------------------------------------------------------------------
+function tvRP.lastVehicle(vehName)
+	local ped = PlayerPedId()
+	local vehHash = GetHashKey(vehName)
+	local vehicle = GetLastDrivenVehicle()
+	if IsVehicleModel(vehicle,vehHash) then
+		return true
+	end
+
+	return false
 end
