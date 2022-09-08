@@ -3,6 +3,7 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
 local itemlist = {
 	
+	-- Usável
 	["tablet"] = {
 		index = "tablet",
 		name = "Tablet",
@@ -16,6 +17,1439 @@ local itemlist = {
 		type = "Usável",
 		weight = 7.50
 	},
+	["vehkey"] = {
+		["index"] = "vehkey",
+		["name"] = "Chave Cópia",
+		["type"] = "Usável",
+		["weight"] = 0.75
+	},
+	["hardness"] = {
+		index = "hardness",
+		name = "Cinto Reforçado",
+		type = "Usável",
+		economy = 50000,
+		weight = 5.00
+	},
+	["graphite01"] = {
+		index = "graphite01",
+		name = "Grafite 1Mg",
+		type = "Usável",
+		desc = "Repare o Freio Integral do veículo.",
+		economy = 7,
+		weight = 0.01
+	},
+	["graphite02"] = {
+		index = "graphite02",
+		name = "Grafite 2Mg",
+		type = "Usável",
+		desc = "Repare o Freio Dianteiro do veículo.",
+		economy = 7,
+		weight = 0.01
+	},
+	["graphite03"] = {
+		index = "graphite03",
+		name = "Grafite 3Mg",
+		type = "Usável",
+		desc = "Repare o Freio Traseiro do veículo.",
+		economy = 7,
+		weight = 0.01
+	},
+	["c4"] = {
+		index = "c4",
+		name = "C4",
+		type = "Usável",
+		durability = 14,
+		economy = 325,
+		weight = 2.50
+	},
+	["radio"] = {
+		index = "radio",
+		name = "Rádio",
+		type = "Usável",
+		durability = 30,
+		economy = 975,
+		weight = 0.75
+	},
+	["backpack"] = {
+		index = "backpack",
+		name = "Mochila",
+		type = "Usável",
+		economy = 2750,
+		weight = 4.25
+	},
+	["vest"] = {
+		index = "vest",
+		name = "Colete",
+		type = "Usável",
+		durability = 7,
+		economy = 875,
+		weight = 2.25
+	},
+	["bandage"] = {
+		index = "bandage",
+		name = "Bandagem",
+		type = "Usável",
+		economy = 225,
+		weight = 0.10,
+		max = 3
+	},
+	["skate"] = {
+		index = "skate",
+		name = "Skate",
+		type = "Usável",
+		economy = 500,
+		weight = 3.50,
+		max = 1
+	},
+	["medkit"] = {
+		index = "medkit",
+		name = "Kit Médico",
+		type = "Usável",
+		economy = 525,
+		weight = 0.45,
+		max = 2
+	},
+	["adrenaline"] = {
+		index = "adrenaline",
+		name = "Adrenalina",
+		type = "Usável",
+		economy = 975,
+		weight = 0.35
+	},
+	["fishingrod"] = {
+		index = "fishingrod",
+		name = "Vara de Pescar",
+		type = "Usável",
+		durability = 14,
+		economy = 725,
+		weight = 2.75
+	},
+	["WEAPON_SWITCHBLADE"] = {
+		index = "switchblade",
+		name = "Canivete",
+		type = "Usável",
+		desc = "Utilizada para remoção de carne.",
+		durability = 14,
+		economy = 725,
+		weight = 0.75
+	},
+	["wheatflour"] = {
+		index = "wheatflour",
+		name = "Farinha de Trigo",
+		type = "Usável",
+		weight = 1.50
+	},
+	["capsula"] = {
+		index = "capsula",
+		name = "Capsula",
+		type = "Usável",
+		weight = 0.50
+	},
+	["polvora"] = {
+		index = "polvora",
+		name = "Polvora",
+		type = "Usável",
+		weight = 0.75
+	},
+	["methliquid"] = {
+		index = "methliquid",
+		name = "Metanfetamina Líquida",
+		type = "Usável",
+		weight = 0.50
+	},
+	["pilula"] = {
+		index = "pilula",
+		name = "Pilula",
+		type = "Usável",
+		weight = 0.50
+	},
+	["acidobenzoico"] = {
+		index = "acidobenzoico",
+		name = "Ácido Benzoico",
+		type = "Usável",
+		weight = 0.50
+	},
+	["bicarbonato"] = {
+		index = "bicarbonato",
+		name = "Bicarbonato de Sódio",
+		type = "Usável",
+		weight = 0.50
+	},
+	["compostoquimico"] = {
+		index = "compostoquimico",
+		name = "Composto Químico",
+		type = "Usável",
+		weight = 0.50
+	},
+	["mdma"] = {
+		index = "mdma",
+		name = "MDMA",
+		type = "Usável",
+		weight = 0.50
+	},
+	["xarope"] = {
+		index = "xarope",
+		name = "Xarope",
+		type = "Usável",
+		weight = 0.50
+	},
+	["prometazina"] = {
+		index = "prometazina",
+		name = "Prometazina",
+		type = "Usável",
+		weight = 0.50
+	},
+	["weed"] = {
+		index = "weed",
+		name = "Maconha",
+		type = "Usável",
+		weight = 0.50
+	},
+	["silk"] = {
+		index = "silk",
+		name = "Seda",
+		type = "Usável",
+		weight = 0.50
+	},
+	["egg"] = {
+		index = "egg",
+		name = "Ovos",
+		type = "Usável",
+		weight = 0.10
+	},
+	["milk"] = {
+		index = "milk",
+		name = "Leite",
+		type = "Usável",
+		weight = 1.50
+	},
+	["milkshake"] = {
+		index = "milkshake",
+		name = "Milkshake",
+		type = "Usável",
+		weight = 2.00
+	},
+	["joint"] = {
+		index = "joint",
+		name = "Baseado",
+		type = "Usável",
+		economy = 35,
+		weight = 0.50
+	},
+	["lean"] = {
+		index = "lean",
+		name = "Lean",
+		type = "Usável",
+		economy = 35,
+		weight = 0.50
+	},
+	["ecstasy"] = {
+		index = "ecstasy",
+		name = "Ecstasy",
+		type = "Usável",
+		economy = 35,
+		weight = 0.50
+	},
+	["cocaine"] = {
+		index = "cocaine",
+		name = "Cocaína",
+		type = "Usável",
+		economy = 35,
+		weight = 0.50
+	},
+	["meth"] = {
+		index = "meth",
+		name = "Metanfetamina",
+		type = "Usável",
+		economy = 35,
+		weight = 0.50
+	},
+	["ametista"] = {
+		index = "premium01",
+		name = "Premium 3 Dias",
+		type = "Usável",
+		weight = 0.00
+	},
+	["esmeralda"] = {
+		index = "premium02",
+		name = "Premium 7 Dias",
+		type = "Usável",
+		weight = 0.00
+	},
+	["rubi"] = {
+		index = "premium03",
+		name = "Premium 3 Meses",
+		type = "Usável",
+		weight = 0.00
+	},
+	["safira"] = {
+		index = "premium04",
+		name = "Premium 30 Dias",
+		type = "Usável",
+		weight = 0.00
+	},
+	["newgarage"] = {
+		index = "newgarage",
+		name = "+1 Garagem",
+		type = "Usável",
+		desc = "Limite de garagem em +1.",
+		weight = 0.00
+	},
+	["premiumplate"] = {
+		index = "platepremium",
+		name = "Placa Premium",
+		type = "Usável",
+		desc = "Troca a placa de registro do veículo.",
+		weight = 0.00
+	},
+	["newchars"] = {
+		index = "newchars",
+		name = "+1 Personagem",
+		type = "Usável",
+		desc = "Limite de personagem em +1.",
+		weight = 0.00
+	},
+	["newprops"] = {
+		index = "newprops",
+		name = "+1 Propriedade",
+		type = "Usável",
+		desc = "Limite de propriedade em +1.",
+		weight = 0.00
+	},
+	["chip"] = {
+		index = "chip",
+		name = "Chip Telefônico",
+		type = "Usável",
+		desc = "Troca o número telefônico.",
+		weight = 0.00
+	},
+	["namechange"] = {
+		index = "namechange",
+		name = "Troca de Nome",
+		type = "Usável",
+		desc = "Troca o nome do personagem.",
+		weight = 0.00
+	},
+	["dirtywater"] = {
+		index = "dirtywater",
+		name = "Água Suja",
+		type = "Usável",
+		economy = 30,
+		weight = 0.15,
+		max = 3
+	},
+	["emptybottle"] = {
+		index = "emptybottle",
+		name = "Garrafa Vazia",
+		type = "Usável",
+		economy = 30,
+		weight = 0.10,
+		max = 5
+	},
+	["orange"] = {
+		index = "orange",
+		name = "Laranja",
+		type = "Usável",
+		economy = 4,
+		weight = 0.25
+	},
+	["strawberry"] = {
+		index = "strawberry",
+		name = "Morango",
+		type = "Usável",
+		economy = 4,
+		weight = 0.15
+	},
+	["grape"] = {
+		index = "grape",
+		name = "Uva",
+		type = "Usável",
+		economy = 4,
+		weight = 0.15
+	},
+	["tange"] = {
+		index = "tange",
+		name = "Tangerina",
+		type = "Usável",
+		economy = 4,
+		weight = 0.25
+	},
+	["banana"] = {
+		index = "banana",
+		name = "Banana",
+		type = "Usável",
+		economy = 4,
+		weight = 0.25
+	},
+	["passion"] = {
+		index = "passion",
+		name = "Maracujá",
+		type = "Usável",
+		economy = 4,
+		weight = 0.25
+	},
+	["tomato"] = {
+		index = "tomato",
+		name = "Tomate",
+		type = "Usável",
+		economy = 6,
+		weight = 0.15
+	},
+	["binoculars"] = {
+		index = "binoculars",
+		name = "Binóculos",
+		type = "Usável",
+		durability = 28,
+		economy = 275,
+		weight = 0.75
+	},
+	["camera"] = {
+		index = "camera",
+		name = "Câmera",
+		type = "Usável",
+		durability = 28,
+		economy = 275,
+		weight = 2.25
+	},
+	["pager"] = {
+		index = "pager",
+		name = "Pager",
+		type = "Usável",
+		durability = 3,
+		economy = 225,
+		weight = 1.25
+	},
+	["firecracker"] = {
+		index = "firecracker",
+		name = "Fogos de Artificio",
+		type = "Usável",
+		economy = 100,
+		weight = 2.25
+	},
+	["analgesic"] = {
+		index = "analgesic",
+		name = "Analgésico",
+		type = "Usável",
+		economy = 105,
+		weight = 0.10,
+		max = 5
+	},
+	["gauze"] = {
+		index = "gauze",
+		name = "Gaze",
+		type = "Usável",
+		economy = 175,
+		weight = 0.07,
+		max = 3
+	},
+	["gsrkit"] = {
+		index = "gsrkit",
+		name = "Kit Residual",
+		type = "Usável",
+		economy = 35,
+		weight = 0.75
+	},
+	["gdtkit"] = {
+		index = "gdtkit",
+		name = "Kit Químico",
+		type = "Usável",
+		economy = 35,
+		weight = 0.75
+	},
+	["bolochocolate"] = {
+		index = "bolochocolate",
+		name = "Bolo de Chocolate",
+		type = "Usável",
+		max = 5,
+		durability = 17000,
+		weight = 0.15
+	},
+	["tortamorango"] = {
+		index = "tortamorango",
+		name = "Torta de Morango",
+		type = "Usável",
+		max = 5,
+		durability = 17000,
+		weight = 0.15
+	},
+	["tortamaca"] = {
+		index = "tortamaca",
+		name = "Torta de Maçã",
+		type = "Usável",
+		max = 5,
+		durability = 17000,
+		weight = 0.15
+	},
+	["paochapa"] = {
+		index = "paochapa",
+		name = "Pão na chapa",
+		desc = "Delicioso pão na chapa",
+		type = "Usável",
+		max = 5,
+		durability = 11500,
+		weight = 0.25
+	},
+	["mistoquente"] = {
+		index = "mistoquente",
+		name = "Misto Quente",
+		desc = "Delicioso misto quente",
+		type = "Usável",
+		max = 5,
+		durability = 11500,
+		weight = 0.25
+	},
+	["croissant"] = {
+		index = "croissant",
+		name = "Croissant",
+		type = "Usável",
+		economy = 15,
+		weight = 0.25,
+		durability = 11500
+	},
+	["brigadeiro"] = {
+		index = "brigadeiro",
+		name = "Brigadeiro",
+		type = "Usável",
+		economy = "315",
+		max = 5,
+		durability = 11500,
+		weight = 0.10
+	},
+	["acai"] = {
+		index = "acai",
+		name = "Açaí",
+		economy = "315",
+		type = "Usável",
+		max = 5,
+		durability = 11500,
+		weight = 0.10
+	},
+	["sorvete"] = {
+		index = "sorvete",
+		name = "Sorvete",
+		economy = "315",
+		type = "Usável",
+		max = 5,
+		durability = 11500,
+		weight = 0.10
+	},
+	["pudim"] = {
+		index = "pudim",
+		name = "Pudim",
+		economy = "315",
+		type = "Usável",
+		max = 5,
+		durability = 11500,
+		weight = 0.10
+	},
+	["rose"] = {
+		index = "rose",
+		name = "Rosa",
+		type = "Usável",
+		durability = 7,
+		economy = 25,
+		weight = 0.15
+	},
+	["teddy"] = {
+		index = "teddy",
+		name = "Teddy",
+		type = "Usável",
+		durability = 7,
+		economy = 75,
+		weight = 0.75
+	},
+	["dices"] = {
+		index = "dices",
+		name = "Dados",
+		type = "Usável",
+		economy = 40,
+		weight = 0.25
+	},
+	["blender"] = {
+		index = "blender",
+		name = "Liquidificador",
+		type = "Usável",
+		economy = 85,
+		weight = 0.50
+	},
+	["deck"] = {
+		index = "deck",
+		name = "Baralho",
+		type = "Usável",
+		economy = 75,
+		weight = 0.15
+	},
+	["soap"] = {
+		index = "soap",
+		name = "Sabonete",
+		type = "Usável",
+		economy = 75,
+		weight = 0.25
+	},
+
+	-- COMUM
+	["key"] = {
+		index = "key",
+		name = "Chaves",
+		type = "Comum",
+		durability = 3,
+		weight = 0.25
+	},
+	["credential"] = {
+		index = "credential",
+		name = "Credencial",
+		type = "Comum",
+		economy = 275,
+		weight = 0.75
+	},
+	["pouch"] = {
+		index = "pouch",
+		name = "Malote",
+		type = "Comum",
+		weight = 0.75
+	},
+	["woodlog"] = {
+		index = "woodlog",
+		name = "Tora de Madeira",
+		type = "Comum",
+		weight = 0.75
+	},
+	["octopus"] = {
+		index = "octopus",
+		name = "Polvo",
+		type = "Comum",
+		economy = 20,
+		weight = 0.75
+	},
+	["shrimp"] = {
+		index = "shrimp",
+		name = "Camarão",
+		type = "Comum",
+		economy = 20,
+		weight = 0.50
+	},
+	["carp"] = {
+		index = "carp",
+		name = "Carpa",
+		type = "Comum",
+		economy = 18,
+		weight = 0.50
+	},
+	["codfish"] = {
+		index = "codfish",
+		name = "Bacalhau",
+		type = "Comum",
+		economy = 22,
+		weight = 0.50
+	},
+	["catfish"] = {
+		index = "catfish",
+		name = "Bagre",
+		type = "Comum",
+		economy = 22,
+		weight = 0.50
+	},
+	["goldenfish"] = {
+		index = "goldenfish",
+		name = "Dourado",
+		type = "Comum",
+		economy = 23,
+		weight = 0.25
+	},
+	["horsefish"] = {
+		index = "horsefish",
+		name = "Cavala",
+		type = "Comum",
+		economy = 18,
+		weight = 0.50
+	},
+	["tilapia"] = {
+		index = "tilapia",
+		name = "Tilápia",
+		type = "Comum",
+		economy = 20,
+		weight = 0.25
+	},
+	["pacu"] = {
+		index = "pacu",
+		name = "Pacu",
+		type = "Comum",
+		economy = 25,
+		weight = 0.50
+	},
+	["pirarucu"] = {
+		index = "pirarucu",
+		name = "Pirarucu",
+		type = "Comum",
+		economy = 23,
+		weight = 0.25
+	},
+	["tambaqui"] = {
+		index = "tambaqui",
+		name = "Tambaqui",
+		type = "Comum",
+		economy = 23,
+		weight = 0.75
+	},
+	["bait"] = {
+		index = "bait",
+		name = "Isca",
+		type = "Comum",
+		economy = 4,
+		weight = 0.25,
+		max = 35
+	},
+	["meatA"] = {
+		index = "meat",
+		name = "Carne Animal",
+		desc = "Corte nobre de classe A.",
+		type = "Comum",
+		economy = 40,
+		weight = 0.75
+	},
+	["meatB"] = {
+		index = "meat2",
+		name = "Carne Animal",
+		desc = "Corte nobre de classe B.",
+		type = "Comum",
+		economy = 45,
+		weight = 0.75
+	},
+	["meatC"] = {
+		index = "meat3",
+		name = "Carne Animal",
+		desc = "Corte nobre de classe C.",
+		type = "Comum",
+		economy = 50,
+		weight = 0.75
+	},
+	["meatS"] = {
+		index = "meat4",
+		name = "Carne Animal",
+		desc = "Corte nobre de classe S.",
+		type = "Comum",
+		economy = 55,
+		weight = 0.75
+	},
+	["animalpelt"] = {
+		index = "animalpelt",
+		name = "Pele Animal",
+		type = "Comum",
+		economy = 50,
+		weight = 0.10
+	},
+	["horndeer"] = {
+		index = "horndeer",
+		name = "Chifre de Cervo",
+		type = "Comum",
+		economy = 225,
+		weight = 4.00
+	},
+	["dish"] = {
+		index = "dish",
+		name = "Prato",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["pan"] = {
+		index = "pan",
+		name = "Panela",
+		type = "Usável",
+		economy = 125,
+		weight = 0.50
+	},
+	["sneakers"] = {
+		index = "sneakers",
+		name = "Tenis",
+		type = "Comum",
+		economy = 115,
+		weight = 0.50
+	},
+	["fan"] = {
+		index = "fan",
+		name = "Ventilador",
+		type = "Comum",
+		economy = 85,
+		weight = 0.50
+	},
+	["rimel"] = {
+		index = "rimel",
+		name = "Rímel",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["switch"] = {
+		index = "switch",
+		name = "Interruptor",
+		type = "Comum",
+		economy = 35,
+		weight = 0.25
+	},
+	["horseshoe"] = {
+		index = "horseshoe",
+		name = "Ferradura",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["brush"] = {
+		index = "brush",
+		name = "Escova",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["domino"] = {
+		index = "domino",
+		name = "Dominó",
+		type = "Comum",
+		economy = 65,
+		weight = 0.25
+	},
+	["floppy"] = {
+		index = "floppy",
+		name = "Disquete",
+		type = "Comum",
+		economy = 55,
+		weight = 0.15
+	},
+	["cup"] = {
+		index = "cup",
+		name = "Cálice",
+		type = "Comum",
+		economy = 125,
+		weight = 0.25
+	},
+	["eraser"] = {
+		index = "eraser",
+		name = "Apagador",
+		type = "Comum",
+		economy = 75,
+		weight = 0.15
+	},
+	["pliers"] = {
+		index = "pliers",
+		name = "Alicate",
+		type = "Comum",
+		economy = 75,
+		weight = 0.25
+	},
+	["lampshade"] = {
+		index = "lampshade",
+		name = "Abajur",
+		type = "Comum",
+		economy = 115,
+		weight = 0.50
+	},
+	["slipper"] = {
+		index = "slipper",
+		name = "Chinelo",
+		type = "Comum",
+		economy = 75,
+		weight = 0.50
+	},
+	["pendrive"] = {
+		index = "pendrive",
+		name = "Pendrive",
+		type = "Comum",
+		durability = 3,
+		economy = 525,
+		weight = 0.25
+	},["goldbar"] = {
+		index = "goldbar",
+		name = "Barra de Ouro",
+		type = "Comum",
+		economy = 875,
+		weight = 0.25
+	},
+	["emerald"] = {
+		index = "emerald",
+		name = "Esmeralda",
+		type = "Comum",
+		economy = 120,
+		weight = 0.50
+	},
+	["diamond"] = {
+		index = "diamond",
+		name = "Diamante",
+		type = "Comum",
+		economy = 90,
+		weight = 0.50
+	},
+	["ruby"] = {
+		index = "ruby",
+		name = "Rubi",
+		type = "Comum",
+		economy = 50,
+		weight = 0.50
+	},
+	["sapphire"] = {
+		index = "sapphire",
+		name = "Safira",
+		type = "Comum",
+		economy = 45,
+		weight = 0.50
+	},
+	["amethyst"] = {
+		index = "amethyst",
+		name = "Ametista",
+		type = "Comum",
+		economy = 40,
+		weight = 0.50
+	},
+	["amber"] = {
+		index = "amber",
+		name = "Âmbar",
+		type = "Comum",
+		economy = 35,
+		weight = 0.50
+	},
+	["turquoise"] = {
+		index = "turquoise",
+		name = "Turquesa",
+		type = "Comum",
+		economy = 30,
+		weight = 0.50
+	},
+	["keyboard"] = {
+		index = "keyboard",
+		name = "Teclado",
+		type = "Comum",
+		economy = 85,
+		weight = 0.50
+	},
+	["mouse"] = {
+		index = "mouse",
+		name = "Mouse",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["silverring"] = {
+		index = "silverring",
+		name = "Anel de Prata",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["goldring"] = {
+		index = "goldring",
+		name = "Anel de Ouro",
+		type = "Comum",
+		economy = 125,
+		weight = 0.25
+	},
+	["silvercoin"] = {
+		index = "silvercoin",
+		name = "Moeda de Prata",
+		type = "Comum",
+		economy = 5,
+		weight = 0.01
+	},
+	["goldcoin"] = {
+		index = "goldcoin",
+		name = "Moeda de Ouro",
+		type = "Comum",
+		economy = 10,
+		weight = 0.01
+	},
+	["watch"] = {
+		index = "watch",
+		name = "Relógio",
+		type = "Comum",
+		economy = 100,
+		weight = 0.25
+	},
+	["playstation"] = {
+		index = "playstation",
+		name = "Playstation",
+		type = "Comum",
+		economy = 100,
+		weight = 2.00
+	},
+	["xbox"] = {
+		index = "xbox",
+		name = "Xbox",
+		type = "Comum",
+		economy = 100,
+		weight = 1.75
+	},
+	["legos"] = {
+		index = "legos",
+		name = "Legos",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["ominitrix"] = {
+		index = "ominitrix",
+		name = "Ominitrix",
+		type = "Comum",
+		economy = 85,
+		weight = 0.50
+	},
+	["bracelet"] = {
+		index = "bracelet",
+		name = "Bracelete",
+		type = "Comum",
+		economy = 95,
+		weight = 0.25
+	},
+	["dildo"] = {
+		index = "dildo",
+		name = "Vibrador",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["spray01"] = {
+		index = "spray01",
+		name = "Desodorante",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["spray02"] = {
+		index = "spray02",
+		name = "Antisséptico",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["spray03"] = {
+		index = "spray03",
+		name = "Desodorante",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["spray04"] = {
+		index = "spray04",
+		name = "Desodorante",
+		type = "Comum",
+		economy = 85,
+		weight = 0.25
+	},
+	["brick"] = {
+		index = "brick",
+		name = "Tijolo",
+		type = "Comum",
+		economy = 30,
+		weight = 0.50
+	},
+	["plastic"] = {
+		index = "plastic",
+		name = "Plástico",
+		type = "Comum",
+		economy = 16,
+		weight = 0.075
+	},
+	["glass"] = {
+		index = "glass",
+		name = "Vidro",
+		type = "Comum",
+		economy = 14,
+		weight = 0.075
+	},
+	["rubber"] = {
+		index = "rubber",
+		name = "Borracha",
+		type = "Comum",
+		economy = 16,
+		weight = 0.050
+	},
+	["aluminum"] = {
+		index = "aluminum",
+		name = "Alumínio",
+		type = "Comum",
+		economy = 20,
+		weight = 0.075
+	},
+	["copper"] = {
+		index = "copper",
+		name = "Cobre",
+		type = "Comum",
+		economy = 20,
+		weight = 0.075
+	},
+	["fabric"] = {
+		index = "fabric",
+		name = "Tecido",
+		type = "Comum",
+		economy = 100,
+		weight = 0.050
+	},
+	["titanium"] = {
+		index = "titanium",
+		name = "Titânio",
+		type = "Comum",
+		economy = 275,
+		weight = 0.150
+	},
+	["newspaper"] = {
+		index = "newspaper",
+		name = "Jornal",
+		type = "Comum",
+		economy = 15,
+		weight = 0.375
+	},
+	["cigarette"] = {
+		index = "cigarette",
+		name = "Cigarro",
+		type = "Usável",
+		economy = 10,
+		weight = 0.05,
+		max = 6
+	},
+	["lighter"] = {
+		index = "lighter",
+		name = "Isqueiro",
+		durability = 14,
+		type = "Comum",
+		economy = 175,
+		weight = 0.25
+	},
+	["dollars"] = {
+		index = "dollars",
+		name = "Dólares",
+		type = "Comum",
+		weight = 0.0001
+	},
+	["dollarsz"] = {
+		index = "dollarsz",
+		name = "Dólares Marcados",
+		type = "Comum",
+		weight = 0.0001
+	},
+	["battery"] = {
+		index = "battery",
+		name = "Pilhas",
+		type = "Comum",
+		weight = 0.20
+	},
+	["elastic"] = {
+		index = "elastic",
+		name = "Elástico",
+		type = "Comum",
+		weight = 0.10
+	},
+	["plasticbottle"] = {
+		index = "plasticbottle",
+		name = "Garrafa Plástica",
+		type = "Comum",
+		weight = 0.20
+	},
+	["glassbottle"] = {
+		index = "glassbottle",
+		name = "Garrafa de Vidro",
+		type = "Comum",
+		weight = 0.50
+	},
+	["metalcan"] = {
+		index = "metalcan",
+		name = "Lata de Metal",
+		type = "Comum",
+		weight = 0.20
+	},
+
+	-- CONSUMABLE
+	["energetic"] = {
+		index = "energetic",
+		name = "Energético",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.25,
+		max = 6
+	},
+	["water"] = {
+		index = "water",
+		name = "Água",
+		type = "Consumable",
+		economy = 30,
+		weight = 0.15,
+		max = 5
+	},
+	["coffee"] = {
+		index = "coffee",
+		name = "Café",
+		type = "Consumable",
+		economy = 20,
+		weight = 0.15,
+		max = 4
+	},
+	["cola"] = {
+		index = "cola",
+		name = "Cola",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.15,
+		max = 4
+	},
+	["tacos"] = {
+		index = "tacos",
+		name = "Tacos",
+		type = "Consumable",
+		economy = 22,
+		weight = 0.25,
+		max = 4
+	},
+	["fries"] = {
+		index = "fries",
+		name = "Fritas",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.15,
+		max = 4
+	},
+	["soda"] = {
+		index = "soda",
+		name = "Sprunk",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.15,
+		max = 4
+	},
+	["hamburger"] = {
+		index = "hamburger",
+		name = "Hambúrguer",
+		type = "Consumable",
+		economy = 25,
+		weight = 0.35,
+		max = 4
+	},
+	["hotdog"] = {
+		index = "hotdog",
+		name = "Cachorro-Quente",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.35,
+		max = 4
+	},
+	["donuts"] = {
+		index = "donuts",
+		name = "Donuts",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.25,
+		max = 4
+	},
+	["ritmoneury"] = {
+		index = "ritmoneury",
+		name = "Ritmoneury",
+		type = "Consumable",
+		economy = 475,
+		weight = 0.25,
+		max = 3
+	},
+	["sinkalmy"] = {
+		index = "sinkalmy",
+		name = "Sinkalmy",
+		type = "Consumable",
+		economy = 325,
+		weight = 0.25,
+		max = 3
+	},
+	["orangejuice"] = {
+		index = "orangejuice",
+		name = "Suco de Laranja",
+		type = "Usável",
+		economy = 100,
+		weight = 0.75,
+		max = 4
+	},
+	["tangejuice"] = {
+		index = "tangejuice",
+		name = "Suco de Tangerina",
+		type = "Usável",
+		economy = 100,
+		weight = 0.45,
+		max = 4
+	},
+	["grapejuice"] = {
+		index = "grapejuice",
+		name = "Suco de Uva",
+		type = "Usável",
+		economy = 100,
+		weight = 0.45,
+		max = 4
+	},
+	["strawberryjuice"] = {
+		index = "strawberryjuice",
+		name = "Suco de Morango",
+		type = "Usável",
+		economy = 100,
+		weight = 0.45,
+		max = 4
+	},
+	["bananajuice"] = {
+		index = "bananajuice",
+		name = "Vitamina de Banana",
+		type = "Usável",
+		economy = 100,
+		weight = 0.45,
+		max = 4
+	},
+	["passionjuice"] = {
+		index = "passionjuice",
+		name = "Suco de Maracujá",
+		type = "Usável",
+		economy = 100,
+		weight = 0.45,
+		max = 4
+	},
+	["bread"] = {
+		index = "bread",
+		name = "Pão",
+		type = "Usável",
+		economy = 5,
+		weight = 0.25
+	},
+	["ketchup"] = {
+		index = "ketchup",
+		name = "Ketchup",
+		type = "Comum",
+		economy = 20,
+		weight = 0.25
+	},
+	["plate"] = {
+		index = "plate",
+		name = "Placa",
+		type = "Usável",
+		economy = 275,
+		weight = 0.50
+	},
+	["lockpick"] = {
+		index = "lockpick",
+		name = "Lockpick",
+		type = "Usável",
+		economy = 400,
+		durability = 3,
+		weight = 1.25
+	},
+	["lockpick2"] = {
+		index = "lockpick2",
+		name = "Lockpick Quebrado",
+		type = "Comum",
+		durability = 3,
+		weight = 1.25
+	},
+	["toolbox"] = {
+		index = "toolbox",
+		name = "Caixa de Ferramentas",
+		type = "Usável",
+		economy = 500,
+		weight = 1.75,
+		max = 5
+	},
+	["tires"] = {
+		index = "tires",
+		name = "Pneus",
+		type = "Usável",
+		economy = 275,
+		weight = 1.50,
+		max = 4
+	},
+	["cellphone"] = {
+		index = "cellphone",
+		name = "Celular",
+		type = "Comum",
+		durability = 21,
+		economy = 575,
+		weight = 0.75
+	},
+	["divingsuit"] = {
+		index = "divingsuit",
+		name = "Roupa de Mergulho",
+		type = "Usável",
+		durability = 14,
+		economy = 975,
+		weight = 4.75
+	},
+	["handcuff"] = {
+		index = "handcuff",
+		name = "Algemas",
+		type = "Usável",
+		durability = 30,
+		economy = 3975,
+		weight = 0.75
+	},
+	["rope"] = {
+		index = "rope",
+		name = "Cordas",
+		type = "Usável",
+		durability = 7,
+		economy = 875,
+		weight = 1.50
+	},
+	["hood"] = {
+		index = "hood",
+		name = "Capuz",
+		type = "Usável",
+		durability = 7,
+		economy = 3675,
+		weight = 1.50
+	},
+	["vape"] = {
+		index = "vape",
+		name = "Vape",
+		type = "Usável",
+		durability = 28,
+		economy = 4750,
+		weight = 0.75
+	},
+	["chocolate"] = {
+		index = "chocolate",
+		name = "Chocolate",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.10,
+		max = 4
+	},
+	["sandwich"] = {
+		index = "sandwich",
+		name = "Sanduiche",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.25,
+		max = 4
+	},
+	["absolut"] = {
+		index = "absolut",
+		name = "Absolut",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.25,
+		max = 4
+	},
+	["chandon"] = {
+		index = "chandon",
+		name = "Chandon",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.35,
+		max = 4
+	},
+	["dewars"] = {
+		index = "dewars",
+		name = "Dewars",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.25,
+		max = 4
+	},
+	["hennessy"] = {
+		index = "hennessy",
+		name = "Hennessy",
+		type = "Consumable",
+		economy = 15,
+		weight = 0.25,
+		max = 4
+	},
+	
+
+	-- PETS
 	["rottweiler01"] = {
 		index = "rottweiler",
 		name = "Coleira de Rottweiler",
@@ -231,1433 +1665,6 @@ local itemlist = {
 		durability = 7,
 		economy = 20000,
 		weight = 1.25
-	},
-	["vehkey"] = {
-		["index"] = "vehkey",
-		["name"] = "Chave Cópia",
-		["type"] = "Usável",
-		["weight"] = 0.75
-	},
-	["hardness"] = {
-		index = "hardness",
-		name = "Cinto Reforçado",
-		type = "Usável",
-		economy = 50000,
-		weight = 5.00
-	},
-	["graphite01"] = {
-		index = "graphite01",
-		name = "Grafite 1Mg",
-		type = "Usável",
-		desc = "Repare o Freio Integral do veículo.",
-		economy = 7,
-		weight = 0.01
-	},
-	["graphite02"] = {
-		index = "graphite02",
-		name = "Grafite 2Mg",
-		type = "Usável",
-		desc = "Repare o Freio Dianteiro do veículo.",
-		economy = 7,
-		weight = 0.01
-	},
-	["graphite03"] = {
-		index = "graphite03",
-		name = "Grafite 3Mg",
-		type = "Usável",
-		desc = "Repare o Freio Traseiro do veículo.",
-		economy = 7,
-		weight = 0.01
-	},
-	["c4"] = {
-		index = "c4",
-		name = "C4",
-		type = "Usável",
-		durability = 14,
-		economy = 325,
-		weight = 2.50
-	},
-	["key"] = {
-		index = "key",
-		name = "Chaves",
-		type = "Comum",
-		durability = 3,
-		weight = 0.25
-	},
-	["credential"] = {
-		index = "credential",
-		name = "Credencial",
-		type = "Comum",
-		economy = 275,
-		weight = 0.75
-	},
-	["radio"] = {
-		index = "radio",
-		name = "Rádio",
-		type = "Usável",
-		durability = 30,
-		economy = 975,
-		weight = 0.75
-	},
-	["backpack"] = {
-		index = "backpack",
-		name = "Mochila",
-		type = "Usável",
-		economy = 2750,
-		weight = 4.25
-	},
-	["vest"] = {
-		index = "vest",
-		name = "Colete",
-		type = "Usável",
-		durability = 7,
-		economy = 875,
-		weight = 2.25
-	},
-	["bandage"] = {
-		index = "bandage",
-		name = "Bandagem",
-		type = "Usável",
-		economy = 225,
-		weight = 0.10,
-		max = 3
-	},
-	["skate"] = {
-		index = "skate",
-		name = "Skate",
-		type = "Usável",
-		economy = 500,
-		weight = 3.50,
-		max = 1
-	},
-	["medkit"] = {
-		index = "medkit",
-		name = "Kit Médico",
-		type = "Usável",
-		economy = 525,
-		weight = 0.45,
-		max = 2
-	},
-	["adrenaline"] = {
-		index = "adrenaline",
-		name = "Adrenalina",
-		type = "Usável",
-		economy = 975,
-		weight = 0.35
-	},
-	["pouch"] = {
-		index = "pouch",
-		name = "Malote",
-		type = "Comum",
-		weight = 0.75
-	},
-	["woodlog"] = {
-		index = "woodlog",
-		name = "Tora de Madeira",
-		type = "Comum",
-		weight = 0.75
-	},
-	["fishingrod"] = {
-		index = "fishingrod",
-		name = "Vara de Pescar",
-		type = "Usável",
-		durability = 14,
-		economy = 725,
-		weight = 2.75
-	},
-	["WEAPON_SWITCHBLADE"] = {
-		index = "switchblade",
-		name = "Canivete",
-		type = "Usável",
-		desc = "Utilizada para remoção de carne.",
-		durability = 14,
-		economy = 725,
-		weight = 0.75
-	},
-	["octopus"] = {
-		index = "octopus",
-		name = "Polvo",
-		type = "Comum",
-		economy = 20,
-		weight = 0.75
-	},
-	["shrimp"] = {
-		index = "shrimp",
-		name = "Camarão",
-		type = "Comum",
-		economy = 20,
-		weight = 0.50
-	},
-	["carp"] = {
-		index = "carp",
-		name = "Carpa",
-		type = "Comum",
-		economy = 18,
-		weight = 0.50
-	},
-	["codfish"] = {
-		index = "codfish",
-		name = "Bacalhau",
-		type = "Comum",
-		economy = 22,
-		weight = 0.50
-	},
-	["catfish"] = {
-		index = "catfish",
-		name = "Bagre",
-		type = "Comum",
-		economy = 22,
-		weight = 0.50
-	},
-	["goldenfish"] = {
-		index = "goldenfish",
-		name = "Dourado",
-		type = "Comum",
-		economy = 23,
-		weight = 0.25
-	},
-	["horsefish"] = {
-		index = "horsefish",
-		name = "Cavala",
-		type = "Comum",
-		economy = 18,
-		weight = 0.50
-	},
-	["tilapia"] = {
-		index = "tilapia",
-		name = "Tilápia",
-		type = "Comum",
-		economy = 20,
-		weight = 0.25
-	},
-	["pacu"] = {
-		index = "pacu",
-		name = "Pacu",
-		type = "Comum",
-		economy = 25,
-		weight = 0.50
-	},
-	["pirarucu"] = {
-		index = "pirarucu",
-		name = "Pirarucu",
-		type = "Comum",
-		economy = 23,
-		weight = 0.25
-	},
-	["tambaqui"] = {
-		index = "tambaqui",
-		name = "Tambaqui",
-		type = "Comum",
-		economy = 23,
-		weight = 0.75
-	},
-	["bait"] = {
-		index = "bait",
-		name = "Isca",
-		type = "Comum",
-		economy = 4,
-		weight = 0.25,
-		max = 35
-	},
-	["meatA"] = {
-		index = "meat",
-		name = "Carne Animal",
-		desc = "Corte nobre de classe A.",
-		type = "Comum",
-		economy = 40,
-		weight = 0.75
-	},
-	["meatB"] = {
-		index = "meat2",
-		name = "Carne Animal",
-		desc = "Corte nobre de classe B.",
-		type = "Comum",
-		economy = 45,
-		weight = 0.75
-	},
-	["meatC"] = {
-		index = "meat3",
-		name = "Carne Animal",
-		desc = "Corte nobre de classe C.",
-		type = "Comum",
-		economy = 50,
-		weight = 0.75
-	},
-	["meatS"] = {
-		index = "meat4",
-		name = "Carne Animal",
-		desc = "Corte nobre de classe S.",
-		type = "Comum",
-		economy = 55,
-		weight = 0.75
-	},
-	["animalpelt"] = {
-		index = "animalpelt",
-		name = "Pele Animal",
-		type = "Comum",
-		economy = 50,
-		weight = 0.10
-	},
-	["horndeer"] = {
-		index = "horndeer",
-		name = "Chifre de Cervo",
-		type = "Comum",
-		economy = 225,
-		weight = 4.00
-	},
-	["wheatflour"] = {
-		index = "wheatflour",
-		name = "Farinha de Trigo",
-		type = "Usável",
-		weight = 1.50
-	},
-	["capsula"] = {
-		index = "capsula",
-		name = "Capsula",
-		type = "Usável",
-		weight = 0.50
-	},
-	["polvora"] = {
-		index = "polvora",
-		name = "Polvora",
-		type = "Usável",
-		weight = 0.75
-	},
-	["methliquid"] = {
-		index = "methliquid",
-		name = "Metanfetamina Líquida",
-		type = "Usável",
-		weight = 0.50
-	},
-	["pilula"] = {
-		index = "pilula",
-		name = "Pilula",
-		type = "Usável",
-		weight = 0.50
-	},
-	["acidobenzoico"] = {
-		index = "acidobenzoico",
-		name = "Ácido Benzoico",
-		type = "Usável",
-		weight = 0.50
-	},
-	["bicarbonato"] = {
-		index = "bicarbonato",
-		name = "Bicarbonato de Sódio",
-		type = "Usável",
-		weight = 0.50
-	},
-	["compostoquimico"] = {
-		index = "compostoquimico",
-		name = "Composto Químico",
-		type = "Usável",
-		weight = 0.50
-	},
-	["mdma"] = {
-		index = "mdma",
-		name = "MDMA",
-		type = "Usável",
-		weight = 0.50
-	},
-	["xarope"] = {
-		index = "xarope",
-		name = "Xarope",
-		type = "Usável",
-		weight = 0.50
-	},
-	["prometazina"] = {
-		index = "prometazina",
-		name = "Prometazina",
-		type = "Usável",
-		weight = 0.50
-	},
-	["weed"] = {
-		index = "weed",
-		name = "Maconha",
-		type = "Usável",
-		weight = 0.50
-	},
-	["silk"] = {
-		index = "silk",
-		name = "Seda",
-		type = "Usável",
-		weight = 0.50
-	},
-	["egg"] = {
-		index = "egg",
-		name = "Ovos",
-		type = "Usável",
-		weight = 0.10
-	},
-	["milk"] = {
-		index = "milk",
-		name = "Leite",
-		type = "Usável",
-		weight = 1.50
-	},
-	["milkshake"] = {
-		index = "milkshake",
-		name = "Milkshake",
-		type = "Usável",
-		weight = 2.00
-	},
-	["joint"] = {
-		index = "joint",
-		name = "Baseado",
-		type = "Usável",
-		economy = 35,
-		weight = 0.50
-	},
-	["lean"] = {
-		index = "lean",
-		name = "Lean",
-		type = "Usável",
-		economy = 35,
-		weight = 0.50
-	},
-	["ecstasy"] = {
-		index = "ecstasy",
-		name = "Ecstasy",
-		type = "Usável",
-		economy = 35,
-		weight = 0.50
-	},
-	["cocaine"] = {
-		index = "cocaine",
-		name = "Cocaína",
-		type = "Usável",
-		economy = 35,
-		weight = 0.50
-	},
-	["meth"] = {
-		index = "meth",
-		name = "Metanfetamina",
-		type = "Usável",
-		economy = 35,
-		weight = 0.50
-	},
-	["ametista"] = {
-		index = "premium01",
-		name = "Premium 3 Dias",
-		type = "Usável",
-		weight = 0.00
-	},
-	["esmeralda"] = {
-		index = "premium02",
-		name = "Premium 7 Dias",
-		type = "Usável",
-		weight = 0.00
-	},
-	["rubi"] = {
-		index = "premium03",
-		name = "Premium 3 Meses",
-		type = "Usável",
-		weight = 0.00
-	},
-	["safira"] = {
-		index = "premium04",
-		name = "Premium 30 Dias",
-		type = "Usável",
-		weight = 0.00
-	},
-	["newgarage"] = {
-		index = "newgarage",
-		name = "+1 Garagem",
-		type = "Usável",
-		desc = "Limite de garagem em +1.",
-		weight = 0.00
-	},
-	["premiumplate"] = {
-		index = "platepremium",
-		name = "Placa Premium",
-		type = "Usável",
-		desc = "Troca a placa de registro do veículo.",
-		weight = 0.00
-	},
-	["newchars"] = {
-		index = "newchars",
-		name = "+1 Personagem",
-		type = "Usável",
-		desc = "Limite de personagem em +1.",
-		weight = 0.00
-	},
-	["newprops"] = {
-		index = "newprops",
-		name = "+1 Propriedade",
-		type = "Usável",
-		desc = "Limite de propriedade em +1.",
-		weight = 0.00
-	},
-	["chip"] = {
-		index = "chip",
-		name = "Chip Telefônico",
-		type = "Usável",
-		desc = "Troca o número telefônico.",
-		weight = 0.00
-	},
-	["namechange"] = {
-		index = "namechange",
-		name = "Troca de Nome",
-		type = "Usável",
-		desc = "Troca o nome do personagem.",
-		weight = 0.00
-	},
-	["energetic"] = {
-		index = "energetic",
-		name = "Energético",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.25,
-		max = 6
-	},
-	["water"] = {
-		index = "water",
-		name = "Água",
-		type = "Consumable",
-		economy = 30,
-		weight = 0.15,
-		max = 5
-	},
-	["dirtywater"] = {
-		index = "dirtywater",
-		name = "Água Suja",
-		type = "Usável",
-		economy = 30,
-		weight = 0.15,
-		max = 3
-	},
-	["emptybottle"] = {
-		index = "emptybottle",
-		name = "Garrafa Vazia",
-		type = "Usável",
-		economy = 30,
-		weight = 0.10,
-		max = 5
-	},
-	["coffee"] = {
-		index = "coffee",
-		name = "Café",
-		type = "Consumable",
-		economy = 20,
-		weight = 0.15,
-		max = 4
-	},
-	["cola"] = {
-		index = "cola",
-		name = "Cola",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.15,
-		max = 4
-	},
-	["tacos"] = {
-		index = "tacos",
-		name = "Tacos",
-		type = "Consumable",
-		economy = 22,
-		weight = 0.25,
-		max = 4
-	},
-	["fries"] = {
-		index = "fries",
-		name = "Fritas",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.15,
-		max = 4
-	},
-	["soda"] = {
-		index = "soda",
-		name = "Sprunk",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.15,
-		max = 4
-	},
-	["orange"] = {
-		index = "orange",
-		name = "Laranja",
-		type = "Usável",
-		economy = 4,
-		weight = 0.25
-	},
-	["strawberry"] = {
-		index = "strawberry",
-		name = "Morango",
-		type = "Usável",
-		economy = 4,
-		weight = 0.15
-	},
-	["grape"] = {
-		index = "grape",
-		name = "Uva",
-		type = "Usável",
-		economy = 4,
-		weight = 0.15
-	},
-	["tange"] = {
-		index = "tange",
-		name = "Tangerina",
-		type = "Usável",
-		economy = 4,
-		weight = 0.25
-	},
-	["banana"] = {
-		index = "banana",
-		name = "Banana",
-		type = "Usável",
-		economy = 4,
-		weight = 0.25
-	},
-	["passion"] = {
-		index = "passion",
-		name = "Maracujá",
-		type = "Usável",
-		economy = 4,
-		weight = 0.25
-	},
-	["tomato"] = {
-		index = "tomato",
-		name = "Tomate",
-		type = "Usável",
-		economy = 6,
-		weight = 0.15
-	},
-	["orangejuice"] = {
-		index = "orangejuice",
-		name = "Suco de Laranja",
-		type = "Usável",
-		economy = 100,
-		weight = 0.75,
-		max = 4
-	},
-	["tangejuice"] = {
-		index = "tangejuice",
-		name = "Suco de Tangerina",
-		type = "Usável",
-		economy = 100,
-		weight = 0.45,
-		max = 4
-	},
-	["grapejuice"] = {
-		index = "grapejuice",
-		name = "Suco de Uva",
-		type = "Usável",
-		economy = 100,
-		weight = 0.45,
-		max = 4
-	},
-	["strawberryjuice"] = {
-		index = "strawberryjuice",
-		name = "Suco de Morango",
-		type = "Usável",
-		economy = 100,
-		weight = 0.45,
-		max = 4
-	},
-	["bananajuice"] = {
-		index = "bananajuice",
-		name = "Vitamina de Banana",
-		type = "Usável",
-		economy = 100,
-		weight = 0.45,
-		max = 4
-	},
-	["passionjuice"] = {
-		index = "passionjuice",
-		name = "Suco de Maracujá",
-		type = "Usável",
-		economy = 100,
-		weight = 0.45,
-		max = 4
-	},
-	["bread"] = {
-		index = "bread",
-		name = "Pão",
-		type = "Usável",
-		economy = 5,
-		weight = 0.25
-	},
-	["ketchup"] = {
-		index = "ketchup",
-		name = "Ketchup",
-		type = "Comum",
-		economy = 20,
-		weight = 0.25
-	},
-	["hamburger"] = {
-		index = "hamburger",
-		name = "Hambúrguer",
-		type = "Consumable",
-		economy = 25,
-		weight = 0.35,
-		max = 4
-	},
-	["hotdog"] = {
-		index = "hotdog",
-		name = "Cachorro-Quente",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.35,
-		max = 4
-	},
-	["donuts"] = {
-		index = "donuts",
-		name = "Donuts",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.25,
-		max = 4
-	},
-	["plate"] = {
-		index = "plate",
-		name = "Placa",
-		type = "Usável",
-		economy = 275,
-		weight = 0.50
-	},
-	["lockpick"] = {
-		index = "lockpick",
-		name = "Lockpick",
-		type = "Usável",
-		economy = 400,
-		durability = 3,
-		weight = 1.25
-	},
-	["lockpick2"] = {
-		index = "lockpick2",
-		name = "Lockpick Quebrado",
-		type = "Comum",
-		durability = 3,
-		weight = 1.25
-	},
-	["toolbox"] = {
-		index = "toolbox",
-		name = "Caixa de Ferramentas",
-		type = "Usável",
-		economy = 500,
-		weight = 1.75,
-		max = 5
-	},
-	["tires"] = {
-		index = "tires",
-		name = "Pneus",
-		type = "Usável",
-		economy = 275,
-		weight = 1.50,
-		max = 4
-	},
-	["cellphone"] = {
-		index = "cellphone",
-		name = "Celular",
-		type = "Comum",
-		durability = 21,
-		economy = 575,
-		weight = 0.75
-	},
-	["divingsuit"] = {
-		index = "divingsuit",
-		name = "Roupa de Mergulho",
-		type = "Usável",
-		durability = 14,
-		economy = 975,
-		weight = 4.75
-	},
-	["handcuff"] = {
-		index = "handcuff",
-		name = "Algemas",
-		type = "Usável",
-		durability = 30,
-		economy = 3975,
-		weight = 0.75
-	},
-	["rope"] = {
-		index = "rope",
-		name = "Cordas",
-		type = "Usável",
-		durability = 7,
-		economy = 875,
-		weight = 1.50
-	},
-	["hood"] = {
-		index = "hood",
-		name = "Capuz",
-		type = "Usável",
-		durability = 7,
-		economy = 3675,
-		weight = 1.50
-	},
-	["plastic"] = {
-		index = "plastic",
-		name = "Plástico",
-		type = "Comum",
-		economy = 16,
-		weight = 0.075
-	},
-	["glass"] = {
-		index = "glass",
-		name = "Vidro",
-		type = "Comum",
-		economy = 14,
-		weight = 0.075
-	},
-	["rubber"] = {
-		index = "rubber",
-		name = "Borracha",
-		type = "Comum",
-		economy = 16,
-		weight = 0.050
-	},
-	["aluminum"] = {
-		index = "aluminum",
-		name = "Alumínio",
-		type = "Comum",
-		economy = 20,
-		weight = 0.075
-	},
-	["copper"] = {
-		index = "copper",
-		name = "Cobre",
-		type = "Comum",
-		economy = 20,
-		weight = 0.075
-	},
-	["fabric"] = {
-		index = "fabric",
-		name = "Tecido",
-		type = "Comum",
-		economy = 100,
-		weight = 0.050
-	},
-	["titanium"] = {
-		index = "titanium",
-		name = "Titânio",
-		type = "Comum",
-		economy = 275,
-		weight = 0.150
-	},
-	["newspaper"] = {
-		index = "newspaper",
-		name = "Jornal",
-		type = "Comum",
-		economy = 15,
-		weight = 0.375
-	},
-	["ritmoneury"] = {
-		index = "ritmoneury",
-		name = "Ritmoneury",
-		type = "Consumable",
-		economy = 475,
-		weight = 0.25,
-		max = 3
-	},
-	["sinkalmy"] = {
-		index = "sinkalmy",
-		name = "Sinkalmy",
-		type = "Consumable",
-		economy = 325,
-		weight = 0.25,
-		max = 3
-	},
-	["cigarette"] = {
-		index = "cigarette",
-		name = "Cigarro",
-		type = "Usável",
-		economy = 10,
-		weight = 0.05,
-		max = 6
-	},
-	["lighter"] = {
-		index = "lighter",
-		name = "Isqueiro",
-		durability = 14,
-		type = "Comum",
-		economy = 175,
-		weight = 0.25
-	},
-	["vape"] = {
-		index = "vape",
-		name = "Vape",
-		type = "Usável",
-		durability = 28,
-		economy = 4750,
-		weight = 0.75
-	},
-	["dollars"] = {
-		index = "dollars",
-		name = "Dólares",
-		type = "Comum",
-		weight = 0.0001
-	},
-	["dollarsz"] = {
-		index = "dollarsz",
-		name = "Dólares Marcados",
-		type = "Comum",
-		weight = 0.0001
-	},
-	["battery"] = {
-		index = "battery",
-		name = "Pilhas",
-		type = "Comum",
-		weight = 0.20
-	},
-	["elastic"] = {
-		index = "elastic",
-		name = "Elástico",
-		type = "Comum",
-		weight = 0.10
-	},
-	["plasticbottle"] = {
-		index = "plasticbottle",
-		name = "Garrafa Plástica",
-		type = "Comum",
-		weight = 0.20
-	},
-	["glassbottle"] = {
-		index = "glassbottle",
-		name = "Garrafa de Vidro",
-		type = "Comum",
-		weight = 0.50
-	},
-	["metalcan"] = {
-		index = "metalcan",
-		name = "Lata de Metal",
-		type = "Comum",
-		weight = 0.20
-	},
-	["chocolate"] = {
-		index = "chocolate",
-		name = "Chocolate",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.10,
-		max = 4
-	},
-	["sandwich"] = {
-		index = "sandwich",
-		name = "Sanduiche",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.25,
-		max = 4
-	},
-	["bolochocolate"] = {
-		index = "bolochocolate",
-		name = "Bolo de Chocolate",
-		type = "Usável",
-		max = 5,
-		durability = 17000,
-		weight = 0.15
-	},
-	["tortamorango"] = {
-		index = "tortamorango",
-		name = "Torta de Morango",
-		type = "Usável",
-		max = 5,
-		durability = 17000,
-		weight = 0.15
-	},
-	["tortamaca"] = {
-		index = "tortamaca",
-		name = "Torta de Maçã",
-		type = "Usável",
-		max = 5,
-		durability = 17000,
-		weight = 0.15
-	},
-	["paochapa"] = {
-		index = "paochapa",
-		name = "Pão na chapa",
-		desc = "Delicioso pão na chapa",
-		type = "Usável",
-		max = 5,
-		durability = 11500,
-		weight = 0.25
-	},
-	["mistoquente"] = {
-		index = "mistoquente",
-		name = "Misto Quente",
-		desc = "Delicioso misto quente",
-		type = "Usável",
-		max = 5,
-		durability = 11500,
-		weight = 0.25
-	},
-	["croissant"] = {
-		index = "croissant",
-		name = "Croissant",
-		type = "Usável",
-		economy = 15,
-		weight = 0.25,
-		durability = 11500
-	},
-	["brigadeiro"] = {
-		index = "brigadeiro",
-		name = "Brigadeiro",
-		type = "Usável",
-		economy = "315",
-		max = 5,
-		durability = 11500,
-		weight = 0.10
-	},
-	["acai"] = {
-		index = "acai",
-		name = "Açaí",
-		economy = "315",
-		type = "Usável",
-		max = 5,
-		durability = 11500,
-		weight = 0.10
-	},
-	["sorvete"] = {
-		index = "sorvete",
-		name = "Sorvete",
-		economy = "315",
-		type = "Usável",
-		max = 5,
-		durability = 11500,
-		weight = 0.10
-	},
-	["pudim"] = {
-		index = "pudim",
-		name = "Pudim",
-		economy = "315",
-		type = "Usável",
-		max = 5,
-		durability = 11500,
-		weight = 0.10
-	},
-	["rose"] = {
-		index = "rose",
-		name = "Rosa",
-		type = "Usável",
-		durability = 7,
-		economy = 25,
-		weight = 0.15
-	},
-	["teddy"] = {
-		index = "teddy",
-		name = "Teddy",
-		type = "Usável",
-		durability = 7,
-		economy = 75,
-		weight = 0.75
-	},
-	["absolut"] = {
-		index = "absolut",
-		name = "Absolut",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.25,
-		max = 4
-	},
-	["chandon"] = {
-		index = "chandon",
-		name = "Chandon",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.35,
-		max = 4
-	},
-	["dewars"] = {
-		index = "dewars",
-		name = "Dewars",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.25,
-		max = 4
-	},
-	["hennessy"] = {
-		index = "hennessy",
-		name = "Hennessy",
-		type = "Consumable",
-		economy = 15,
-		weight = 0.25,
-		max = 4
-	},
-	["goldbar"] = {
-		index = "goldbar",
-		name = "Barra de Ouro",
-		type = "Comum",
-		economy = 875,
-		weight = 0.25
-	},
-	["binoculars"] = {
-		index = "binoculars",
-		name = "Binóculos",
-		type = "Usável",
-		durability = 28,
-		economy = 275,
-		weight = 0.75
-	},
-	["camera"] = {
-		index = "camera",
-		name = "Câmera",
-		type = "Usável",
-		durability = 28,
-		economy = 275,
-		weight = 2.25
-	},
-	["pager"] = {
-		index = "pager",
-		name = "Pager",
-		type = "Usável",
-		durability = 3,
-		economy = 225,
-		weight = 1.25
-	},
-	["firecracker"] = {
-		index = "firecracker",
-		name = "Fogos de Artificio",
-		type = "Usável",
-		economy = 100,
-		weight = 2.25
-	},
-	["analgesic"] = {
-		index = "analgesic",
-		name = "Analgésico",
-		type = "Usável",
-		economy = 105,
-		weight = 0.10,
-		max = 5
-	},
-	["gauze"] = {
-		index = "gauze",
-		name = "Gaze",
-		type = "Usável",
-		economy = 175,
-		weight = 0.07,
-		max = 3
-	},
-	["gsrkit"] = {
-		index = "gsrkit",
-		name = "Kit Residual",
-		type = "Usável",
-		economy = 35,
-		weight = 0.75
-	},
-	["gdtkit"] = {
-		index = "gdtkit",
-		name = "Kit Químico",
-		type = "Usável",
-		economy = 35,
-		weight = 0.75
-	},
-	["emerald"] = {
-		index = "emerald",
-		name = "Esmeralda",
-		type = "Comum",
-		economy = 120,
-		weight = 0.50
-	},
-	["diamond"] = {
-		index = "diamond",
-		name = "Diamante",
-		type = "Comum",
-		economy = 90,
-		weight = 0.50
-	},
-	["ruby"] = {
-		index = "ruby",
-		name = "Rubi",
-		type = "Comum",
-		economy = 50,
-		weight = 0.50
-	},
-	["sapphire"] = {
-		index = "sapphire",
-		name = "Safira",
-		type = "Comum",
-		economy = 45,
-		weight = 0.50
-	},
-	["amethyst"] = {
-		index = "amethyst",
-		name = "Ametista",
-		type = "Comum",
-		economy = 40,
-		weight = 0.50
-	},
-	["amber"] = {
-		index = "amber",
-		name = "Âmbar",
-		type = "Comum",
-		economy = 35,
-		weight = 0.50
-	},
-	["turquoise"] = {
-		index = "turquoise",
-		name = "Turquesa",
-		type = "Comum",
-		economy = 30,
-		weight = 0.50
-	},
-	["keyboard"] = {
-		index = "keyboard",
-		name = "Teclado",
-		type = "Comum",
-		economy = 85,
-		weight = 0.50
-	},
-	["mouse"] = {
-		index = "mouse",
-		name = "Mouse",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["silverring"] = {
-		index = "silverring",
-		name = "Anel de Prata",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["goldring"] = {
-		index = "goldring",
-		name = "Anel de Ouro",
-		type = "Comum",
-		economy = 125,
-		weight = 0.25
-	},
-	["silvercoin"] = {
-		index = "silvercoin",
-		name = "Moeda de Prata",
-		type = "Comum",
-		economy = 5,
-		weight = 0.01
-	},
-	["goldcoin"] = {
-		index = "goldcoin",
-		name = "Moeda de Ouro",
-		type = "Comum",
-		economy = 10,
-		weight = 0.01
-	},
-	["watch"] = {
-		index = "watch",
-		name = "Relógio",
-		type = "Comum",
-		economy = 100,
-		weight = 0.25
-	},
-	["playstation"] = {
-		index = "playstation",
-		name = "Playstation",
-		type = "Comum",
-		economy = 100,
-		weight = 2.00
-	},
-	["xbox"] = {
-		index = "xbox",
-		name = "Xbox",
-		type = "Comum",
-		economy = 100,
-		weight = 1.75
-	},
-	["legos"] = {
-		index = "legos",
-		name = "Legos",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["ominitrix"] = {
-		index = "ominitrix",
-		name = "Ominitrix",
-		type = "Comum",
-		economy = 85,
-		weight = 0.50
-	},
-	["bracelet"] = {
-		index = "bracelet",
-		name = "Bracelete",
-		type = "Comum",
-		economy = 95,
-		weight = 0.25
-	},
-	["dildo"] = {
-		index = "dildo",
-		name = "Vibrador",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["spray01"] = {
-		index = "spray01",
-		name = "Desodorante",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["spray02"] = {
-		index = "spray02",
-		name = "Antisséptico",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["spray03"] = {
-		index = "spray03",
-		name = "Desodorante",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["spray04"] = {
-		index = "spray04",
-		name = "Desodorante",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["brick"] = {
-		index = "brick",
-		name = "Tijolo",
-		type = "Comum",
-		economy = 30,
-		weight = 0.50
-	},
-	["dices"] = {
-		index = "dices",
-		name = "Dados",
-		type = "Usável",
-		economy = 40,
-		weight = 0.25
-	},
-	["dish"] = {
-		index = "dish",
-		name = "Prato",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["pan"] = {
-		index = "pan",
-		name = "Panela",
-		type = "Usável",
-		economy = 125,
-		weight = 0.50
-	},
-	["sneakers"] = {
-		index = "sneakers",
-		name = "Tenis",
-		type = "Comum",
-		economy = 115,
-		weight = 0.50
-	},
-	["fan"] = {
-		index = "fan",
-		name = "Ventilador",
-		type = "Comum",
-		economy = 85,
-		weight = 0.50
-	},
-	["rimel"] = {
-		index = "rimel",
-		name = "Rímel",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["blender"] = {
-		index = "blender",
-		name = "Liquidificador",
-		type = "Usável",
-		economy = 85,
-		weight = 0.50
-	},
-	["switch"] = {
-		index = "switch",
-		name = "Interruptor",
-		type = "Comum",
-		economy = 35,
-		weight = 0.25
-	},
-	["horseshoe"] = {
-		index = "horseshoe",
-		name = "Ferradura",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["brush"] = {
-		index = "brush",
-		name = "Escova",
-		type = "Comum",
-		economy = 85,
-		weight = 0.25
-	},
-	["domino"] = {
-		index = "domino",
-		name = "Dominó",
-		type = "Comum",
-		economy = 65,
-		weight = 0.25
-	},
-	["floppy"] = {
-		index = "floppy",
-		name = "Disquete",
-		type = "Comum",
-		economy = 55,
-		weight = 0.15
-	},
-	["cup"] = {
-		index = "cup",
-		name = "Cálice",
-		type = "Comum",
-		economy = 125,
-		weight = 0.25
-	},
-	["deck"] = {
-		index = "deck",
-		name = "Baralho",
-		type = "Usável",
-		economy = 75,
-		weight = 0.15
-	},
-	["eraser"] = {
-		index = "eraser",
-		name = "Apagador",
-		type = "Comum",
-		economy = 75,
-		weight = 0.15
-	},
-	["pliers"] = {
-		index = "pliers",
-		name = "Alicate",
-		type = "Comum",
-		economy = 75,
-		weight = 0.25
-	},
-	["lampshade"] = {
-		index = "lampshade",
-		name = "Abajur",
-		type = "Comum",
-		economy = 115,
-		weight = 0.50
-	},
-	["soap"] = {
-		index = "soap",
-		name = "Sabonete",
-		type = "Usável",
-		economy = 75,
-		weight = 0.25
-	},
-	["slipper"] = {
-		index = "slipper",
-		name = "Chinelo",
-		type = "Comum",
-		economy = 75,
-		weight = 0.50
-	},
-	["pendrive"] = {
-		index = "pendrive",
-		name = "Pendrive",
-		type = "Comum",
-		durability = 3,
-		economy = 525,
-		weight = 0.25
 	},
 	
 	-- CLOTHES
