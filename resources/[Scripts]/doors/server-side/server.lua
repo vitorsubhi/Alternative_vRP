@@ -96,6 +96,12 @@ AddEventHandler("vRP:playerSpawn",function(user_id,source)
 	TriggerClientEvent("doors:doorsUpdate",source,doors)
 end)
 
+AddEventHandler('onResourceStart', function(resource)
+	if resource == "doors" then
+		Wait(10000)
+		TriggerClientEvent("doors:doorsUpdate",-1,doors)
+    end
+end)
 -- Citizen.CreateThread(function()
 -- 	Citizen.Wait(1000)
 -- 	TriggerClientEvent("doors:doorsUpdate",-1,doors)
