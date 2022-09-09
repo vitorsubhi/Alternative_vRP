@@ -97,6 +97,14 @@ RegisterCommand("globalFunctions",function(source,args)
 				exports["dynamic"]:AddButton("Seguir","Seguir o proprietário.","dynamic:animalFunctions","seguir","animal",false)
 				exports["dynamic"]:AddButton("Colocar no Veículo","Colocar o animal no veículo.","dynamic:animalFunctions","colocar","animal",false)
 				exports["dynamic"]:AddButton("Remover do Veículo","Remover o animal no veículo.","dynamic:animalFunctions","remover","animal",false)
+					exports["dynamic"]:AddButton("Deitar","Mandar o cachorro deitar.","dynamic:animalAnimations","1","animations",false)
+					exports["dynamic"]:AddButton("Latir","Mandar o cachorro latir.","dynamic:animalAnimations","2","animations",false)
+					exports["dynamic"]:AddButton("Sentar","Mandar o cachorro sentar.","dynamic:animalAnimations","3","animations",false)
+					exports["dynamic"]:AddButton("Coçar","Seu pet começa a se coçar.","dynamic:animalAnimations","4","animations",false)
+					exports["dynamic"]:AddButton("Brincar","Brincar com o cachorro.","dynamic:animalAnimations","5","animations",false)
+					exports["dynamic"]:AddButton("Ataque","Mandar o cachorro atacar.","dynamic:animalAnimations","6","animations",false)
+					exports["dynamic"]:AddButton("Pular","Mandar o cachorro pular.","dynamic:animalAnimations","7","animations",false)
+					exports["dynamic"]:AddButton("Postura","Cachorro fica posturado.","dynamic:animalAnimations","8","animations",false)
 			end
 
 			exports["dynamic"]:AddButton("Informações","Todas as informações de sua identidade.","player:identityFunctions","","others",true)
@@ -141,6 +149,7 @@ RegisterCommand("globalFunctions",function(source,args)
 
 			if animalHahs ~= nil then
 				exports["dynamic"]:SubMenu("Domésticos","Todas as funções dos animais domésticos.","animal")
+				exports["dynamic"]:SubMenu("Animações do Animal","Todas as animações dos animais.","animations")
 			end
 
 			exports["dynamic"]:SubMenu("Outros","Todas as funções do personagem.","others")
@@ -276,3 +285,95 @@ AddEventHandler("dynamic:animalFunctions",function(functions)
 		end
 	end
 end)
+
+function cancelEmote()
+	ClearPedTasksImmediately(animalHahs)
+	emotePlaying = false
+end
+
+function playAnimation(dictionary, animation)
+	if emotePlaying then
+		cancelEmote()
+	end
+	RequestAnimDict(dictionary)
+	while not HasAnimDictLoaded(dictionary) do
+		Wait(1)
+	end
+	TaskPlayAnim(animalHahs, dictionary, animation, 8.0, 0.0, -1, 1, 0, 0, 0, 0)
+	emotePlaying = true
+end
+
+RegisterNetEvent("dynamic:animalAnimations")
+AddEventHandler("dynamic:animalAnimations",function(anims)
+	if animalHahs ~= nil then
+    	if anims == "1" then
+          playAnimation("creatures@rottweiler@amb@sleep_in_kennel@","sleep_in_kennel")
+	    elseif anims == "2" then
+            playAnimation("creatures@rottweiler@amb@world_dog_barking@idle_a","idle_a")
+		elseif anims == "3" then
+			playAnimation("creatures@rottweiler@amb@world_dog_sitting@base","base")
+		elseif anims == "4" then
+			playAnimation("creatures@rottweiler@amb@world_dog_sitting@idle_a","idle_a")
+		elseif anims == "5" then
+			playAnimation("creatures@rottweiler@indication@","indicate_high")
+		elseif anims == "6" then
+			playAnimation("creatures@rottweiler@melee@","dog_takedown_from_back")
+		elseif anims == "7" then
+			playAnimation("creatures@rottweiler@melee@streamed_taunts@","taunt_02")
+		elseif anims == "8" then
+			playAnimation("creatures@rottweiler@swim@","swim")
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- DELETEPED
+-----------------------------------------------------------------------------------------------------------------------------------------
+function DeletePed(handle)
+	if DoesEntityExist(handle) then
+		SetEntityAsMissionEntity(handle, true, true)
+		DeleteEntity(handle)
+	end
+	animalHahs = nil
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- THREADINIT
+-----------------------------------------------------------------------------------------------------------------------------------------
+--[[Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(30)
+        if balle then
+            local coords1 = GetEntityCoords(PlayerPedId())
+            local coords2 = GetEntityCoords(animalHahs)
+            local distance  = GetDistanceBetweenCoords(objCoords, coords2, true)
+            local distance2 = GetDistanceBetweenCoords(coords1, coords2, true)
+
+            if distance < 0.5 then
+                local boneIndex = GetPedBoneIndex(animalHahs, 17188)
+                AttachEntityToEntity(object, animalHahs, boneIndex, 0.120, 0.010, 0.010, 5.0, 150.0, 0.0, true, true, false, true, 1, true)
+                TaskGoToCoordAnyMeans(animalHahs, coords1, 5.0, 0, 0, 786603, 0xbf800000)
+                balle = false
+                getball = true
+            end
+        end
+
+        if getball then
+            local coords1 = GetEntityCoords(PlayerPedId())
+            local coords2 = GetEntityCoords(animalHahs)
+            local distance2 = GetDistanceBetweenCoords(coords1, coords2, true)
+
+            if distance2 < 1.5 then
+                DetachEntity(object,false,false)
+                Citizen.Wait(50)
+                SetEntityAsMissionEntity(object)
+                DeleteEntity(object)
+                GiveWeaponToPed(PlayerPedId(), GetHashKey("WEAPON_BALL"), 1, false, true)
+                local GroupHandle = GetPlayerGroup(PlayerId())
+                SetGroupSeparationRange(GroupHandle, 999999.9)
+                SetPedNeverLeavesGroup(animalHahs, true)
+                SetPedAsGroupMember(animalHahs, GroupHandle)
+                getball = false
+            end
+        end
+    end
+end)]]
