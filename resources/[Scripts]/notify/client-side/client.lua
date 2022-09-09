@@ -43,7 +43,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- NOTIFY CALL
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("notify",function(source,args)
+RegisterCommand("notify",function(source,args,rawCommand)
 	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
 		SendNUIMessage({ type = 'notifyCall', action = "showAll" })
 	end
@@ -287,7 +287,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TOGGLERADAR
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("toggleRadar",function(source,args)
+RegisterCommand("toggleRadar",function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	if IsPedInAnyPoliceVehicle(ped) and policeService then
 		if policeRadar then
@@ -302,7 +302,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TOGGLEFREEZE
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("toggleFreeze",function(source,args)
+RegisterCommand("toggleFreeze",function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	if IsPedInAnyPoliceVehicle(ped) and policeService then
 		policeFreeze = not policeFreeze
@@ -311,7 +311,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TENCODE
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("tencode",function(source,args)
+RegisterCommand("tencode",function(source,args,rawCommand)
 	--if policeService then
 		SetNuiFocus(true,true)
 		SetCursorLocation(0.5,0.9)
