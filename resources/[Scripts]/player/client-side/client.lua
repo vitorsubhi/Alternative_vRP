@@ -109,7 +109,7 @@ local weaAttachs = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ATTACHS
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("attachs",function(source,args)
+RegisterCommand("attachs",function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	for k,v in pairs(weaAttachs) do
 		if GetSelectedPedWeapon(ped) == GetHashKey(k) then
@@ -506,7 +506,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FPS
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("fps",function(source,args)
+RegisterCommand("fps",function(source,args,rawCommand)
 	if args[1] == "on" then
 		SetTimecycleModifier("cinema")
 	else
@@ -993,7 +993,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CRUISER
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("cr",function(source,args)
+RegisterCommand("cr",function(source,args,rawCommand)
 	if exports["chat"]:statusChat() then
 		local ped = PlayerPedId()
 		if IsPedInAnyVehicle(ped) then
