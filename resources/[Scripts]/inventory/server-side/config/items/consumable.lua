@@ -163,7 +163,6 @@ local consumable = {
         ["blockButtons"] = true,
         ["animation"] = {"mp_player_intdrink","loop_bottle","vw_prop_casino_water_bottle_01a",49,60309,0.0,0.0,-0.06,0.0,0.0,130.0},
         ["downgradeStress"] = 0,
-        ["upgradeHunger"] = 0,
         ["upgradeThirst"] = 20,
         ["generateItem"] = {
             ["item"] = "emptybottle",
