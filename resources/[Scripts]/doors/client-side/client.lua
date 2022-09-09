@@ -39,10 +39,7 @@ Citizen.CreateThread(function()
 		if doors ~= nil then
 			local ped = PlayerPedId()
 			local coords = GetEntityCoords(ped)
-
-			--local coordss = GetOffsetFromEntityInWorldCoords(ped,0.0,0.3,1.0)
-			--print(coordss["x"],coordss["y"],coordss["z"])
-
+			
 			for k,v in pairs(doors) do
 				local distance = #(coords - vector3(v["x"],v["y"],v["z"]))
 				if distance <= v["distance"] then
