@@ -37,6 +37,23 @@ AddEventHandler("rope:toggleRope",function(pedTarget)
 		end
 	end
 end)
+
+RegisterNetEvent("player:toggleCarregar")
+AddEventHandler("player:toggleCarregar",function(pedTarget)
+	local ped = PlayerPedId()
+	if not IsPedInAnyVehicle(ped) then
+		if not inCarryBlock then
+			if not inCarry then
+				vSERVER.startCarry(pedTarget,"anim@heists@box_carry@","anim@amb@business@bgen@bgen_no_work@","idle","sit_phone_phoneputdown_idle_nowork",0.25,0.1,1.03,pedTarget,100000,90.0,49,33,1)
+			else
+				inCarry = false
+				vRP.removeObjects()
+				DetachEntity(ped,false,false)
+				vSERVER.stopCarry(pedTarget)
+			end
+		end
+	end
+end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SYNCTARGET
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -67,6 +84,7 @@ function cRP.syncTarget(target,animationLib,animation2,distans,distans2,height,l
 	inCarryDict = animationLib
 	inCarryControl = controlFlag
 
+	TriggerEvent("player:applyRope",true)
 	TriggerEvent("cancelando",true)
 	inCarryBlock = true
 	inCarry = true
@@ -102,6 +120,7 @@ function cRP.stopCarry()
 	inCarryBlock = false
 	TriggerEvent("cancelando",false)
 	DetachEntity(PlayerPedId(),false,false)
+	TriggerEvent("player:applyRope",false)
 	vRP.removeObjects()
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -181,13 +200,9 @@ Citizen.CreateThread(function()
 
 	        	for k,id in ipairs(GetActivePlayers()) do
 	        		if ((NetworkIsPlayerActive(id)) and GetPlayerPed(id) ~= PlayerPedId()) then
-				        --x1, y1, z1 = table.unpack(GetEntityCoords(PlayerPedId(),true))
-				        --x2, y2, z2 = table.unpack(GetEntityCoords(GetPlayerPed(id),true))
 						local p1 = GetEntityCoords(PlayerPedId())
 						local p2 = GetEntityCoords(GetPlayerPed(id))
 						local distance = math.floor(#(p2-p1))
-
-				        --distance = math.floor(GetDistanceBetweenCoords(x1, y1, z1, x2, y2, z2,true))
 						if admin then
 					    	if ((distance < cDistance)) then
 					    		if GetPlayerPed(id) ~= -1 and players[id] ~= nil then
