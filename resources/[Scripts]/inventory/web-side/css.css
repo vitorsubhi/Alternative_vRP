@@ -57,6 +57,7 @@ body {
 	width: 20vw;
 	max-width: 115px;
 	height: 12vh;
+	min-height: 110px;
 	display: flex;
 	border-radius: 4px;
 	flex-direction: column;
@@ -263,24 +264,43 @@ input::placeholder {
 	color: #fff;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1366px) {
+	.sections {
+		margin: auto;
+		width: 80vw;
+		height: 80vh;
+		display: block;
+	}
+	
+	.invMiddle {
+		padding: 10px;
+		min-width: 20vh;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+	}
+	.invMiddle div, .invMiddle input {
+		width: 100px;
+		height: 40px;
+		margin:0 auto;
+		display: inline-block;
+	}
+	
+	.invMiddle div:hover, .invMiddle input:hover{
+		color: #fff;
+		background-color: #2e6e4c;
+	}
+
 	.invLeft, .invRight {
-		grid-template-columns: 1fr 1fr;
-	}
-
-	.item {
-
-		height: 20vh;
-	}
-}
-
-@media only screen and (max-width: 1280px) {
-	.invLeft, .invRight {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-
-	.item {
-
-		height: 18vh;
+		border-radius: 10px;
+		border: 1px solid rgba(0,0,0,0.55);
+		width: 80vw;
+		height: 35vh;
+		row-gap: 10px;
+		column-gap: 0px;
+		display: grid;
+		overflow-y: scroll;
+		padding-right: 0px;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	}
 }

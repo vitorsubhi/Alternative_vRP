@@ -440,7 +440,6 @@ const colorPicker = (percent) => {
 }
 
 const updateMochila = () => {
-	console.log(type)
 	$.post("http://inventory/request"+type,JSON.stringify({ craft: selectCraft }),(data) => {
 		$("#weightTextLeft").html(`${(data["invPeso"]).toFixed(2)}   /   ${(data["invMaxpeso"]).toFixed(2)}`);
 		$("#weightBarLeft").html(`<div id="weightContent" style="width: ${data["invPeso"] / data["invMaxpeso"] * 100}%"></div>`);
