@@ -17,7 +17,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHCONTROL
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("vehControl",function(source,args)
+RegisterCommand("vehControl",function(source,args,rawCommand)
 	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not vehMenu then
 		local ped = PlayerPedId()
 		if not IsEntityInWater(ped) and GetEntityHealth(ped) > 101 then
