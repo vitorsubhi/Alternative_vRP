@@ -43,19 +43,7 @@ RegisterCommand("god",function(source,args,rawCommand)
 		end
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- ITEM
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("item",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Moderador") then
-			if args[1] and args[2] and itemBody(args[1]) ~= nil then
-				vRP.generateItem(user_id,args[1],parseInt(args[2]),true)
-			end
-		end
-	end
-end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PRIORITY
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -95,52 +83,7 @@ RegisterCommand("nc",function(source,args,rawCommand)
 		end
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- KICK
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("kick",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Suporte") and parseInt(args[1]) > 0 then
-			TriggerClientEvent("Notify",source,"amarelo","Passaporte <b>"..args[1].."</b> expulso.",5000)
-			vRP.kick(args[1],"Expulso da cidade.")
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- BAN
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("ban",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Suporte") and parseInt(args[1]) > 0 and parseInt(args[2]) > 0 then
-			local days = parseInt(args[2])
-			local nuser_id = parseInt(args[1])
-			local identity = vRP.userIdentity(nuser_id)
-			if identity then
-				vRP.kick(nuser_id,"Banido.")
-				vRP.execute("banneds/insertBanned",{ steam = identity["steam"], days = days })
-				TriggerClientEvent("Notify",source,"amarelo","Passaporte <b>"..nuser_id.."</b> banido por <b>"..days.." dias.",5000)
-			end
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- UNBAN
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("unban",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Suporte") and parseInt(args[1]) > 0 then
-			local nuser_id = parseInt(args[1])
-			local identity = vRP.userIdentity(nuser_id)
-			if identity then
-				vRP.execute("banneds/removeBanned",{ steam = identity["steam"] })
-				TriggerClientEvent("Notify",source,"verde","Passaporte <b>"..nuser_id.."</b> desbanido.",5000)
-			end
-		end
-	end
-end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TPCDS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -162,6 +105,7 @@ RegisterCommand("tpcds",function(source,args,rawCommand)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DEBUG
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -204,30 +148,7 @@ RegisterCommand("cds",function(source,args,rawCommand)
 		end
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- GROUP
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("group",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		-- if vRP.hasGroup(user_id,"Moderador") and parseInt(args[1]) > 0 and args[2] then
-			TriggerClientEvent("Notify",source,"verde","Adicionado <b>"..args[2].."</b> ao passaporte <b>"..args[1].."</b>.",5000)
-			vRP.setPermission(args[1],args[2])
-		-- end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- UNGROUP
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("ungroup",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Moderador") and parseInt(args[1]) > 0 and args[2] then
-			TriggerClientEvent("Notify",source,"verde","Removido <b>"..args[2].."</b> ao passaporte <b>"..args[1].."</b>.",5000)
-			vRP.remPermission(args[1],args[2])
-		end
-	end
-end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TPTOME
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -245,6 +166,7 @@ RegisterCommand("tptome",function(source,args,rawCommand)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TPTO
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -262,6 +184,7 @@ RegisterCommand("tpto",function(source,args,rawCommand)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TPWAY
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -273,6 +196,33 @@ RegisterCommand("tpway",function(source,args,rawCommand)
 		end
 	end
 end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- GROUP
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("group",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		-- if vRP.hasGroup(user_id,"Moderador") and parseInt(args[1]) > 0 and args[2] then
+			TriggerClientEvent("Notify",source,"verde","Adicionado <b>"..args[2].."</b> ao passaporte <b>"..args[1].."</b>.",5000)
+			vRP.setPermission(args[1],args[2])
+		-- end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- UNGROUP
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("ungroup",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Moderador") and parseInt(args[1]) > 0 and args[2] then
+			TriggerClientEvent("Notify",source,"verde","Removido <b>"..args[2].."</b> ao passaporte <b>"..args[1].."</b>.",5000)
+			vRP.remPermission(args[1],args[2])
+		end
+	end
+end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TPWAY
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -284,45 +234,7 @@ RegisterCommand("limbo",function(source,args,rawCommand)
 		end
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- HASH
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("hash",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Admin") then
-			local vehicle = vRPC.vehicleHash(source)
-			if vehicle then
-				print(vehicle)
-			end
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- TUNING
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("tuning",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Suporte") then
-			TriggerClientEvent("admin:vehicleTuning",source)
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- FIX
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("fix",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasGroup(user_id,"Moderador") then
-			local vehicle,vehNet,vehPlate = vRPC.vehList(source,10)
-			if vehicle then
-				TriggerClientEvent("inventory:repairAdmin",-1,vehNet,vehPlate)
-			end
-		end
-	end
-end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- LIMPAREA
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -337,6 +249,7 @@ RegisterCommand("limparea",function(source,args,rawCommand)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PLAYERS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -348,6 +261,7 @@ RegisterCommand("players",function(source,args,rawCommand)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CDS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -364,6 +278,7 @@ function cRP.buttonTxt()
 		end
 	end
 end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ANNOUNCE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -380,6 +295,7 @@ RegisterCommand("announce",function(source,args,rawCommand)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONSOLE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -388,20 +304,21 @@ RegisterCommand("console",function(source,args,rawCommand)
 		TriggerClientEvent("smartphone:createSMS",-1,"Governador",rawCommand:sub(9))
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- KICKALL
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("kickall",function(source,args,rawCommand)
-	if source == 0 then
-		local playerList = vRP.userList()
-		for k,v in pairs(playerList) do
-			vRP.kick(k,"Desconectado, a cidade reiniciou.")
-			Citizen.Wait(100)
-		end
 
-		TriggerEvent("admin:KickAll")
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- ITEM
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("item",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Moderador") then
+			if args[1] and args[2] and itemBody(args[1]) ~= nil then
+				vRP.generateItem(user_id,args[1],parseInt(args[2]),true)
+			end
+		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ITEMALL
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -417,6 +334,180 @@ RegisterCommand("itemall",function(source,args,rawCommand)
 			end
 
 			TriggerClientEvent("Notify",source,"verde","Envio concluído.",10000)
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- KICK
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("kick",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Suporte") and parseInt(args[1]) > 0 then
+			TriggerClientEvent("Notify",source,"amarelo","Passaporte <b>"..args[1].."</b> expulso.",5000)
+			vRP.kick(args[1],"Expulso da cidade.")
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- KICKALL
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("kickall",function(source,args,rawCommand)
+	if source == 0 then
+		local playerList = vRP.userList()
+		for k,v in pairs(playerList) do
+			vRP.kick(k,"Desconectado, a cidade reiniciou.")
+			Citizen.Wait(100)
+		end
+
+		TriggerEvent("admin:KickAll")
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- WL
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("wl",function(source,args,rawCommand)
+    local user_id = vRP.getUserId(source)
+    if user_id then
+        if vRP.hasPermission(user_id,"Whitelist") then
+            vRP.execute("accounts/infosWhitelist",{ steam = tostring(args[1]), whitelist = 1 })
+			TriggerClientEvent("Notify",source,"amarelo","Você liberou a whitelist de: <b>"..args[1].."</b>",10000)
+            vRP.Log("```prolog\n[ID]: "..user_id.."\n[LIBEROU WL]: "..args[1].." "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```", "whitelist")
+        end
+    end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- UNWL
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("unwl",function(source,args,rawCommand)
+    local user_id = vRP.getUserId(source)
+    if user_id then
+        if vRP.hasPermission(user_id,"Whitelist") then
+			vRP.kick(args[1],"Você perdeu a sua Whitelist na Cidade.")
+            vRP.execute("accounts/infosWhitelist",{ steam = tostring(args[1]), whitelist = 0 })
+			TriggerClientEvent("Notify",source,"amarelo","Você retirou a whitelist de: <b>"..args[1].."</b>",10000)
+            vRP.Log("```prolog\n[ID]: "..user_id.."\n[BLOQUEOU WL]: "..args[1].." "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```", "whitelist")
+        end
+    end
+end)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- BAN
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("ban",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Suporte") and parseInt(args[1]) > 0 and parseInt(args[2]) > 0 then
+			local days = parseInt(args[2])
+			local nuser_id = parseInt(args[1])
+			local identity = vRP.userIdentity(nuser_id)
+			if identity then
+				vRP.kick(nuser_id,"Banido.")
+				vRP.execute("banneds/insertBanned",{ steam = identity["steam"], days = days })
+				TriggerClientEvent("Notify",source,"amarelo","Passaporte <b>"..nuser_id.."</b> banido por <b>"..days.." dias.",5000)
+			end
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- UNBAN
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("unban",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Suporte") and parseInt(args[1]) > 0 then
+			local nuser_id = parseInt(args[1])
+			local identity = vRP.userIdentity(nuser_id)
+			if identity then
+				vRP.execute("banneds/removeBanned",{ steam = identity["steam"] })
+				TriggerClientEvent("Notify",source,"verde","Passaporte <b>"..nuser_id.."</b> desbanido.",5000)
+			end
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- HASH
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("hash",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Admin") then
+			local vehicle = vRPC.vehicleHash(source)
+			if vehicle then
+				print(vehicle)
+			end
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- FIX
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("fix",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Moderador") then
+			local vehicle,vehNet,vehPlate = vRPC.vehList(source,10)
+			if vehicle then
+				TriggerClientEvent("inventory:repairAdmin",-1,vehNet,vehPlate)
+			end
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- TUNING
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("tuning",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		if vRP.hasGroup(user_id,"Suporte") then
+			TriggerClientEvent("admin:vehicleTuning",source)
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- ADDCAR
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("addcar",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		local identity = vRP.getUserIdentity(user_id)
+		if vRP.hasPermission(user_id,"Admin") and args[1] and args[2] then
+		    local work = false
+		    if args[3] then
+		        work = true
+		    end
+			local nidentity = vRP.getUserIdentity(args[1])
+			vRP.execute("vehicles/addVehicles",{ user_id = parseInt(args[1]), vehicle = args[2], plate = vRP.generatePlate(), work = tostring(work) })
+			TriggerClientEvent("Notify",args[1],"amarelo","Recebido o veículo <b>"..args[2].."</b> em sua garagem.",5000)
+			TriggerClientEvent("Notify",source,"amarelo","Adicionado o veiculo <b>"..args[2].."</b> na garagem de ID <b>"..args[1].."</b>.",10000)
+			vRP.Log("```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[ADICIONOU]: "..args[2].."\n[PARA]:"..parseInt(args[1]).." "..nidentity.name.." "..nidentity.name2.." "..os.date("\n[DATA]: %d/%m/%Y [HORA]: %H:%M:%S").." \r```", "addcar_remcar")
+		end
+	end
+end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- ADDTEMPCAR
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("addtempcar",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		local identity = vRP.getUserIdentity(user_id)
+		if vRP.hasPermission(user_id,"Owner") and args[1] and args[2] and args[3] then
+			local nidentity = vRP.getUserIdentity(args[1])
+			vRP.execute("vehicles/rentalVehicles",{ user_id = parseInt(args[1]), vehicle = args[2], plate = vRP.generatePlate(), work = tostring(false), rental = parseInt(os.time()), rendays = args[3] })
+            TriggerClientEvent("Notify",args[1],"amarelo","Recebido o veículo <b>"..args[2].."</b> por <b>"..args[3].." dias</b> em sua garagem.",5000)
+			TriggerClientEvent("Notify",source,"amarelo","Adicionado o veiculo <b>"..args[2].."</b> por <b>"..args[3].." dias</b> na garagem de ID <b>"..args[1].."</b>.",10000)
+			vRP.Log("```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[ADICIONOU TEMPORARIO]: "..args[2].."\n[PARA]:"..parseInt(args[1]).." "..nidentity.name.." "..nidentity.name2.."\n[DIAS]:"..parseInt(args[3]).." "..os.date("\n[DATA]: %d/%m/%Y [HORA]: %H:%M:%S").." \r```", "addcar_remcar")
 		end
 	end
 end)
