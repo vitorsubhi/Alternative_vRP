@@ -124,15 +124,6 @@ local itemlist = {
 		economy = 725,
 		weight = 2.75
 	},
-	["WEAPON_SWITCHBLADE"] = {
-		index = "switchblade",
-		name = "Canivete",
-		type = "Usável",
-		desc = "Utilizada para remoção de carne.",
-		durability = 14,
-		economy = 725,
-		weight = 0.75
-	},
 	["wheatflour"] = {
 		index = "wheatflour",
 		name = "Farinha de Trigo",
@@ -1844,6 +1835,14 @@ local itemlist = {
 	},
 
 	-- WEAPONS
+	["WEAPON_SWITCHBLADE"] = {
+		index = "switchblade",
+		name = "Canivete",
+		type = "Armamento",
+		durability = 14,
+		economy = 725,
+		weight = 0.75
+	},
 	["WEAPON_HATCHET"] = {
 		index = "hatchet",
 		name = "Machado",
