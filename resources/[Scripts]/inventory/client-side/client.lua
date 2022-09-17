@@ -1054,7 +1054,31 @@ function cRP.wheelChair(vehPlate)
 	SetEntityAsMissionEntity(nveh,true,true)
 	SetModelAsNoLongerNeeded(mHash)
 end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- INVENTORY:REMOVETYRES
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("inventory:removeTyres")
+AddEventHandler("inventory:removeTyres",function(Entity)
+	if GetVehicleDoorLockStatus(Entity[3]) == 1 then
+		if Weapon == "WEAPON_WRENCH" then
+			local ped = PlayerPedId()
+			local coords = GetEntityCoords(ped)
 
+			for k,Tyre in pairs(tyreList) do
+				local Selected = GetEntityBoneIndexByName(Entity[3],k)
+				if Selected ~= -1 then
+					local coordsWheel = GetWorldPositionOfEntityBone(Entity[3],Selected)
+					local distance = #(coords - coordsWheel)
+					if distance <= 1.0 then
+						TriggerServerEvent("inventory:removeTyres",Entity,Tyre)
+					end
+				end
+			end
+		else
+			TriggerEvent("Notify","amarelo","<b>Chave Inglesa</b> não encontrada.",5000)
+		end
+	end
+end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- WHEELTREADS
 -----------------------------------------------------------------------------------------------------------------------------------------
