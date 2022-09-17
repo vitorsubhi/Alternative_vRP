@@ -96,13 +96,25 @@ local permissions = {
 		["Rosas"] = true
 	},
 
+	["Metanfetamina"] = {
+		["Metanfetamina"] = true
+	},
+	["Maconha"] = {
+		["Maconha"] = true
+	},
+	["Cocaina"] = {
+		["Cocaina"] = true
+	},
+
 	-- Mecânicas --
 	["MechanicS"] = {
 		["MechanicS"] = true
 	},
+
 	["MechanicN"] = {
 		["MechanicN"] = true
 	},
+
 	["Mechanic"] = {
 		["MechanicN"] = true,
         ["MechanicS"] = true
