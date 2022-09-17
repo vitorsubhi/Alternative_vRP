@@ -575,9 +575,48 @@ local paramedicMenu = {
 	}
 }
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- PLAYERVEH
+-----------------------------------------------------------------------------------------------------------------------------------------
+local playerVeh = {
+	{
+		event = "trunkchest:openTrunk",
+		label = "Abrir Porta-Malas",
+		tunnel = "server"
+	},{
+		event = "inventory:applyPlate",
+		label = "Trocar Placa",
+		tunnel = "police"
+	},{
+		event = "garages:vehicleKey",
+		label = "Criar Chave Cópia",
+		tunnel = "police"
+	},{
+		event = "inventory:stealTrunk",
+		label = "Arrombar Porta-Malas",
+		tunnel = "client"
+	},{
+		event = "player:enterTrunk",
+		label = "Entrar no Porta-Malas",
+		tunnel = "client"
+	},{
+		event = "inventory:removeTyres",
+		label = "Retirar Pneu",
+		tunnel = "client"
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- POLICEVEH
 -----------------------------------------------------------------------------------------------------------------------------------------
 local policeVeh = {
+	{
+		event = "inventory:applyPlate",
+		label = "Trocar Placa",
+		tunnel = "police"
+	},{
+		event = "trunkchest:openTrunk",
+		label = "Abrir Porta-Malas",
+		tunnel = "server"
+	},
 	{
 		event = "police:runPlate",
 		label = "Verificar Placa",
@@ -587,11 +626,23 @@ local policeVeh = {
 		event = "police:impound",
 		label = "Registrar Veículo",
 		tunnel = "police"
+	},{
+		event = "garages:vehicleKey",
+		label = "Criar Chave Cópia",
+		tunnel = "police"
 	},
 	{
 		event = "police:runArrest",
-		label = "Detenção do Veículo",
+		label = "Apreender Veículo",
 		tunnel = "police"
+	},{
+		event = "player:enterTrunk",
+		label = "Entrar no Porta-Malas",
+		tunnel = "client"
+	},{
+		event = "inventory:removeTyres",
+		label = "Retirar Pneu",
+		tunnel = "client"
 	}
 }
 -----------------------------------------------------------------------------------------------------------------------------------------
