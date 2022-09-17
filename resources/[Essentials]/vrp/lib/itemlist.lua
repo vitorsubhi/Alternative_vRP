@@ -1865,9 +1865,9 @@ local itemlist = {
 		["index"] = "m1911",
 		["name"] = "M1911",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 3200,
 		["weight"] = 1.25
 	},
@@ -1875,9 +1875,9 @@ local itemlist = {
 		["index"] = "fiveseven",
 		["name"] = "FN Five SeveN",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 4000,
 		["weight"] = 1.50
 	},
@@ -1885,7 +1885,7 @@ local itemlist = {
 		["index"] = "akcompact",
 		["name"] = "AK Compact",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
 		["economy"] = 12225,
 		["weight"] = 2.25
@@ -1894,9 +1894,9 @@ local itemlist = {
 		["index"] = "kochvp9",
 		["name"] = "Koch Vp9",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = false,
+		["vehicle"] = false,
 		["economy"] = 6300,
 		["weight"] = 1.25
 	},
@@ -1904,9 +1904,9 @@ local itemlist = {
 		["index"] = "atifx45",
 		["name"] = "Ati FX45",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 4000,
 		["weight"] = 1.50
 	},
@@ -1914,9 +1914,9 @@ local itemlist = {
 		["index"] = "tec9",
 		["name"] = "Tec-9",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 6300,
 		["weight"] = 1.75
 	},
@@ -1924,9 +1924,9 @@ local itemlist = {
 		["index"] = "uzi",
 		["name"] = "Uzi",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 12225,
 		["weight"] = 1.25
 	},
@@ -1934,9 +1934,9 @@ local itemlist = {
 		["index"] = "skorpionv61",
 		["name"] = "Skorpion V61",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 12225,
 		["weight"] = 1.75
 	},
@@ -1944,9 +1944,9 @@ local itemlist = {
 		["index"] = "amt380",
 		["name"] = "AMT 380",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 2225,
 		["weight"] = 1.00
 	},
@@ -1954,9 +1954,9 @@ local itemlist = {
 		["index"] = "hkp7m10",
 		["name"] = "HK P7M10",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 2795,
 		["weight"] = 1.25
 	},
@@ -1964,9 +1964,9 @@ local itemlist = {
 		["index"] = "m1922",
 		["name"] = "M1922",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 2875,
 		["weight"] = 1.25
 	},
@@ -1974,9 +1974,9 @@ local itemlist = {
 		["index"] = "desert",
 		["name"] = "Desert Eagle",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 5225,
 		["weight"] = 1.50
 	},
@@ -1984,9 +1984,9 @@ local itemlist = {
 		["index"] = "magnum",
 		["name"] = "Magnum 44",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 14,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 4225,
 		["weight"] = 1.50
 	},
@@ -1994,9 +1994,9 @@ local itemlist = {
 		["index"] = "glock",
 		["name"] = "Glock",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PISTOL_AMMO",
+		["ammo"] = "WEAPON_PISTOL_AMMO",
 		["durability"] = 20,
-		vehicle = true,
+		["vehicle"] = true,
 		["economy"] = 7250,
 		["weight"] = 1.25
 	},
@@ -2004,7 +2004,7 @@ local itemlist = {
 		["index"] = "m4a1",
 		["name"] = "M4A1",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 30,
 		["economy"] = 15250,
 		["weight"] = 7.75
@@ -2013,7 +2013,7 @@ local itemlist = {
 		["index"] = "m4a4",
 		["name"] = "M4A4",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 30,
 		["economy"] = 17250,
 		["weight"] = 8.50
@@ -2022,7 +2022,7 @@ local itemlist = {
 		["index"] = "tar21",
 		["name"] = "Tar-21",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 20,
 		["economy"] = 17775,
 		["weight"] = 7.75
@@ -2031,7 +2031,7 @@ local itemlist = {
 		["index"] = "qbz95",
 		["name"] = "QBZ-95",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 20,
 		["economy"] = 17775,
 		["weight"] = 7.75
@@ -2040,7 +2040,7 @@ local itemlist = {
 		["index"] = "l85",
 		["name"] = "L85",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 20,
 		["economy"] = 18775,
 		["weight"] = 7.75
@@ -2049,7 +2049,7 @@ local itemlist = {
 		["index"] = "g36c",
 		["name"] = "G36C",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 20,
 		["economy"] = 17775,
 		["weight"] = 8.25
@@ -2058,7 +2058,7 @@ local itemlist = {
 		["index"] = "sigsauer556",
 		["name"] = "Sig Sauer 556",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 20,
 		["economy"] = 18775,
 		["weight"] = 8.25
@@ -2067,7 +2067,7 @@ local itemlist = {
 		["index"] = "mossberg590",
 		["name"] = "Mossberg 590",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SHOTGUN_AMMO",
+		["ammo"] = "WEAPON_SHOTGUN_AMMO",
 		["durability"] = 14,
 		["economy"] = 12250,
 		["weight"] = 7.25
@@ -2076,7 +2076,7 @@ local itemlist = {
 		["index"] = "mossberg590a1",
 		["name"] = "Mossberg 590A1",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SHOTGUN_AMMO",
+		["ammo"] = "WEAPON_SHOTGUN_AMMO",
 		["durability"] = 14,
 		["economy"] = 16775,
 		["weight"] = 7.25
@@ -2085,7 +2085,7 @@ local itemlist = {
 		["index"] = "winchester",
 		["name"] = "Winchester 1892",
 		["type"] = "Armamento",
-		ammo = "WEAPON_MUSKET_AMMO",
+		["ammo"] = "WEAPON_MUSKET_AMMO",
 		["durability"] = 14,
 		["economy"] = 2750,
 		["weight"] = 6.25
@@ -2094,7 +2094,7 @@ local itemlist = {
 		["index"] = "sauer101",
 		["name"] = "Sauer 101",
 		["type"] = "Armamento",
-		ammo = "WEAPON_MUSKET_AMMO",
+		["ammo"] = "WEAPON_MUSKET_AMMO",
 		["durability"] = 14,
 		["economy"] = 6750,
 		["weight"] = 8.25
@@ -2103,7 +2103,7 @@ local itemlist = {
 		["index"] = "mossberg500",
 		["name"] = "Mossberg 500",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SHOTGUN_AMMO",
+		["ammo"] = "WEAPON_SHOTGUN_AMMO",
 		["durability"] = 14,
 		["economy"] = 10775,
 		["weight"] = 5.75
@@ -2112,7 +2112,7 @@ local itemlist = {
 		["index"] = "mp5",
 		["name"] = "MP5",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
 		["economy"] = 12250,
 		["weight"] = 5.25
@@ -2121,7 +2121,7 @@ local itemlist = {
 		["index"] = "evo3",
 		["name"] = "Evo-3",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
 		["economy"] = 13225,
 		["weight"] = 5.25
@@ -2130,7 +2130,7 @@ local itemlist = {
 		["index"] = "ak103",
 		["name"] = "AK-103",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 14,
 		["economy"] = 17775,
 		["weight"] = 7.75
@@ -2139,7 +2139,7 @@ local itemlist = {
 		["index"] = "ak74",
 		["name"] = "AK-74",
 		["type"] = "Armamento",
-		ammo = "WEAPON_RIFLE_AMMO",
+		["ammo"] = "WEAPON_RIFLE_AMMO",
 		["durability"] = 14,
 		["economy"] = 19775,
 		["weight"] = 7.75
@@ -2148,7 +2148,7 @@ local itemlist = {
 		["index"] = "steyraug",
 		["name"] = "Steyr AUG",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
 		["economy"] = 12225,
 		["weight"] = 5.75
@@ -2157,7 +2157,7 @@ local itemlist = {
 		["index"] = "thompson",
 		["name"] = "Thompson",
 		["type"] = "Armamento",
-		ammo = "WEAPON_SMG_AMMO",
+		["ammo"] = "WEAPON_SMG_AMMO",
 		["durability"] = 14,
 		["economy"] = 12225,
 		["weight"] = 6.25
@@ -2166,7 +2166,7 @@ local itemlist = {
 		["index"] = "gallon",
 		["name"] = "Galão",
 		["type"] = "Armamento",
-		ammo = "WEAPON_PETROLCAN_AMMO",
+		["ammo"] = "WEAPON_PETROLCAN_AMMO",
 		["weight"] = 1.25
 	},
 	["GADGET_PARACHUTE"] = {
@@ -2516,7 +2516,7 @@ local itemlist = {
 -- ITEMBODY
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemBody(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]
@@ -2526,7 +2526,7 @@ end
 -- ITEMINDEX
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemIndex(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["index"]
@@ -2536,7 +2536,7 @@ end
 -- ITEMNAME
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemName(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["name"]
@@ -2548,7 +2548,7 @@ end
 -- ITEMTYPE
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemType(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["type"]
@@ -2558,7 +2558,7 @@ end
 -- ITEMAMMO
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemAmmo(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["ammo"]
@@ -2568,7 +2568,7 @@ end
 -- ITEMVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemVehicle(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["vehicle"] or false
@@ -2580,7 +2580,7 @@ end
 -- ITEMWEIGHT
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemWeight(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["weight"] or 0.0
@@ -2592,7 +2592,7 @@ end
 -- ITEMMAXAMOUNT
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemMaxAmount(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["max"] or nil
@@ -2604,7 +2604,7 @@ end
 -- ITEMDESCRIPTION
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemDescription(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["desc"] or nil
@@ -2616,7 +2616,7 @@ end
 -- ITEMECONOMY
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemEconomy(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["economy"] or "S/V"
@@ -2628,7 +2628,7 @@ end
 -- ITEMDURABILITY
 -----------------------------------------------------------------------------------------------------------------------------------------
 function itemDurability(nameItem)
-	local split["name"] = splitString(nameItem,"-")
+	local splitName = splitString(nameItem,"-")
 
 	if itemlist[splitName[1]] then
 		return itemlist[splitName[1]]["durability"] or false
