@@ -1055,31 +1055,6 @@ function cRP.wheelChair(vehPlate)
 	SetModelAsNoLongerNeeded(mHash)
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
--- INVENTORY:REMOVETYRES
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("inventory:removeTyres")
-AddEventHandler("inventory:removeTyres",function(Entity)
-	if GetVehicleDoorLockStatus(Entity[3]) == 1 then
-		if Weapon == "WEAPON_WRENCH" then
-			local ped = PlayerPedId()
-			local coords = GetEntityCoords(ped)
-
-			for k,Tyre in pairs(tyreList) do
-				local Selected = GetEntityBoneIndexByName(Entity[3],k)
-				if Selected ~= -1 then
-					local coordsWheel = GetWorldPositionOfEntityBone(Entity[3],Selected)
-					local distance = #(coords - coordsWheel)
-					if distance <= 1.0 then
-						TriggerServerEvent("inventory:removeTyres",Entity,Tyre)
-					end
-				end
-			end
-		else
-			TriggerEvent("Notify","amarelo","<b>Chave Inglesa</b> não encontrada.",5000)
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
 -- WHEELTREADS
 -----------------------------------------------------------------------------------------------------------------------------------------
 local wheelChair = false
@@ -1105,3 +1080,86 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 	end
 end)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- TYRELIST
+-----------------------------------------------------------------------------------------------------------------------------------------
+local tyreList = {
+	["wheel_lf"] = 0,
+	["wheel_rf"] = 1,
+	["wheel_lm"] = 2,
+	["wheel_rm"] = 3,
+	["wheel_lr"] = 4,
+	["wheel_rr"] = 5
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- INVENTORY:REMOVETYRES
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("inventory:removeTyres")
+AddEventHandler("inventory:removeTyres",function(Entity)
+	if GetSelectedPedWeapon(ped) ~= GetHashKey("WEAPON_WRENCH") then
+		local ped = PlayerPedId()
+		local coords = GetEntityCoords(ped)
+
+		for k,Tyre in pairs(tyreList) do
+			local Selected = GetEntityBoneIndexByName(Entity[3],k)
+			if Selected ~= -1 then
+				local coordsWheel = GetWorldPositionOfEntityBone(Entity[3],Selected)
+				local distance = #(coords - coordsWheel)
+				if distance <= 1.0 then
+					TriggerServerEvent("inventory:removeTyres",Entity,Tyre)
+				end
+			end
+		end
+	else
+		TriggerEvent("Notify","amarelo","<b>Chave Inglesa</b> não encontrada.",5000)
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- INVENTORY:EXPLODETYRES
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("inventory:explodeTyres")
+AddEventHandler("inventory:explodeTyres",function(vehNet,vehPlate,Tyre)
+	if NetworkDoesNetworkIdExist(vehNet) then
+		local Vehicle = NetToEnt(vehNet)
+		if DoesEntityExist(Vehicle) then
+			if GetVehicleNumberPlateText(Vehicle) == vehPlate then
+				SetVehicleTyreBurst(Vehicle,Tyre,true,1000.0)
+			end
+		end
+	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- TYRESTATUS
+-----------------------------------------------------------------------------------------------------------------------------------------
+function cRP.tyreStatus()
+	local ped = PlayerPedId()
+	if not IsPedInAnyVehicle(ped) then
+		local Vehicle = vRP.nearVehicle(5)
+		local coords = GetEntityCoords(ped)
+
+		for k,Tyre in pairs(tyreList) do
+			local Selected = GetEntityBoneIndexByName(Vehicle,k)
+			if Selected ~= -1 then
+				local coordsWheel = GetWorldPositionOfEntityBone(Vehicle,Selected)
+				local distance = #(coords - coordsWheel)
+				if distance <= 1.0 then
+					return true,Tyre,VehToNet(Vehicle),GetVehicleNumberPlateText(Vehicle)
+				end
+			end
+		end
+	end
+
+	return false
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- TYREHEALTH
+-----------------------------------------------------------------------------------------------------------------------------------------
+function cRP.tyreHealth(vehNet,Tyre)
+	if NetworkDoesNetworkIdExist(vehNet) then
+		local Vehicle = NetToEnt(vehNet)
+		if DoesEntityExist(Vehicle) then
+			return GetTyreHealth(Vehicle,Tyre)
+		end
+	end
+end

@@ -1961,3 +1961,58 @@ AddEventHandler("inventory:verifyObjects",function(entity,service)
 		TriggerClientEvent("Notify",source,"amarelo",nameEmpty.." vazia.",5000)
 	end
 end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- INVENTORY:REMOVETYRES
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterServerEvent("inventory:removeTyres")
+AddEventHandler("inventory:removeTyres",function(Entity,Tyre)
+	local source = source
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		local Vehicle = NetworkGetEntityFromNetworkId(Entity[4])
+		if DoesEntityExist(Vehicle) and not IsPedAPlayer(Vehicle) and GetEntityType(Vehicle) == 2 then
+			if vCLIENT.tyreHealth(source,Entity[4],Tyre) == 1000.0 then
+				if vRP.checkMaxItens(user_id,"tyres",1) then
+					TriggerClientEvent("Notify",source,"amarelo","Limite atingido.",3000)
+					return
+				end
+
+				if vRP.userPlate(Entity[1]) then
+					TriggerClientEvent("inventory:Close",source)
+					TriggerClientEvent("inventory:Buttons",source,true)
+					vRPC.playAnim(source,false,{"anim@amb@clubhouse@tutorial@bkr_tut_ig3@","machinic_loop_mechandplayer"},true)
+
+					if vTASKBAR.genericTask(source) then
+						activeItens[user_id] = 10
+						TriggerClientEvent("Progress",source,10000)
+
+						repeat
+							if activeItens[user_id] == 0 then
+								activeItens[user_id] = nil
+
+								local Vehicle = NetworkGetEntityFromNetworkId(Entity[4])
+								if DoesEntityExist(Vehicle) and not IsPedAPlayer(Vehicle) and GetEntityType(Vehicle) == 2 then
+									if vCLIENT.tyreHealth(source,Entity[4],Tyre) == 1000.0 then
+										vRP.generateItem(user_id,"tires",1)
+
+										local activePlayers = vRPC.activePlayers(source)
+										for _,v in ipairs(activePlayers) do
+											async(function()
+												TriggerClientEvent("inventory:explodeTyres",v,Entity[4],Entity[1],Tyre)
+											end)
+										end
+									end
+								end
+							end
+
+							Citizen.Wait(100)
+						until activeItens[user_id] == nil
+					end
+
+					TriggerClientEvent("inventory:Buttons",source,false)
+					vRPC.removeObjects(source)
+				end
+			end
+		end
+	end
+end)

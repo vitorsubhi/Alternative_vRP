@@ -692,11 +692,51 @@ function playerTargetEnable()
 								SendNUIMessage({ response = "leftTarget" })
 							end
 						end
+					elseif IsEntityAVehicle(entity) then
+						if #(coords - entCoords) <= 1.0 then
+							success = true
+							local vehNet = nil
+							local vehModel = GetEntityModel(entity)
+							SetEntityAsMissionEntity(entity,true,true)
+
+							if NetworkGetEntityIsNetworked(entity) then
+								vehNet = VehToNet(entity)
+							end
+							innerEntity = { GetVehicleNumberPlateText(entity),vRP.vehicleModel(GetEntityModel(entity)),entity,vehNet }
+							SendNUIMessage({ response = "validTarget", data = playerVeh })
+
+							while success and targetActive do
+								local ped = PlayerPedId()
+								local coords = GetEntityCoords(ped)
+								local hit,entCoords,entity = RayCastGamePlayCamera(setDistance)
+
+								DisablePlayerFiring(ped,true)
+
+								if (IsControlJustReleased(1,24) or IsDisabledControlJustReleased(1,24)) then
+									SetCursorLocation(0.5,0.5)
+									SetNuiFocus(true,true)
+								end
+
+								if GetEntityType(entity) == 0 or #(coords - entCoords) > 1.0 then
+									success = false
+								end
+
+								Citizen.Wait(1)
+							end
+
+							SendNUIMessage({ response = "leftTarget" })
+						end
 					elseif IsEntityAVehicle(entity) and policeService then
 						if #(coords - entCoords) <= 1.0 then
 							success = true
+							local vehNet = nil
+							local vehModel = GetEntityModel(entity)
+							SetEntityAsMissionEntity(entity,true,true)
 
-							innerEntity = { GetVehicleNumberPlateText(entity),vRP.vehicleModel(GetEntityModel(entity)) }
+							if NetworkGetEntityIsNetworked(entity) then
+								vehNet = VehToNet(entity)
+							end
+							innerEntity = { GetVehicleNumberPlateText(entity),vRP.vehicleModel(GetEntityModel(entity)),entity,vehNet }
 							SendNUIMessage({ response = "validTarget", data = policeVeh })
 
 							while success and targetActive do
