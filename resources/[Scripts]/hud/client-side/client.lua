@@ -209,7 +209,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HUD
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("hud",function(source,args)
+RegisterCommand("hud",function(source,args,rawCommand)
 	showHud = not showHud
 
 	updateDisplayHud()
@@ -219,7 +219,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- MOVIE
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("movie",function(source,args)
+RegisterCommand("movie",function(source,args,rawCommand)
 	showMovie = not showMovie
 
 	updateDisplayHud()
@@ -425,7 +425,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SEATBELT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("seatbelt",function(source,args)
+RegisterCommand("seatbelt",function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	if inVehicle then
 		if haveBelt then
@@ -440,7 +440,7 @@ RegisterCommand("seatbelt",function(source,args)
 	end
 end)
 
-RegisterCommand('+indicatorlights',function(source,args)
+RegisterCommand('+indicatorlights',function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	local isIn = IsPedInAnyVehicle(ped,false)
 	if isIn then
