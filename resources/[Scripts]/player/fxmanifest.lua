@@ -4,11 +4,11 @@ game "gta5"
 client_scripts {
 	"@PolyZone/client.lua",
 	"@vrp/lib/utils.lua",
-	"client-side/*"
+	"client-side/**/*.lua"
 }
 
 server_scripts {
 	"@vrp/lib/itemlist.lua",
 	"@vrp/lib/utils.lua",
-	"server-side/*"
+	"server-side/**/*.lua"
 }
