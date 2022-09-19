@@ -10,6 +10,24 @@ local consumable = {
             ["drunkTime"] = 90
         }
     },
+    ["bandage"] = {
+        ["ProgressTimer"] = 15,
+        ["blockButtons"] = true,
+        ["animation"] = {"amb@world_human_clipboard@male@idle_a","idle_c","p_whiskey_notop",49,28422,0.0,0.0,0.05,0.0,0.0,0.0},
+        ["upgradeStress"] = 2,
+        ["updateHealth"] = 15
+    },
+    ["medkit"] = {
+        ["ProgressTimer"] = 20,
+        ["blockButtons"] = true,
+        ["animation"] = {"amb@world_human_clipboard@male@idle_a","idle_c","p_whiskey_notop",49,28422,0.0,0.0,0.05,0.0,0.0,0.0},
+        ["resetBleeding"] = true,
+        ["updateHealth"] = 40,
+        ["cooldown"] = {
+            ["type"] = "health",
+            ["delay"] = 60
+        }
+    },
     ["chandon"] = {
         ["ProgressTimer"] = 15,
         ["blockButtons"] = true,
@@ -133,6 +151,14 @@ local consumable = {
         ["upgradeHunger"] = 15,
         ["upgradeThirst"] = 0
     },
+    ["hamburger"] = {
+        ["ProgressTimer"] = 15,
+        ["blockButtons"] = true,
+        ["animation"] = {"mp_player_inteat@burger","mp_player_int_eat_burger","prop_cs_burger_01",49,18905,0.13,0.05,0.02,-50.0,16.0,60.0},
+        ["downgradeStress"] = 0,
+        ["upgradeHunger"] = 15,
+        ["upgradeThirst"] = 0
+    },
     ["sinkalmy"] = {
         ["ProgressTimer"] = 1,
         ["blockButtons"] = true,
@@ -173,44 +199,67 @@ local consumable = {
 
 function useConsumable (source, itemName, slot)
 	local user_id = vRP.getUserId(source)
-    activeItens[user_id] = consumable[itemName]["ProgressTimer"]
-    vRPC.stopActived(source)
-    TriggerClientEvent("Progress",source,consumable[itemName]["ProgressTimer"]*1000)
-    TriggerClientEvent("inventory:Close",source)
-    TriggerClientEvent("inventory:blockButtons",source,consumable[itemName]["blockButtons"])
-    
-    vRPC.createObjects(source, consumable[itemName]["animation"][1], consumable[itemName]["animation"][2],
-    consumable[itemName]["animation"][3], consumable[itemName]["animation"][4], consumable[itemName]["animation"][5],
-    consumable[itemName]["animation"][6], consumable[itemName]["animation"][7], consumable[itemName]["animation"][8],
-    consumable[itemName]["animation"][9], consumable[itemName]["animation"][10], consumable[itemName]["animation"][11])
-
-    repeat
-        if activeItens[user_id] == 0 then
-            activeItens[user_id] = nil
-            vRPC.removeObjects(source,"one")
-            TriggerClientEvent("inventory:blockButtons",source,false)
-
-            if vRP.tryGetInventoryItem(user_id,itemName,1,true,slot) then
-                vRP.upgradeHunger(user_id,consumable[itemName]["upgradeHunger"] or 0)
-                vRP.upgradeThirst(user_id,consumable[itemName]["upgradeThirst"] or 0)
-                vRP.upgradeStress(user_id,consumable[itemName]["upgradeStress"] or 0)
-                vRP.downgradeStress(user_id,consumable[itemName]["downgradeStress"] or 0)
-
-                vRP.chemicalTimer(user_id,consumable[itemName]["chemicalTimer"] or 0)
-
-                if(consumable[itemName]["alcohol"]) then
-                    vRP.alcoholTimer(user_id,consumable[itemName]["alcohol"]["alcoholTimer"])
-                    TriggerClientEvent("setDrunkTime",source,consumable[itemName]["alcohol"]["drunkTime"])
-				end				
-                if(consumable[itemName]["upgradeSpeed"]) then
-                    TriggerClientEvent("setEnergetic",source,consumable[itemName]["upgradeSpeed"]["time"],consumable[itemName]["upgradeSpeed"]["factor"])
-                end
-                if(consumable[itemName]["generateItem"]) then
-                    vRP.generateItem(user_id,consumable[itemName]["generateItem"]["item"],consumable[itemName]["generateItem"]["amount"])
-                end
+    if (consumable[itemName]) then
+        local isCooldown = false
+        if consumable[itemName]["cooldown"] then
+            local cooldownType = consumable[itemName]["cooldown"]["type"]
+            if not (cooldown[cooldownType][user_id] == nil or GetGameTimer() > cooldown[cooldownType][user_id]) then
+                isCooldown = true
             end
         end
+        if not isCooldown then
+            activeItens[user_id] = consumable[itemName]["ProgressTimer"]
+            vRPC.stopActived(source)
+            TriggerClientEvent("Progress",source,consumable[itemName]["ProgressTimer"]*1000)
+            TriggerClientEvent("inventory:Close",source)
+            TriggerClientEvent("inventory:blockButtons",source,consumable[itemName]["blockButtons"])
+            
+            vRPC.createObjects(source, consumable[itemName]["animation"][1], consumable[itemName]["animation"][2],
+            consumable[itemName]["animation"][3], consumable[itemName]["animation"][4], consumable[itemName]["animation"][5],
+            consumable[itemName]["animation"][6], consumable[itemName]["animation"][7], consumable[itemName]["animation"][8],
+            consumable[itemName]["animation"][9], consumable[itemName]["animation"][10], consumable[itemName]["animation"][11])
 
-        Citizen.Wait(500 + consumable[itemName]["ProgressTimer"]*1000)
-    until activeItens[user_id] == nil
+            repeat
+                if activeItens[user_id] == 0 then
+                    activeItens[user_id] = nil
+                    vRPC.removeObjects(source,"one")
+                    TriggerClientEvent("inventory:blockButtons",source,false)
+
+                    if vRP.tryGetInventoryItem(user_id,itemName,1,true,slot) then
+                        vRP.upgradeHunger(user_id,consumable[itemName]["upgradeHunger"] or 0)
+                        vRP.upgradeThirst(user_id,consumable[itemName]["upgradeThirst"] or 0)
+                        vRP.upgradeStress(user_id,consumable[itemName]["upgradeStress"] or 0)
+                        vRP.downgradeStress(user_id,consumable[itemName]["downgradeStress"] or 0)
+                        vRPC.updateHealth(source, consumable[itemName]["updateHealth"] or 0)
+                        vRP.chemicalTimer(user_id,consumable[itemName]["chemicalTimer"] or 0)
+
+                        if consumable[itemName]["cooldown"] then
+                            local cooldownType = consumable[itemName]["cooldown"]["type"]
+                            cooldown[cooldownType][user_id] = GetGameTimer() + consumable[itemName]["cooldown"]["delay"]*1000
+                        end
+                        if(consumable[itemName]["alcohol"]) then
+                            vRP.alcoholTimer(user_id,consumable[itemName]["alcohol"]["alcoholTimer"])
+                            TriggerClientEvent("setDrunkTime",source,consumable[itemName]["alcohol"]["drunkTime"])
+                        end
+                        if(consumable[itemName]["resetBleeding"]) then
+                            TriggerClientEvent("resetBleeding",source)
+                        end		
+                        if(consumable[itemName]["upgradeSpeed"]) then
+                            TriggerClientEvent("setEnergetic",source,consumable[itemName]["upgradeSpeed"]["time"],consumable[itemName]["upgradeSpeed"]["factor"])
+                        end
+                        if(consumable[itemName]["generateItem"]) then
+                            vRP.generateItem(user_id,consumable[itemName]["generateItem"]["item"],consumable[itemName]["generateItem"]["amount"])
+                        end
+                    end
+                end
+
+                Citizen.Wait(500 + consumable[itemName]["ProgressTimer"]*1000)
+            until activeItens[user_id] == nil
+        else
+            local cooldownType = consumable[itemName]["cooldown"]["type"]
+            local waitTime = parseInt((cooldown[cooldownType][user_id] - GetGameTimer()) / 1000)
+            TriggerClientEvent("Notify",source,"azul","Aguarde <b>"..waitTime.." segundos</b>.",5000)
+        end
+    end
+    return
 end
