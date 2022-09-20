@@ -9,7 +9,7 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 local vehMenu = false
 -----------------------------------------------------------------------------------------------------------------------------------------
--- THREADFOCUS
+-- THREADFOCUSno
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
 	SetNuiFocus(false,false)
@@ -21,8 +21,8 @@ RegisterCommand("vehControl",function(source,args,rawCommand)
 	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not vehMenu then
 		local ped = PlayerPedId()
 		if not IsEntityInWater(ped) and GetEntityHealth(ped) > 101 then
-			local vehicle = vRP.vehList(7)
-			if vehicle then
+			local vehicle,vehNet,vehPlate,vehName,vehLock,vehBlock,vehHealth = vRP.vehList(7)
+			if vehicle and not GetVehicleDoorsLockedForPlayer(vehicle) then
 				SendNUIMessage({ show = true })
 				SetCursorLocation(0.5,0.8)
 				SetNuiFocus(true,true)
@@ -49,6 +49,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNUICallback("menuActive",function(data)
 	local ped = PlayerPedId()
+	
 	if GetVehiclePedIsTryingToEnter(ped) <= 0 then
 		if data["active"] == "chest" then
 			TriggerServerEvent("trunkchest:openTrunk")

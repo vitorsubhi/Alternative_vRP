@@ -1,66 +1,86 @@
 * {
 	margin: 0;
 	padding: 0;
+	user-select: none;
 }
 
 html,body {
-	font-size: 12px;
+	color: #ccc;
+	font-size: 13px;
 	overflow: hidden;
 	background: transparent;
-	font-family: "Roboto",Arial,Helvetica,sans-serif;
+	font-family: "Montserrat",sans-serif;
 }
 
-#vehicleBackground {
-	width: 100%;
-	bottom: 90px;
-	display: none;
-	position: fixed;
-}
-
-#vehicleLayout {
-	width: 638px;
-	margin: 0 auto;
+#vehicleMenu {
+	position: absolute;
+	left: 20%;
+	bottom: 30px;
+	display: grid;
+	grid-gap: 10px;
+	transform: scale(.9);
+	grid-template-rows: repeat(4, 50px);
+	grid-template-columns: repeat(2, 200px);
 }
 
 .vehicleButton {
-	float: left;
-	width: 50px;
-	height: 50px;
-	padding: 0 10px 3px;
-	background: #2d2740;
-	border-right: 1px solid #323644;
+  position: relative;
+  display: flex;
+  font-size: 8px;
+	color: #fff;
+	width: 170px;
+	height: 20px;
+  margin-top: 5px;
+	font-weight: 500;
+  border-radius: 5px;
+  padding: 15px 15px;
+	letter-spacing: 1px;
+  transition: all .3s;
+	align-items: center;
+	white-space: nowrap;
+	text-transform: uppercase;
+  background: rgba(17, 17, 17, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+
+.vehicleButton small {
+	opacity: .5;
+	font-weight: 300;
+}
+
+.vehicleButton::before {
+	content: '';
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  left: -1.7px;
+  height: 60%;
+	opacity: .3;
+  border-radius: 30px;
+  background-color: #84b9eb;
+  transform: translate(0,-50%);
+}
+
+.vehicleButton p {
+	display: flex;
+	margin-left: 0px;
+	flex-direction: column;
+}
+
+.vehicleButton img {
+	margin-left: -12px;
+	max-width: 40px;
 }
 
 .vehicleButton:hover {
-	background: #474060;
+	background: rgba(17, 17, 17, 0.8);
 }
 
-.vehicleButton:first-child {
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
+.vehicleButton:hover::before {
+	opacity: 1;
 }
 
-.vehicleButton:last-child {
-	border-right: 0;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
-.ui-helper-hidden-accessible {
-	display: none;
-}
-
-.ui-tooltip {
-	z-index: 9999;
-	padding: 10px 15px;
-	color: #b2aacc;
-	font-size: 11px;
-	border-radius: 4px;
-	position: absolute;
-	background: #2d2740;
-	letter-spacing: 1px;
-}
-
-.ui-tooltip:hover {
-	display: none;
+.vehicleButton:active {
+	transform: scale(1.1);
 }
