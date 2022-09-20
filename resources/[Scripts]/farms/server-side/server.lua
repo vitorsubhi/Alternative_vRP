@@ -18,7 +18,6 @@ function func.checkPermission(perm)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	
-	--return true
 	local taskResult = vTASKBAR.genericTask(source)
 	if taskResult and vRP.hasPermission(user_id,perm) then
 		return true
