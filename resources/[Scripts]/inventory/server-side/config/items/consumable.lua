@@ -126,6 +126,14 @@ local consumable = {
         ["upgradeHunger"] = 10,
         ["upgradeThirst"] = 0
     },
+    ["hamburger"] = {
+        ["ProgressTimer"] = 15,
+        ["blockButtons"] = true,
+        ["animation"] = {"mp_player_inteat@burger","mp_player_int_eat_burger","prop_cs_burger_01",49,18905,0.13,0.05,0.02,-50.0,16.0,60.0},
+        ["downgradeStress"] = 0,
+        ["upgradeHunger"] = 15,
+        ["upgradeThirst"] = 0
+    },
     ["hotdog"] = {
         ["ProgressTimer"] = 15,
         ["blockButtons"] = true,
@@ -147,14 +155,6 @@ local consumable = {
         ["ProgressTimer"] = 15,
         ["blockButtons"] = true,
         ["animation"] = {"mp_player_inteat@burger","mp_player_int_eat_burger","prop_sandwich_01",49,18905,0.13,0.05,0.02,-50.0,16.0,60.0},
-        ["downgradeStress"] = 0,
-        ["upgradeHunger"] = 15,
-        ["upgradeThirst"] = 0
-    },
-    ["hamburger"] = {
-        ["ProgressTimer"] = 15,
-        ["blockButtons"] = true,
-        ["animation"] = {"mp_player_inteat@burger","mp_player_int_eat_burger","prop_cs_burger_01",49,18905,0.13,0.05,0.02,-50.0,16.0,60.0},
         ["downgradeStress"] = 0,
         ["upgradeHunger"] = 15,
         ["upgradeThirst"] = 0
