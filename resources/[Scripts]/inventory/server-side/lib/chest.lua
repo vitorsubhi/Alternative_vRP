@@ -124,13 +124,6 @@ function cRP.storeItem(nameItem,slot,amount,target,chestName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		--[[if fruits[nameItem] and (chestName == "RosasFrutas" or chestName == "LinosFood") then
-
-		elseif noStore[nameItem] or (chestName == "Bullguer" and nameItem ~= "bullguerbox") or ((noCop[splitString(nameItem,"_")[1]] --or noCop[nameItem] or noCop[splitString(nameItem,"-")[1]]) and vRP.hasPermission(user_id,"Police") and chestName ~= "Police") then
-		--	TriggerClientEvent("chest:Update",source,"requestChest")
-		--	TriggerClientEvent("Notify",source,"amarelo","Armazenamento proibido.",5000)
-		--	return
-		--end
 
 		local consultChest = vRP.query("chests/getChests",{ name = chestName })
 		if consultChest[1] then
