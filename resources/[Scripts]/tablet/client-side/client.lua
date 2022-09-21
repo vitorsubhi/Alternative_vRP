@@ -26,7 +26,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TABLET
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("tablet",function(source,args)
+RegisterCommand("tablet",function(source,args,rawCommand)
 	local ped = PlayerPedId()
 	if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and GetEntityHealth(ped) > 101 and not IsEntityInWater(ped) then
 		SetNuiFocus(true,true)
