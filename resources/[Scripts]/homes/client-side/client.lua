@@ -457,7 +457,7 @@ Citizen.CreateThread(function()
 
 										homes["theftCoords"][k] = true
 									else
-										TriggerEvent("cancelando",true)
+										LocalPlayer["state"]["Cancel"] = true
 
 										local taskBar = exports["taskbar"]:taskHomes()
 										if taskBar then
@@ -465,7 +465,7 @@ Citizen.CreateThread(function()
 											homes["theftCoords"][k] = true
 										end
 
-										TriggerEvent("cancelando",false)
+										LocalPlayer["state"]["Cancel"] = false
 									end
 								end
 							end

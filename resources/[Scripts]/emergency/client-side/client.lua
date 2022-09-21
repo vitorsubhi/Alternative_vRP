@@ -388,7 +388,7 @@ AddEventHandler("checkin:initCheck",function()
 				local checkPos = nearestPlayer(v[1],v[2],v[3])
 				if not checkPos then
 					if vSERVER.paymentCheckin() then
-						TriggerEvent("player:blockCommands",true)
+						LocalPlayer["state"]["Commands"] = true
 						TriggerEvent("inventory:preventWeapon",true)
 
 						if GetEntityHealth(ped) <= 101 then
@@ -714,16 +714,16 @@ Citizen.CreateThread(function()
 				if distance <= 1 and GetGameTimer() >= inTimer and IsControlJustPressed(1,38) then
 					inTimer = GetGameTimer() + 3000
 
-					TriggerEvent("cancelando",true)
-					TriggerEvent("player:blockCommands",true)
+					LocalPlayer["state"]["Cancel"] = true
+					LocalPlayer["state"]["Commands"] = true
 					SetEntityHeading(ped,inLocates[inSelect][4])
 					vRP.playAnim(false,{"amb@prop_human_parking_meter@female@idle_a","idle_a_female"},true)
 					SetEntityCoords(ped,inLocates[inSelect][1],inLocates[inSelect][2],inLocates[inSelect][3] - 1,1,0,0,0)
 
 					Citizen.Wait(10000)
 
-					TriggerEvent("player:blockCommands",false)
-					TriggerEvent("cancelando",false)
+					LocalPlayer["state"]["Commands"] = false
+					LocalPlayer["state"]["Cancel"] = false
 					vSERVER.reducePrison()
 					vRP.removeObjects()
 

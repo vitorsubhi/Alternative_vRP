@@ -1245,7 +1245,7 @@ local animacoes = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("emotes")
 AddEventHandler("emotes",function(nome)
-	if (not exports["player"]:blockCommands() and not exports["player"]:handCuff()) or nome == "checkinskyz" then
+	if (not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"]) or nome == "checkinskyz" then
 		local ped = PlayerPedId()
 		if animacoes[nome] and not IsPedArmed(ped,6) and not IsPedSwimming(ped) then
 			if (GetEntityHealth(ped) > 101 or nome == "checkinskyz") and invServer.checkInventory() then

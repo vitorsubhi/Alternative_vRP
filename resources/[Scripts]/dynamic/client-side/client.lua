@@ -14,8 +14,6 @@ vSERVER = Tunnel.getInterface("dynamic")
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local menuOpen = false
-local policeService = false
-local paramedicService = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ANIMAL
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -26,14 +24,14 @@ local animalFollow = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("police:updateService")
 AddEventHandler("police:updateService",function(status)
-	policeService = status
+	LocalPlayer["state"]["Police"] = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PARAMEDIC:UPDATESERVICE
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("paramedic:updateService")
 AddEventHandler("paramedic:updateService",function(status)
-	paramedicService = status
+	LocalPlayer["state"]["Paramedic"] = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ADDBUTTON
@@ -81,7 +79,7 @@ end)
 -- GLOBALFUNCTIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("globalFunctions",function(source,args)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not menuOpen then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not menuOpen then
 		local ped = PlayerPedId()
 		if GetEntityHealth(ped) > 101 then
 			menuOpen = true
@@ -160,8 +158,8 @@ end)
 -- EMERGENCYFUNCTIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("emergencyFunctions",function(source,args)
-	if policeService or paramedicService then
-		if not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not menuOpen then
+	if LocalPlayer["state"]["Police"] or LocalPlayer["state"]["Paramedic"] then
+		if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not menuOpen then
 
 			local ped = PlayerPedId()
 			if GetEntityHealth(ped) > 101 then
@@ -178,7 +176,7 @@ RegisterCommand("emergencyFunctions",function(source,args)
 					exports["dynamic"]:SubMenu("Jogador","Pessoa mais próxima de você.","player")
 				end
 
-				if policeService then
+				if LocalPlayer["state"]["Police"] then
 					exports["dynamic"]:AddButton("Computador","Abrir o dispositivo móvel.","police:openSystem","","utilitys",false)
 					exports["dynamic"]:AddButton("Barreira","Colocar barreira na frente.","police:insertBarrier","","utilitys",false)
 					exports["dynamic"]:AddButton("Invadir","Invadir a residência.","homes:invadeSystem","","utilitys",true)
@@ -192,7 +190,7 @@ RegisterCommand("emergencyFunctions",function(source,args)
 
 					exports["dynamic"]:SubMenu("Fardamentos","Todos os fardamentos policiais.","prePolice")
 					exports["dynamic"]:SubMenu("Utilidades","Todas as funções dos policiais.","utilitys")
-				elseif paramedicService then
+				elseif LocalPlayer["state"]["Paramedic"] then
 					exports["dynamic"]:AddButton("Medical Center","Fardamento de doutor.","player:presetFunctions","3","preMedic",true)
 					exports["dynamic"]:AddButton("Medical Center","Fardamento de paramédico.","player:presetFunctions","4","preMedic",true)
 					exports["dynamic"]:AddButton("Medical Center","Fardamento de paramédico interno.","player:presetFunctions","5","preMedic",true)

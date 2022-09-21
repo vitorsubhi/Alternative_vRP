@@ -16,21 +16,19 @@ local setDistance = 10.0
 local playerActive = false
 local targetActive = false
 local adminService = false
-local policeService = false
-local paramedicService = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- POLICE:UPDATESERVICE
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("police:updateService")
 AddEventHandler("police:updateService",function(status)
-	policeService = status
+	LocalPlayer["state"]["Police"] = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PARAMEDIC:UPDATESERVICE
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("paramedic:updateService")
 AddEventHandler("paramedic:updateService",function(status)
-	paramedicService = status
+	LocalPlayer["state"]["Paramedic"] = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VRP:PLAYERACTIVE
@@ -680,7 +678,7 @@ local adminMenu = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 function playerTargetEnable()
 	if playerActive then
-		if exports["inventory"]:blockInvents() or exports["player"]:blockCommands() or exports["player"]:handCuff() or success or IsPedArmed(PlayerPedId(),6) or IsPedInAnyVehicle(PlayerPedId()) then
+		if LocalPlayer["state"]["Buttons"] or LocalPlayer["state"]["Commands"] or LocalPlayer["state"]["Handcuff"] or success or IsPedArmed(PlayerPedId(),6) or IsPedInAnyVehicle(PlayerPedId()) then
 			return
 		end
 
@@ -777,7 +775,7 @@ function playerTargetEnable()
 
 							SendNUIMessage({ response = "leftTarget" })
 						end
-					elseif IsEntityAVehicle(entity) and policeService then
+					elseif IsEntityAVehicle(entity) and LocalPlayer["state"]["Police"] then
 						if #(coords - entCoords) <= 1.0 then
 							success = true
 							local vehNet = nil
@@ -811,7 +809,7 @@ function playerTargetEnable()
 
 							SendNUIMessage({ response = "leftTarget" })
 						end
-					elseif IsPedAPlayer(entity) and policeService then
+					elseif IsPedAPlayer(entity) and LocalPlayer["state"]["Police"] then
 						if #(coords - entCoords) <= 1.0 then
 							local index = NetworkGetPlayerIndexFromPed(entity)
 							local source = GetPlayerServerId(index)
@@ -841,7 +839,7 @@ function playerTargetEnable()
 
 							SendNUIMessage({ response = "leftTarget" })
 						end
-					elseif IsPedAPlayer(entity) and paramedicService then
+					elseif IsPedAPlayer(entity) and LocalPlayer["state"]["Paramedic"] then
 						if #(coords - entCoords) <= 1.0 then
 							local index = NetworkGetPlayerIndexFromPed(entity)
 							local source = GetPlayerServerId(index)
@@ -987,7 +985,7 @@ local beds = {
 
 RegisterNetEvent("target:animDeitar")
 AddEventHandler("target:animDeitar",function()
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		local ped = PlayerPedId()
 		if GetEntityHealth(ped) > 101 then
 			local objCoords = GetEntityCoords(innerEntity[1])
@@ -1099,7 +1097,7 @@ local chairs = {
 
 RegisterNetEvent("target:animSentar")
 AddEventHandler("target:animSentar",function()
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		local ped = PlayerPedId()
 		if GetEntityHealth(ped) > 101 then
 			local objCoords = GetEntityCoords(innerEntity[1])

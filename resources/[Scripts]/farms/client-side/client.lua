@@ -122,19 +122,19 @@ Citizen.CreateThread(function()
 					ClearPedTasks(ped)
 					if not v["customAnim"] then
 						processo = true
-						TriggerEvent("cancelando",true)
-						TriggerEvent("player:blockCommands",true)
+						LocalPlayer["state"]["Cancel"] = true
+						LocalPlayer["state"]["Commands"] = true
 						TriggerEvent("Progress",v['processDuration'] + 500)
 						SetEntityHeading(ped, v['coords'][4])
 						vRP.playAnim(v["processAnim"][1], {v["processAnim"][2],v["processAnim"][3]}, v["processAnim"][4])
 						Citizen.Wait(v['processDuration'])
 						func.checkPayment(v['id'])
-						TriggerEvent("player:blockCommands",false)
-						TriggerEvent("cancelando",false)
+						LocalPlayer["state"]["Commands"] = false
+						LocalPlayer["state"]["Cancel"] = false
 						processo = false
 					else
-						TriggerEvent("cancelando",true)
-						TriggerEvent("player:blockCommands",true)
+						LocalPlayer["state"]["Cancel"] = true
+						LocalPlayer["state"]["Commands"] = true
 						processo = true
 						load(v["functionAnim"])()
 					end
@@ -223,8 +223,8 @@ function separando()
 			DeleteObject(balde)
 
 			processo = false
-			TriggerEvent("player:blockCommands",false)
-			TriggerEvent("cancelando",false)
+			LocalPlayer["state"]["Commands"] = false
+			LocalPlayer["state"]["Cancel"] = false
 			break
 		end
 	end)
@@ -280,8 +280,8 @@ function liquidos()
             DeleteObject(caderneta)
 			DeleteObject(caneta)
 			processo = false
-			TriggerEvent("player:blockCommands",false)
-			TriggerEvent("cancelando",false)
+			LocalPlayer["state"]["Commands"] = false
+			LocalPlayer["state"]["Cancel"] = false
 			break    
 		end
 	end)
@@ -372,8 +372,8 @@ function embalando()
 			DeleteObject(caderneta)
 			DeleteObject(caneta)
 			processo = false
-			TriggerEvent("player:blockCommands",false)
-			TriggerEvent("cancelando",false)
+			LocalPlayer["state"]["Commands"] = false
+			LocalPlayer["state"]["Cancel"] = false
 			break
 		end
 	end)
@@ -446,8 +446,8 @@ function quebrando()
 			DeleteObject(martelo)
 			DeleteObject(caixa)
 			processo = false
-			TriggerEvent("player:blockCommands",false)
-			TriggerEvent("cancelando",false)
+			LocalPlayer["state"]["Commands"] = false
+			LocalPlayer["state"]["Cancel"] = false
 			break
 		end
 	end)
@@ -536,8 +536,8 @@ function embalando_brinquedo()
             DeleteObject(boneco_pronto)
 			DeleteObject(caixa_fechada)
 			processo = false
-			TriggerEvent("player:blockCommands",false)
-			TriggerEvent("cancelando",false)
+			LocalPlayer["state"]["Commands"] = false
+			LocalPlayer["state"]["Cancel"] = false
 			break
 		end
 	end)
@@ -595,8 +595,8 @@ function despejando()
 			DeleteObject(caixa)
 			DeleteObject(pazinha)
 			processo = false
-			TriggerEvent("player:blockCommands",false)
-			TriggerEvent("cancelando",false)
+			LocalPlayer["state"]["Commands"] = false
+			LocalPlayer["state"]["Cancel"] = false
 			break
 		end
 		return true
@@ -647,8 +647,8 @@ function espalhando()
             DeleteObject(cartao2)
 			DeleteObject(soda)
 			processo = false
-			TriggerEvent("player:blockCommands",false)
-			TriggerEvent("cancelando",false)
+			LocalPlayer["state"]["Commands"] = false
+			LocalPlayer["state"]["Cancel"] = false
 			break
 		end
 		return true

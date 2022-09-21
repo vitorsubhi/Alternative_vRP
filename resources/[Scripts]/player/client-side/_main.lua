@@ -11,6 +11,13 @@ cRP = {}
 Tunnel.bindInterface("player",cRP)
 vSERVER = Tunnel.getInterface("player")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- PLAYER:COMMANDS
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("player:Commands")
+AddEventHandler("player:Commands",function(status)
+	LocalPlayer["state"]["Commands"] = status
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- WEAPONS
 -----------------------------------------------------------------------------------------------------------------------------------------
 local weaAttachs = {
@@ -119,24 +126,7 @@ RegisterCommand("attachs",function(source,args,rawCommand)
 		end
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- BLOCKCOMMANDS
------------------------------------------------------------------------------------------------------------------------------------------
-local blockCommands = false
-RegisterNetEvent("player:blockCommands")
-AddEventHandler("player:blockCommands",function(status)
-	blockCommands = status
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- BLOCKS
------------------------------------------------------------------------------------------------------------------------------------------
-function blocks()
-	return blockCommands
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- BLOCKCOMMANDS
------------------------------------------------------------------------------------------------------------------------------------------
-exports("blockCommands",blocks)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- RECEIVESALARY
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -152,6 +142,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(10000)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- AWAYSYSTEM
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -185,6 +176,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(10000)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SEATSHUFFLE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -205,6 +197,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(100)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SETENERGETIC
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -239,6 +232,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SETECSTASY
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -271,6 +265,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SETMETH
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -301,6 +296,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SETCOCAINE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -331,6 +327,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CLEANEFFECTDRUGS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -344,6 +341,7 @@ AddEventHandler("cleanEffectDrugs",function()
 		StopScreenEffect("DMT_flight")
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SETDRUNK
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -375,6 +373,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(1000)
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SYNCHOODOPTIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -391,6 +390,7 @@ AddEventHandler("player:syncHoodOptions",function(vehIndex,options)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DELETEVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -404,6 +404,7 @@ AddEventHandler("player:deleteVehicle",function(vehIndex,vehPlate)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DELETEOBJECT
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -417,6 +418,7 @@ AddEventHandler("player:deleteObject",function(entIndex)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SYNCDOORSOPTIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -433,6 +435,7 @@ AddEventHandler("player:syncDoorsOptions",function(vehIndex,options)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SYNCWINS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -455,6 +458,7 @@ AddEventHandler("player:syncWins",function(vehIndex,status)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SYNCDOORS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -503,6 +507,7 @@ AddEventHandler("player:syncDoors",function(vehIndex,door)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FPS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -513,6 +518,7 @@ RegisterCommand("fps",function(source,args,rawCommand)
 		ClearTimecycleModifier()
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SEATPLAYER
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -533,52 +539,34 @@ AddEventHandler("player:seatPlayer",function(vehIndex)
 		end
 	end
 end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TOGGLEHANDCUFF
 -----------------------------------------------------------------------------------------------------------------------------------------
-local handcuff = false
 function cRP.toggleHandcuff()
-	if not handcuff then
-		handcuff = true
+	if not LocalPlayer["state"]["Handcuff"] then
 		TriggerEvent("radio:outServers")
 		exports["smartphone"]:closeSmartphone()
 	else
-		handcuff = false
 		vRP.stopAnim(false)
 	end
+	LocalPlayer["state"]["Handcuff"] = not LocalPlayer["state"]["Handcuff"]
 end
------------------------------------------------------------------------------------------------------------------------------------------
--- REMOVEHANDCUFF
------------------------------------------------------------------------------------------------------------------------------------------
-function cRP.removeHandcuff()
-	if handcuff then
-		handcuff = false
-		vRP.stopAnim(false)
-	end
-end
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- GETHANDCUFF
 -----------------------------------------------------------------------------------------------------------------------------------------
 function cRP.getHandcuff()
-	return handcuff
+	return LocalPlayer["state"]["Handcuff"]
 end
------------------------------------------------------------------------------------------------------------------------------------------
--- GETHANDCUFF
------------------------------------------------------------------------------------------------------------------------------------------
-function handcuffs()
-	return handcuff
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- HANDCUFF
------------------------------------------------------------------------------------------------------------------------------------------
-exports("handCuff",handcuffs)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- RESETHANDCUFF
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("resetHandcuff")
 AddEventHandler("resetHandcuff",function()
-	if handcuff then
-		handcuff = false
+	if LocalPlayer["state"]["Handcuff"] then
+		LocalPlayer["state"]["Handcuff"] = false
 		vRP.stopAnim(false)
 	end
 end)
@@ -600,7 +588,7 @@ Citizen.CreateThread(function()
 	while true do
 		local timeDistance = 999
 		local ped = PlayerPedId()
-		if handcuff then
+		if LocalPlayer["state"]["Handcuff"] then
 			timeDistance = 1
 			DisableControlAction(1,18,true)
 			DisableControlAction(1,21,true)
@@ -641,7 +629,7 @@ Citizen.CreateThread(function()
 	while true do
 		local timeDistance = 999
 		local ped = PlayerPedId()
-		if handcuff and GetEntityHealth(ped) > 101 and not startRope then
+		if LocalPlayer["state"]["Handcuff"] and GetEntityHealth(ped) > 101 and not startRope then
 			if not IsEntityPlayingAnim(ped,"mp_arresting","idle",3) then
 				RequestAnimDict("mp_arresting")
 				while not HasAnimDictLoaded("mp_arresting") do
@@ -704,7 +692,6 @@ local paletoBay = PolyZone:Create({
 -----------------------------------------------------------------------------------------------------------------------------------------
 local coolTimers = 0
 local residual = false
-local policeService = false
 local sprayTimers = GetGameTimer()
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- THREADSHOT
@@ -722,7 +709,7 @@ Citizen.CreateThread(function()
 				coolTimers = 3
 
 				local coords = GetEntityCoords(ped)
-				if (losSantos:isPointInside(coords) or sandyShores:isPointInside(coords) or paletoBay:isPointInside(coords)) and not policeService then
+				if (losSantos:isPointInside(coords) or sandyShores:isPointInside(coords) or paletoBay:isPointInside(coords)) and not LocalPlayer["state"]["Police"] then
 					TriggerServerEvent("evidence:dropEvidence","blue")
 					vSERVER.shotsFired()
 				end
@@ -793,7 +780,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("police:updateService")
 AddEventHandler("police:updateService",function(status)
-	policeService = status
+	LocalPlayer["state"]["Police"] = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- APPLYGSR
@@ -918,7 +905,7 @@ AddEventHandler("player:enterTrunk",function()
 							AttachEntityToEntity(ped,vehicle,-1,0.0,-2.2,0.5,0.0,0.0,0.0,false,false,false,false,20,true)
 							Citizen.Wait(500)
 							SetVehicleDoorShut(vehicle,5)
-							blockCommands = true
+							Commands = true
 							inTrunk = true
 						end
 					end
@@ -939,7 +926,7 @@ AddEventHandler("player:checkTrunk",function()
 			SetCarBootOpen(vehicle)
 			Citizen.Wait(750)
 			inTrunk = false
-			blockCommands = false
+			Commands = false
 			DetachEntity(ped,false,false)
 			SetEntityVisible(ped,true,false)
 			SetEntityCoords(ped,GetOffsetFromEntityInWorldCoords(ped,0.0,-1.5,-0.25),1,0,0,0)
@@ -971,7 +958,7 @@ Citizen.CreateThread(function()
 					SetCarBootOpen(vehicle)
 					Citizen.Wait(750)
 					inTrunk = false
-					blockCommands = false
+					Commands = false
 					DetachEntity(ped,false,false)
 					SetEntityVisible(ped,true,false)
 					SetEntityCoords(ped,GetOffsetFromEntityInWorldCoords(ped,0.0,-1.5,-0.25),1,0,0,0)
@@ -980,7 +967,7 @@ Citizen.CreateThread(function()
 				end
 			else
 				inTrunk = false
-				blockCommands = false
+				Commands = false
 				DetachEntity(ped,false,false)
 				SetEntityVisible(ped,true,false)
 				SetEntityCoords(ped,GetOffsetFromEntityInWorldCoords(ped,0.0,-1.5,-0.25),1,0,0,0)

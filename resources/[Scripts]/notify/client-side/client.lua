@@ -44,7 +44,7 @@ end)
 -- NOTIFY CALL
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("notify",function(source,args,rawCommand)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		SendNUIMessage({ type = 'notifyCall', action = "showAll" })
 	end
 end)
@@ -196,13 +196,12 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 local policeRadar = false
 local policeFreeze = false
-local policeService = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- NOTIFYPUSH
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("notifyShooting")
 AddEventHandler("notifyShooting",function(coords)
-	if policeService then
+	if LocalPlayer["state"]["Police"] then
 		TriggerEvent("NotifyPush",{ code = "QRU", title = "Confronto em andamento", x = coords["x"], y = coords["y"], z = coords["z"], criminal = "Disparos de arma de fogo", blipColor = 6 })
 	end
 end)
@@ -228,7 +227,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("police:updateService")
 AddEventHandler("police:updateService",function(status)
-	policeService = status
+	LocalPlayer["state"]["Police"] = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- THREADRADAR
@@ -239,7 +238,7 @@ Citizen.CreateThread(function()
 	while true do
 		local timeDistance = 999
 		local ped = PlayerPedId()
-		if IsPedInAnyPoliceVehicle(ped) and policeService then
+		if IsPedInAnyPoliceVehicle(ped) and LocalPlayer["state"]["Police"] then
 			if policeRadar then
 				if not policeFreeze then
 					timeDistance = 100
@@ -289,7 +288,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("toggleRadar",function(source,args,rawCommand)
 	local ped = PlayerPedId()
-	if IsPedInAnyPoliceVehicle(ped) and policeService then
+	if IsPedInAnyPoliceVehicle(ped) and LocalPlayer["state"]["Police"] then
 		if policeRadar then
 			policeRadar = false
 			SendNUIMessage({ radar = false })
@@ -304,7 +303,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("toggleFreeze",function(source,args,rawCommand)
 	local ped = PlayerPedId()
-	if IsPedInAnyPoliceVehicle(ped) and policeService then
+	if IsPedInAnyPoliceVehicle(ped) and LocalPlayer["state"]["Police"] then
 		policeFreeze = not policeFreeze
 	end
 end)
@@ -312,11 +311,11 @@ end)
 -- TENCODE
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("tencode",function(source,args,rawCommand)
-	--if policeService then
+	if LocalPlayer["state"]["Police"] then
 		SetNuiFocus(true,true)
 		SetCursorLocation(0.5,0.9)
 		SendNUIMessage({ tencode = true })
-	--end
+	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SOUND
@@ -339,6 +338,6 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- KEYMAPPING
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterKeyMapping("tencode","Abrir o código dez","keyboard","f3")
+RegisterKeyMapping("tencode","Abrir o código dez.","keyboard","f3")
 RegisterKeyMapping("toggleRadar","Ativar/Desativar radar das viaturas.","keyboard","N")
 RegisterKeyMapping("toggleFreeze","Travar/Destravar radar das viaturas.","keyboard","M")

@@ -19,7 +19,7 @@ local chatActive = true
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("chatMessage")
 AddEventHandler("chatMessage",function(author,color,text)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		if chatActive then
 			local args = { text }
 			if author ~= "" then
@@ -36,7 +36,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("chatME")
 AddEventHandler("chatME",function(text)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		if chatActive then
 			SendNUIMessage({ type = "ON_MESSAGE", message = { color = {}, multiline = true, args = { text } } })
 			SendNUIMessage({ type = "ON_SCREEN_STATE_CHANGE", shouldHide = false })
@@ -48,7 +48,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("__cfx_internal:serverPrint")
 AddEventHandler("__cfx_internal:serverPrint",function(msg)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		SendNUIMessage({ type = "ON_MESSAGE", message = { templateId = "print", multiline = true, args = { msg } } })
 		chatOpen = false
 	end
@@ -109,7 +109,7 @@ end)
 -- CHAT
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("chat",function(source,args,rawCommand)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		if chatOpen then
 			if chatActive then
 				chatActive = false
@@ -131,7 +131,7 @@ end)
 -- OPENCHAT
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("openChat",function(source,args,rawCommand)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] then
 		chatOpen = true
 		SetNuiFocus(true)
 		SendNUIMessage({ type = "ON_OPEN" })

@@ -229,9 +229,9 @@ AddEventHandler("hunting:animalCutting",function()
 				if IsPedDeadOrDying(animalHunting[k]) and not IsPedAPlayer(animalHunting[k]) then
 					if GetSelectedPedWeapon(ped) == GetHashKey("WEAPON_MACHETE") then
 						TaskTurnPedToFaceEntity(ped,animalHunting[k],-1)
-						TriggerEvent("player:blockCommands",true)
+						LocalPlayer["state"]["Commands"] = true
 						local targetEntity = animalHunting[k]
-						TriggerEvent("cancelando",true)
+						LocalPlayer["state"]["Cancel"] = true
 						animalHunting[k] = nil
 
 						Citizen.Wait(1000)
@@ -241,8 +241,8 @@ AddEventHandler("hunting:animalCutting",function()
 
 						Citizen.Wait(15000)
 
-						TriggerEvent("player:blockCommands",false)
-						TriggerEvent("cancelando",false)
+						LocalPlayer["state"]["Commands"] = false
+						LocalPlayer["state"]["Cancel"] = false
 						vSERVER.animalPayment()
 						vRP.removeObjects()
 

@@ -18,7 +18,7 @@ end)
 -- VEHCONTROL
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("vehControl",function(source,args,rawCommand)
-	if not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not vehMenu then
+	if not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not vehMenu then
 		local ped = PlayerPedId()
 		if not IsEntityInWater(ped) and GetEntityHealth(ped) > 101 then
 			local vehicle,vehNet,vehPlate,vehName,vehLock,vehBlock,vehHealth = vRP.vehList(7)

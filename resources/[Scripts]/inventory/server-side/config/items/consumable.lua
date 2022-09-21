@@ -212,7 +212,7 @@ function useConsumable (source, itemName, slot)
             vRPC.stopActived(source)
             TriggerClientEvent("Progress",source,consumable[itemName]["ProgressTimer"]*1000)
             TriggerClientEvent("inventory:Close",source)
-            TriggerClientEvent("inventory:blockButtons",source,consumable[itemName]["blockButtons"])
+            TriggerClientEvent("inventory:Buttons",source,consumable[itemName]["blockButtons"])
             
             vRPC.createObjects(source, consumable[itemName]["animation"][1], consumable[itemName]["animation"][2],
             consumable[itemName]["animation"][3], consumable[itemName]["animation"][4], consumable[itemName]["animation"][5],
@@ -223,7 +223,7 @@ function useConsumable (source, itemName, slot)
                 if activeItens[user_id] == 0 then
                     activeItens[user_id] = nil
                     vRPC.removeObjects(source,"one")
-                    TriggerClientEvent("inventory:blockButtons",source,false)
+                    TriggerClientEvent("inventory:Buttons",source,false)
 
                     if vRP.tryGetInventoryItem(user_id,itemName,1,true,slot) then
                         vRP.upgradeHunger(user_id,consumable[itemName]["upgradeHunger"] or 0)

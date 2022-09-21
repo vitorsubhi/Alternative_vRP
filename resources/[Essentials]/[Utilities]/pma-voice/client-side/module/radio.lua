@@ -72,7 +72,7 @@ end)
 
 RegisterCommand("+radiotalk",function()
 	local ped = PlayerPedId()
-	if IsPedSwimming(ped) or exports["player"]:handCuff() or IsPlayerFreeAiming(PlayerId()) then
+	if IsPedSwimming(ped) or LocalPlayer["state"]["Handcuff"] or IsPlayerFreeAiming(PlayerId()) then
 		return
 	end
 
@@ -110,7 +110,7 @@ end,false)
 
 RegisterCommand("-radiotalk",function()
 	local ped = PlayerPedId()
-	if IsPedSwimming(ped) or exports["player"]:handCuff() or IsPlayerFreeAiming(PlayerId()) then
+	if IsPedSwimming(ped) or LocalPlayer["state"]["Handcuff"] or IsPlayerFreeAiming(PlayerId()) then
 		return
 	end
 

@@ -28,7 +28,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("tablet",function(source,args,rawCommand)
 	local ped = PlayerPedId()
-	if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and GetEntityHealth(ped) > 101 and not IsEntityInWater(ped) then
+	if not IsPauseMenuActive() and not LocalPlayer["state"]["Buttons"] and not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and GetEntityHealth(ped) > 101 and not IsEntityInWater(ped) then
 		SetNuiFocus(true,true)
 		SetCursorLocation(0.5,0.5)
 		SendNUIMessage({ action = "openSystem" })
@@ -151,7 +151,7 @@ RegisterNUICallback("requestDrive",function(data,cb)
 		local driveIn,vehPlate = vSERVER.startDrive()
 		if driveIn then
 			TriggerEvent("races:insertList",true)
-			TriggerEvent("player:blockCommands",true)
+			LocalPlayer["state"]["Commands"] = true
 			TriggerEvent("Notify","azul","Teste iniciado, para finalizar saia do veículo.",5000)
 
 			Citizen.Wait(1000)
@@ -209,7 +209,7 @@ Citizen.CreateThread(function()
 				vSERVER.removeDrive()
 				DeleteEntity(vehDrive)
 				TriggerEvent("races:insertList",false)
-				TriggerEvent("player:blockCommands",false)
+				LocalPlayer["state"]["Commands"] = false
 				SetEntityCoords(ped,benCoords[1],benCoords[2],benCoords[3],1,0,0,0)
 			end
 		end

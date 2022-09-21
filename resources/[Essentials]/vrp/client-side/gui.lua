@@ -9,38 +9,33 @@ local animDict = nil
 local animName = nil
 local crouch = false
 local celular = false
-local cancelando = false
 local animActived = false
-local casinoActive = false
 local cdBtns = GetGameTimer()
 -----------------------------------------------------------------------------------------------------------------------------------------
--- CASINOACTIVE
+-- LOCALPLAYERS
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("casinoActive")
-AddEventHandler("casinoActive",function(status)
-	casinoActive = status
+LocalPlayer["state"]["Phone"] = false
+LocalPlayer["state"]["Drunk"] = false
+LocalPlayer["state"]["Police"] = false
+LocalPlayer["state"]["Paramedic"] = false
+LocalPlayer["state"]["Cancel"] = false
+LocalPlayer["state"]["Buttons"] = false
+LocalPlayer["state"]["Commands"] = false
+LocalPlayer["state"]["Handcuff"] = false
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- vrp:CANCEL
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent("vrp:Cancel")
+AddEventHandler("vrp:Cancel",function(status)
+	LocalPlayer["state"]["Cancel"] = status
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
--- STATUS:CELULAR
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("status:celular")
-AddEventHandler("status:celular",function(status)
-	celular = status
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- CANCELANDO
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("cancelando")
-AddEventHandler("cancelando",function(status)
-	cancelando = status
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- THREADCANCELANDO
+-- THREADCANCEL
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
 	while true do
 		local timeDistance = 999
-		if cancelando then
+		if LocalPlayer["state"]["Cancel"] then
 			timeDistance = 1
 			DisableControlAction(1,24,true)
 			DisableControlAction(1,25,true)
@@ -62,7 +57,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		local timeDistance = 999
-		if celular or animActived or casinoActive then
+		if LocalPlayer["state"]["Phone"] or animActived then
 			timeDistance = 1
 			DisableControlAction(1,18,true)
 			DisableControlAction(1,24,true)
@@ -286,7 +281,7 @@ RegisterCommand("cRcancelf6",function(source,args,rawCommand)
 		cdBtns = GetGameTimer() + 1000
 
 		local ped = PlayerPedId()
-		if not IsPauseMenuActive() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not casinoActive and GetEntityHealth(ped) > 101 and not celular and not cancelando then
+		if not IsPauseMenuActive() and not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and GetEntityHealth(ped) > 101 and not LocalPlayer["state"]["Phone"] and not LocalPlayer["state"]["Cancel"] then
 			TriggerServerEvent("inventory:Cancel")
 		end
 	end
@@ -296,7 +291,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("cRhandsup",function(source,args,rawCommand)
 	local ped = PlayerPedId()
-	if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not IsPedInAnyVehicle(ped) and not celular and GetEntityHealth(ped) > 101 and not cancelando then
+	if not IsPauseMenuActive() and not LocalPlayer["state"]["Buttons"] and not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not IsPedInAnyVehicle(ped) and not LocalPlayer["state"]["Phone"] and GetEntityHealth(ped) > 101 and not LocalPlayer["state"]["Cancel"] then
 		if IsEntityPlayingAnim(ped,"random@mugging3","handsup_standing_base",3) then
 			StopAnimTask(ped,"random@mugging3","handsup_standing_base",2.0)
 			tvRP.stopActived()
@@ -310,7 +305,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("cRpoint",function(source,args,rawCommand)
 	local ped = PlayerPedId()
-	if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not casinoActive and not cancelando and not celular and not IsPedInAnyVehicle(ped) and GetEntityHealth(ped) > 101 then
+	if not IsPauseMenuActive() and not LocalPlayer["state"]["Buttons"] and not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not LocalPlayer["state"]["Cancel"] and not LocalPlayer["state"]["Phone"] and not IsPedInAnyVehicle(ped) and GetEntityHealth(ped) > 101 then
 		tvRP.loadAnimSet("anim@mp_point")
 
 		if not point then
@@ -338,7 +333,7 @@ RegisterCommand("cRenginecrouch",function(source,args,rawCommand)
 		cdBtns = GetGameTimer() + 1000
 
 		local ped = PlayerPedId()
-		if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not casinoActive and not celular and GetEntityHealth(ped) > 101 and not cancelando then
+		if not IsPauseMenuActive() and not LocalPlayer["state"]["Buttons"] and not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not LocalPlayer["state"]["Phone"] and GetEntityHealth(ped) > 101 and not LocalPlayer["state"]["Cancel"] then
 			if IsPedInAnyVehicle(ped) then
 				local vehicle = GetVehiclePedIsUsing(ped)
 				if GetPedInVehicleSeat(vehicle,-1) == ped then
@@ -377,7 +372,7 @@ RegisterCommand("cRbind",function(source,args,rawCommand)
 		cdBtns = GetGameTimer() + 1000
 
 		local ped = PlayerPedId()
-		if not IsPauseMenuActive() and not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not casinoActive and not celular and GetEntityHealth(ped) > 101 and not cancelando then
+		if not IsPauseMenuActive() and not LocalPlayer["state"]["Buttons"] and not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not LocalPlayer["state"]["Phone"] and GetEntityHealth(ped) > 101 and not LocalPlayer["state"]["Cancel"] then
 			if parseInt(args[1]) >= 1 and parseInt(args[1]) <= 5 then
 				vINVENTORY.useItem(args[1])
 			elseif args[1] == "6" then
@@ -456,7 +451,7 @@ RegisterCommand("lockVehicles",function(source,args,rawCommand)
 		cdBtns = GetGameTimer() + 1000
 
 		local ped = PlayerPedId()
-		if not exports["inventory"]:blockInvents() and not exports["player"]:blockCommands() and not exports["player"]:handCuff() and not casinoActive and not IsPedSwimming(ped) and GetEntityHealth(ped) > 101 then
+		if not LocalPlayer["state"]["Buttons"] and not LocalPlayer["state"]["Commands"] and not LocalPlayer["state"]["Handcuff"] and not IsPedSwimming(ped) and GetEntityHealth(ped) > 101 then
 			local vehicle,vehNet,vehPlate,vehName,vehLock = tvRP.vehList(5)
 			if vehicle then
 				TriggerServerEvent("garages:lockVehicle",vehNet,vehPlate,vehLock)

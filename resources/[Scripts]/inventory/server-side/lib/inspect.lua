@@ -7,7 +7,7 @@ AddEventHandler("police:runInspect",function(entity)
 	local user_id = vRP.getUserId(source)
 	if user_id and vRP.getHealth(source) > 101 then
 		if vRP.hasPermission(user_id,"Police") then
-			TriggerClientEvent("player:blockCommands",entity[1],true)
+			TriggerClientEvent("player:Commands",entity[1],true)
 			TriggerClientEvent("inventory:Close",entity[1])
 			openPlayer[user_id] = vRP.getUserId(entity[1])
 			vCLIENT.toggleCarry(entity[1],source)
@@ -26,7 +26,7 @@ function cRP.resetInspect()
 	if user_id then
 		if openSource[user_id] then
 			if DoesEntityExist(GetPlayerPed(openSource[user_id])) then
-				TriggerClientEvent("player:blockCommands",openSource[user_id],false)
+				TriggerClientEvent("player:Commands",openSource[user_id],false)
 				vCLIENT.toggleCarry(openSource[user_id],source)
 			end
 		end

@@ -208,11 +208,11 @@ function RCCar.AttachPlayer(toggle)
 		
 		TriggerEvent("vrp_prison:showSkate",true)
 		
-		TriggerEvent("cancelando",true)
+		LocalPlayer["state"]["Cancel"] = true
 	elseif not toggle then
 		DetachEntity(ped,false,false)
 		Attached = false
-		TriggerEvent("cancelando",false)
+		LocalPlayer["state"]["Cancel"] = false
 
 		TriggerEvent("vrp_prison:showSkate",false)
 		StopAnimTask(ped,"move_strafe@stealth","idle",1.0)	

@@ -581,7 +581,7 @@ function cRP.useItem(slot,rAmount)
 							TriggerClientEvent("Progress",source,7000)
 							TriggerClientEvent("inventory:Close",source)
 							vRP.removeInventoryItem(user_id,totalName,1,false)
-							TriggerClientEvent("inventory:blockButtons",source,true)
+							TriggerClientEvent("inventory:Buttons",source,true)
 							vRPC.playAnim(source,false,{"anim@heists@ornate_bank@thermal_charge_heels","thermal_charge"},true)
 
 							local ped = GetPlayerPed(source)
@@ -595,7 +595,7 @@ function cRP.useItem(slot,rAmount)
 
 							Citizen.Wait(7000)
 
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 							vRPC.stopAnim(source,false)
 						end
 					end
@@ -641,14 +641,14 @@ function cRP.useItem(slot,rAmount)
 						activeItens[user_id] = 30
 						TriggerClientEvent("Progress",source,30000)
 						TriggerClientEvent("inventory:Close",source)
-						TriggerClientEvent("inventory:blockButtons",source,true)
+						TriggerClientEvent("inventory:Buttons",source,true)
 						vRPC.playAnim(source,false,{"amb@world_human_bum_wash@male@high@base","base"},true)
 
 						repeat
 							if activeItens[user_id] == 0 then
 								activeItens[user_id] = nil
 								vRPC.removeObjects(source)
-								TriggerClientEvent("inventory:blockButtons",source,false)
+								TriggerClientEvent("inventory:Buttons",source,false)
 
 								if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 									vPLAYER.cleanResidual(source)
@@ -668,14 +668,14 @@ function cRP.useItem(slot,rAmount)
 					activeItens[user_id] = 20
 					TriggerClientEvent("Progress",source,20000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 					vRPC.playAnim(source,true,{"clothingtie","try_tie_negative_a"},true)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
 							vRPC.stopAnim(source,false)
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 
 							if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 								vRP.setBackpack(user_id)
@@ -695,13 +695,13 @@ function cRP.useItem(slot,rAmount)
 					activeItens[user_id] = 5
 					TriggerClientEvent("Progress",source,5000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
 							TriggerClientEvent("useBinoculos",source)
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 							vRPC.createObjects(source,"amb@world_human_binoculars@male@enter","enter","prop_binoc_01",50,28422)
 						end
 
@@ -718,13 +718,13 @@ function cRP.useItem(slot,rAmount)
 					activeItens[user_id] = 5
 					TriggerClientEvent("Progress",source,5000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
 							TriggerClientEvent("useCamera",source)
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 							vRPC.createObjects(source,"amb@world_human_paparazzi@male@base","base","prop_pap_camera_01",49,28422)
 						end
 
@@ -748,14 +748,14 @@ function cRP.useItem(slot,rAmount)
 								vRPC.stopActived(source)
 								TriggerClientEvent("Progress",source,15000)
 								TriggerClientEvent("inventory:Close",source)
-								TriggerClientEvent("inventory:blockButtons",source,true)
+								TriggerClientEvent("inventory:Buttons",source,true)
 								vRPC.playAnim(source,false,{"mini@cpr@char_a@cpr_str","cpr_pumpchest"},true)
 
 								repeat
 									if activeItens[user_id] == 0 then
 										activeItens[user_id] = nil
 										vRPC.removeObjects(source)
-										TriggerClientEvent("inventory:blockButtons",source,false)
+										TriggerClientEvent("inventory:Buttons",source,false)
 
 										if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 											vRP.upgradeThirst(user_id,10)
@@ -787,14 +787,14 @@ function cRP.useItem(slot,rAmount)
 						activeItens[user_id] = 3
 						TriggerClientEvent("Progress",source,3000)
 						TriggerClientEvent("inventory:Close",source)
-						TriggerClientEvent("inventory:blockButtons",source,true)
+						TriggerClientEvent("inventory:Buttons",source,true)
 						vRPC.playAnim(source,false,{"anim@mp_fireworks","place_firework_3_box"},true)
 
 						repeat
 							if activeItens[user_id] == 0 then
 								activeItens[user_id] = nil
 								vRPC.stopAnim(source,false)
-								TriggerClientEvent("inventory:blockButtons",source,false)
+								TriggerClientEvent("inventory:Buttons",source,false)
 
 								if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 									TriggerClientEvent("inventory:Firecracker",source)
@@ -813,12 +813,12 @@ function cRP.useItem(slot,rAmount)
 							activeItens[user_id] = 10
 							TriggerClientEvent("Progress",source,10000)
 							TriggerClientEvent("inventory:Close",source)
-							TriggerClientEvent("inventory:blockButtons",source,true)
+							TriggerClientEvent("inventory:Buttons",source,true)
 
 							repeat
 								if activeItens[user_id] == 0 then
 									activeItens[user_id] = nil
-									TriggerClientEvent("inventory:blockButtons",source,false)
+									TriggerClientEvent("inventory:Buttons",source,false)
 
 									if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 										local checkStatus = vPLAYER.gsrCheck(otherPlayer)
@@ -844,12 +844,12 @@ function cRP.useItem(slot,rAmount)
 							activeItens[user_id] = 10
 							TriggerClientEvent("Progress",source,10000)
 							TriggerClientEvent("inventory:Close",source)
-							TriggerClientEvent("inventory:blockButtons",source,true)
+							TriggerClientEvent("inventory:Buttons",source,true)
 
 							repeat
 								if activeItens[user_id] == 0 then
 									activeItens[user_id] = nil
-									TriggerClientEvent("inventory:blockButtons",source,false)
+									TriggerClientEvent("inventory:Buttons",source,false)
 
 									if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 										local weed = vRP.weedReturn(nuser_id)
@@ -917,14 +917,14 @@ function cRP.useItem(slot,rAmount)
 					activeItens[user_id] = 30
 					TriggerClientEvent("Progress",source,30000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 					vRPC.playAnim(source,true,{"clothingtie","try_tie_negative_a"},true)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
 							vRPC.stopAnim(source,false)
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 
 							if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 								armorsItens[user_id] = GetGameTimer() + (30 * 60000)
@@ -940,12 +940,12 @@ function cRP.useItem(slot,rAmount)
 					activeItens[user_id] = 5
 					TriggerClientEvent("Progress",source,5000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 
 							if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 								vCLIENT.parachuteColors(source)
@@ -964,14 +964,14 @@ function cRP.useItem(slot,rAmount)
 							vRPC.stopActived(source)
 							TriggerClientEvent("Progress",source,60000)
 							TriggerClientEvent("inventory:Close",source)
-							TriggerClientEvent("inventory:blockButtons",source,true)
+							TriggerClientEvent("inventory:Buttons",source,true)
 							vRPC.playAnim(source,true,{"anim@amb@clubhouse@tutorial@bkr_tut_ig3@","machinic_loop_mechandplayer"},true)
 
 							repeat
 								if activeItens[user_id] == 0 then
 									activeItens[user_id] = nil
 									vRPC.stopAnim(source,false)
-									TriggerClientEvent("inventory:blockButtons",source,false)
+									TriggerClientEvent("inventory:Buttons",source,false)
 
 									if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 										TriggerClientEvent("hud:plateHardness",-1,vehPlate,1)
@@ -992,7 +992,7 @@ function cRP.useItem(slot,rAmount)
 							vRPC.stopActived(source)
 							activeItens[user_id] = 100
 							TriggerClientEvent("inventory:Close",source)
-							TriggerClientEvent("inventory:blockButtons",source,true)
+							TriggerClientEvent("inventory:Buttons",source,true)
 							vRPC.playAnim(source,false,{"mini@repair","fixing_a_player"},true)
 
 							TriggerClientEvent("player:syncHoodOptions",-1,vehNet,"open")
@@ -1007,7 +1007,7 @@ function cRP.useItem(slot,rAmount)
 
 							TriggerClientEvent("player:syncHoodOptions",-1,vehNet,"close")
 
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 							vRPC.stopAnim(source,false)
 							activeItens[user_id] = nil
 						end
@@ -1021,7 +1021,7 @@ function cRP.useItem(slot,rAmount)
 							activeItens[user_id] = amountItens
 							TriggerClientEvent("inventory:Close",source)
 							TriggerClientEvent("Progress",source,1000 * amountItens)
-							TriggerClientEvent("inventory:blockButtons",source,true)
+							TriggerClientEvent("inventory:Buttons",source,true)
 							TriggerClientEvent("player:syncHoodOptions",-1,vehNet,"open")
 							vRPC.playAnim(source,false,{"mini@repair","fixing_a_player"},true)
 
@@ -1029,7 +1029,7 @@ function cRP.useItem(slot,rAmount)
 								if activeItens[user_id] == 0 then
 									activeItens[user_id] = nil
 									vRPC.stopAnim(source,false)
-									TriggerClientEvent("inventory:blockButtons",source,false)
+									TriggerClientEvent("inventory:Buttons",source,false)
 
 									TriggerClientEvent("player:syncHoodOptions",-1,vehNet,"close")
 
@@ -1057,7 +1057,7 @@ function cRP.useItem(slot,rAmount)
 								activeItens[user_id] = 100
 								vGARAGE.startAnimHotwired(source)
 								TriggerClientEvent("inventory:Close",source)
-								TriggerClientEvent("inventory:blockButtons",source,true)
+								TriggerClientEvent("inventory:Buttons",source,true)
 
 								local taskResult = vTASKBAR.taskLockpick(source)
 								if taskResult then
@@ -1086,14 +1086,14 @@ function cRP.useItem(slot,rAmount)
 									TriggerClientEvent("itensNotify",source,{ "quebrou","lockpick",1,"Lockpick" })
 								end
 
-								TriggerClientEvent("inventory:blockButtons",source,false)
+								TriggerClientEvent("inventory:Buttons",source,false)
 								vGARAGE.stopAnimHotwired(source,vehicle)
 								activeItens[user_id] = nil
 							else
 								vRPC.stopActived(source)
 								activeItens[user_id] = 100
 								TriggerClientEvent("inventory:Close",source)
-								TriggerClientEvent("inventory:blockButtons",source,true)
+								TriggerClientEvent("inventory:Buttons",source,true)
 								vRPC.playAnim(source,false,{"missfbi_s4mop","clean_mop_back_player"},true)
 
 								local taskResult = vTASKBAR.taskLockpick(source)
@@ -1123,7 +1123,7 @@ function cRP.useItem(slot,rAmount)
 									TriggerClientEvent("itensNotify",source,{ "quebrou","lockpick",1,"Lockpick" })
 								end
 
-								TriggerClientEvent("inventory:blockButtons",source,false)
+								TriggerClientEvent("inventory:Buttons",source,false)
 								vRPC.stopAnim(source,false)
 								activeItens[user_id] = nil
 							end
@@ -1138,7 +1138,7 @@ function cRP.useItem(slot,rAmount)
 								activeItens[user_id] = 100
 								vRP.upgradeStress(user_id,2)
 								TriggerClientEvent("inventory:Close",source)
-								TriggerClientEvent("inventory:blockButtons",source,true)
+								TriggerClientEvent("inventory:Buttons",source,true)
 								vRPC.playAnim(source,false,{"missheistfbi3b_ig7","lift_fibagent_loop"},false)
 
 								local taskResult = vTASKBAR.taskLockpick(source)
@@ -1154,19 +1154,19 @@ function cRP.useItem(slot,rAmount)
 									TriggerClientEvent("itensNotify",source,{ "quebrou","lockpick",1,"Lockpick" })
 								end
 
-								TriggerClientEvent("inventory:blockButtons",source,false)
+								TriggerClientEvent("inventory:Buttons",source,false)
 								vRPC.stopAnim(source,false)
 								activeItens[user_id] = nil
 							end
 						end
 					else
 						activeItens[user_id] = 100
-						TriggerClientEvent("inventory:blockButtons",source,true)
-						TriggerClientEvent("player:blockCommands",source,true)
+						TriggerClientEvent("inventory:Buttons",source,true)
+						TriggerClientEvent("player:Commands",source,true)
 
 						local taskResult = vTASKBAR.taskLockpick(source)
 						if taskResult then
-							vPLAYER.removeHandcuff(source)
+							vPLAYER.toggleHandcuff(source)
 							vRPC.stopAnim(source,false)
 						end
 
@@ -1176,8 +1176,8 @@ function cRP.useItem(slot,rAmount)
 							TriggerClientEvent("itensNotify",source,{ "quebrou","lockpick",1,"Lockpick" })
 						end
 
-						TriggerClientEvent("player:blockCommands",source,false)
-						TriggerClientEvent("inventory:blockButtons",source,false)
+						TriggerClientEvent("player:Commands",source,false)
+						TriggerClientEvent("inventory:Buttons",source,false)
 						activeItens[user_id] = nil
 					end
 				return end
@@ -1187,14 +1187,14 @@ function cRP.useItem(slot,rAmount)
 					vRPC.stopActived(source)
 					TriggerClientEvent("Progress",source,15000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 					vRPC.createObjects(source,"mp_player_intdrink","loop_bottle","vw_prop_casino_water_bottle_01a",49,60309,0.0,0.0,-0.06,0.0,0.0,130.0)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
 							vRPC.removeObjects(source,"one")
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 
 							if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 								vRP.upgradeThirst(user_id,50)
@@ -1215,14 +1215,14 @@ function cRP.useItem(slot,rAmount)
 					vRPC.stopActived(source)
 					TriggerClientEvent("Progress",source,15000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 					vRPC.createObjects(source,"mp_player_intdrink","loop_bottle","vw_prop_casino_water_bottle_01a",49,60309,0.0,0.0,-0.06,0.0,0.0,130.0)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
 							vRPC.removeObjects(source,"one")
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 
 							if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 								vRPC.downHealth(source,20)
@@ -1251,7 +1251,7 @@ function cRP.useItem(slot,rAmount)
 					if enemyLocates then
 						activeItens[user_id] = 100
 						TriggerClientEvent("inventory:Close",source)
-						TriggerClientEvent("inventory:blockButtons",source,true)
+						TriggerClientEvent("inventory:Buttons",source,true)
 
 						if not vCLIENT.fishingAnim(source) then
 							vRPC.stopActived(source)
@@ -1273,7 +1273,7 @@ function cRP.useItem(slot,rAmount)
 							end
 						end
 
-						TriggerClientEvent("inventory:blockButtons",source,false)
+						TriggerClientEvent("inventory:Buttons",source,false)
 						activeItens[user_id] = nil
 					end
 				return end
@@ -1300,14 +1300,14 @@ function cRP.useItem(slot,rAmount)
 						vRPC.stopActived(source)
 						activeItens[user_id] = amountItens * 3
 						TriggerClientEvent("inventory:Close",source)
-						TriggerClientEvent("inventory:blockButtons",source,true)
+						TriggerClientEvent("inventory:Buttons",source,true)
 						TriggerClientEvent("Progress",source,amountItens * 3000)
 
 						repeat
 							if activeItens[user_id] == 0 then
 								activeItens[user_id] = nil
 								vRPC.removeObjects(source)
-								TriggerClientEvent("inventory:blockButtons",source,false)
+								TriggerClientEvent("inventory:Buttons",source,false)
 
 								if (vRP.inventoryWeight(user_id) + (itemWeight(totalName) * parseInt(amountItens))) <= vRP.getBackpack(user_id) then
 									if vRP.tryGetInventoryItem(user_id,totalName,amountItens,false,slot) then
@@ -1330,14 +1330,14 @@ function cRP.useItem(slot,rAmount)
 					vRPC.stopActived(source)
 					TriggerClientEvent("Progress",source,15000)
 					TriggerClientEvent("inventory:Close",source)
-					TriggerClientEvent("inventory:blockButtons",source,true)
+					TriggerClientEvent("inventory:Buttons",source,true)
 					vRPC.playAnim(source,true,{"mp_player_inteat@burger","mp_player_int_eat_burger"},true)
 
 					repeat
 						if activeItens[user_id] == 0 then
 							activeItens[user_id] = nil
 							vRPC.stopAnim(source,false)
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 
 							if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 								vRP.upgradeHunger(user_id,3)
@@ -1355,7 +1355,7 @@ function cRP.useItem(slot,rAmount)
 							vRPC.stopActived(source)
 							activeItens[user_id] = 100
 							TriggerClientEvent("inventory:Close",source)
-							TriggerClientEvent("inventory:blockButtons",source,true)
+							TriggerClientEvent("inventory:Buttons",source,true)
 							vRPC.playAnim(source,false,{"anim@amb@clubhouse@tutorial@bkr_tut_ig3@","machinic_loop_mechandplayer"},true)
 
 							local taskResult = vTASKBAR.taskMechanic(source)
@@ -1365,7 +1365,7 @@ function cRP.useItem(slot,rAmount)
 								end
 							end
 
-							TriggerClientEvent("inventory:blockButtons",source,false)
+							TriggerClientEvent("inventory:Buttons",source,false)
 							vRPC.stopAnim(source,false)
 							activeItens[user_id] = nil
 						end
@@ -1414,12 +1414,12 @@ function cRP.useItem(slot,rAmount)
 						activeItens[user_id] = 10
 						TriggerClientEvent("Progress",source,10000)
 						TriggerClientEvent("inventory:Close",source)
-						TriggerClientEvent("inventory:blockButtons",source,true)
+						TriggerClientEvent("inventory:Buttons",source,true)
 
 						repeat
 							if activeItens[user_id] == 0 then
 								activeItens[user_id] = nil
-								TriggerClientEvent("inventory:blockButtons",source,false)
+								TriggerClientEvent("inventory:Buttons",source,false)
 
 								if vRP.tryGetInventoryItem(user_id,totalName,1,true,slot) then
 									local plate = vRP.generatePlate()
@@ -1457,7 +1457,7 @@ function cRP.useItem(slot,rAmount)
 								vPLAYER.toggleHandcuff(otherPlayer)
 								TriggerClientEvent("sounds:source",source,"uncuff",0.5)
 								TriggerClientEvent("sounds:source",otherPlayer,"uncuff",0.5)
-								TriggerClientEvent("player:blockCommands",otherPlayer,false)
+								TriggerClientEvent("player:Commands",otherPlayer,false)
 							else
 								TriggerClientEvent("toggleCarry",otherPlayer,source)
 								vRPC.playAnim(otherPlayer,false,{"mp_arrest_paired","crook_p2_back_left"},false)
@@ -1471,7 +1471,7 @@ function cRP.useItem(slot,rAmount)
 								TriggerClientEvent("toggleCarry",otherPlayer,source)
 								TriggerClientEvent("sounds:source",source,"cuff",0.5)
 								TriggerClientEvent("sounds:source",otherPlayer,"cuff",0.5)
-								TriggerClientEvent("player:blockCommands",otherPlayer,true)
+								TriggerClientEvent("player:Commands",otherPlayer,true)
 							end
 						end
 					end
@@ -1777,7 +1777,7 @@ AddEventHandler("inventory:Cancel",function()
 			vRPC.removeObjects(source)
 			vGARAGE.updateHotwired(source,false)
 			TriggerClientEvent("Progress",source,1000)
-			TriggerClientEvent("inventory:blockButtons",source,false)
+			TriggerClientEvent("inventory:Buttons",source,false)
 
 			if verifyObjects[user_id] then
 				trashTables[verifyObjects[user_id][1]][verifyObjects[user_id][2]] = nil
@@ -1905,14 +1905,14 @@ AddEventHandler("inventory:verifyObjects",function(entity,service)
 			TriggerClientEvent("Progress",source,6000)
 			TriggerClientEvent("inventory:Close",source)
 			verifyObjects[user_id] = { model,netObjects }
-			TriggerClientEvent("inventory:blockButtons",source,true)
+			TriggerClientEvent("inventory:Buttons",source,true)
 			vRPC.playAnim(source,false,{"amb@prop_human_parking_meter@female@idle_a","idle_a_female"},true)
 
 			repeat
 				if activeItens[user_id] == 0 then
 					activeItens[user_id] = nil
 					vRPC.stopAnim(source,false)
-					TriggerClientEvent("inventory:blockButtons",source,false)
+					TriggerClientEvent("inventory:Buttons",source,false)
 
 					local itemSelect = { "",1 }
 					local randItem = math.random(250)

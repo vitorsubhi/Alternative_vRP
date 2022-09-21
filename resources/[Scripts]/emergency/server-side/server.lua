@@ -355,7 +355,7 @@ AddEventHandler("paramedic:reanimar",function(entity)
 			local nuser_id = vRP.getUserId(entity)
 
 			TriggerClientEvent("Progress",source,10000)
-			TriggerClientEvent("cancelando",source,true)
+			TriggerClientEvent("vrp:Cancel",source,true)
 			vRPC.playAnim(source,false,{"mini@cpr@char_a@cpr_str","cpr_pumpchest"},true)
 
 			SetTimeout(10000,function()
@@ -364,7 +364,7 @@ AddEventHandler("paramedic:reanimar",function(entity)
 				vRP.upgradeHunger(nuser_id,10)
 				vRPC.revivePlayer(entity,110)
 				TriggerClientEvent("resetBleeding",entity)
-				TriggerClientEvent("cancelando",source,false)
+				TriggerClientEvent("vrp:Cancel",source,false)
 			end)
 		end
 	end

@@ -170,7 +170,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 function tvRP.startTreatment()
 	if not treatment then
-		TriggerEvent("player:blockCommands",true)
+		LocalPlayer["state"]["Commands"] = true
 		TriggerEvent("resetDiagnostic")
 		TriggerEvent("resetBleeding")
 		treatment = true
@@ -195,8 +195,8 @@ Citizen.CreateThread(function()
 				else
 					treatment = false
 					ClearPedBloodDamage(ped)
-					TriggerEvent("cancelando",false)
-					TriggerEvent("player:blockCommands",false)
+					LocalPlayer["state"]["Cancel"] = false
+					LocalPlayer["state"]["Commands"] = false
 					TriggerEvent("Notify","verde","Tratamento concluido.",5000)
 				end
 			end

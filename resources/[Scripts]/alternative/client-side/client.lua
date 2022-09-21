@@ -85,7 +85,7 @@ function cRP.syncTarget(target,animationLib,animation2,distans,distans2,height,l
 	inCarryControl = controlFlag
 
 	TriggerEvent("player:applyRope",true)
-	TriggerEvent("cancelando",true)
+	LocalPlayer["state"]["Cancel"] = true
 	inCarryBlock = true
 	inCarry = true
 end
@@ -118,7 +118,7 @@ end
 function cRP.stopCarry()
 	inCarry = false
 	inCarryBlock = false
-	TriggerEvent("cancelando",false)
+	LocalPlayer["state"]["Cancel"] = false
 	DetachEntity(PlayerPedId(),false,false)
 	TriggerEvent("player:applyRope",false)
 	vRP.removeObjects()

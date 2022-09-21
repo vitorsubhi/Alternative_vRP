@@ -130,8 +130,8 @@ Citizen.CreateThread(function()
 								inSeconds = 3
 
 								if works[inService]["collectAnim"] ~= nil then
-									TriggerEvent("cancelando",true)
-									TriggerEvent("player:blockCommands",true)
+									LocalPlayer["state"]["Cancel"] = true
+									LocalPlayer["state"]["Commands"] = true
 									TriggerEvent("Progress",works[inService]["collectDuration"] + 500)
 									SetEntityHeading(ped,works[inService]["collectCoords"][inCollect][4])
 									SetEntityCoords(ped,works[inService]["collectCoords"][inCollect][1],works[inService]["collectCoords"][inCollect][2],works[inService]["collectCoords"][inCollect][3] - 1,1,0,0,0)
@@ -145,8 +145,8 @@ Citizen.CreateThread(function()
 
 									Citizen.Wait(works[inService]["collectDuration"])
 
-									TriggerEvent("player:blockCommands",false)
-									TriggerEvent("cancelando",false)
+									LocalPlayer["state"]["Commands"] = false
+									LocalPlayer["state"]["Cancel"] = false
 									vRP.removeObjects()
 								end
 
@@ -220,16 +220,16 @@ Citizen.CreateThread(function()
 									if GetEntityModel(GetPlayersLastVehicle()) == works[inService]["deliveryVehicle"] then
 										
 										if works[inService]["deliveryAnim"] ~= nil then
-											TriggerEvent("cancelando",true)
-											TriggerEvent("player:blockCommands",true)
+											LocalPlayer["state"]["Cancel"] = true
+											LocalPlayer["state"]["Commands"] = true
 											TriggerEvent("Progress",works[inService]["deliveryDuration"] + 500)
 											
 											vRP.playAnim(works[inService]["deliveryAnim"][1],{works[inService]["deliveryAnim"][2],works[inService]["deliveryAnim"][3]},works[inService]["deliveryAnim"][4])
 
 											Citizen.Wait(works[inService]["deliveryDuration"])
 
-											TriggerEvent("player:blockCommands",false)
-											TriggerEvent("cancelando",false)
+											LocalPlayer["state"]["Commands"] = false
+											LocalPlayer["state"]["Cancel"] = false
 											vRP.removeObjects()
 										end
 										if vSERVER.deliveryConsume(inService) then
