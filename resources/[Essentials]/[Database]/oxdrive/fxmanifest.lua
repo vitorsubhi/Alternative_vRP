@@ -1,12 +1,12 @@
-fx_version "bodacious"
+fx_version "cerulean"
 game "gta5"
+lua54 "yes"
 
 dependencies {
-	"vrp",
-	"ghmattimysql"
+	"vrp"
 }
 
 server_scripts {
 	"@vrp/lib/utils.lua",
-	"init.lua"
+	"server.lua"
 }
