@@ -247,7 +247,7 @@ RegisterKeyMapping("+showPassports","Visualizar Passaportes","keyboard","F7")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DRAWTEXT3D
 -----------------------------------------------------------------------------------------------------------------------------------------
-function DrawText3D(x,y,z,text)
+function tvRP.DrawText3D(x,y,z,text)
 	local onScreen,_x,_y = GetScreenCoordFromWorldCoord(x,y,z)
 
 	if onScreen then

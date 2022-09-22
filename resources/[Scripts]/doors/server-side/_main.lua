@@ -66,6 +66,7 @@ end)
 AddEventHandler('onResourceStart', function(resource)
 	if resource == "doors" then
 		Wait(10000)
+		print (doors)
 		TriggerClientEvent("doors:doorsUpdate",-1,doors)
     end
 end)
