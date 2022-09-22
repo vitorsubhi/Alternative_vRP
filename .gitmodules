@@ -1,0 +1,3 @@
+[submodule "resources/[Smartphone]/smartphone-app"]
+	path = resources/[Smartphone]/smartphone-app
+	url = https://github.com/vitorsubhi/Smartphone-Apps
