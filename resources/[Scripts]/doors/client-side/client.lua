@@ -81,19 +81,3 @@ Citizen.CreateThread(function()
 		Citizen.Wait(timeDistance)
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- DRAWTEXT3D
------------------------------------------------------------------------------------------------------------------------------------------
-function DrawText3D(x,y,z,text)
-	local onScreen,_x,_y = GetScreenCoordFromWorldCoord(x,y,z)
-
-	if onScreen then
-		BeginTextCommandDisplayText("STRING")
-		AddTextComponentSubstringKeyboardDisplay(text)
-		SetTextColour(255,255,255,150)
-		SetTextScale(0.35,0.35)
-		SetTextFont(4)
-		SetTextCentre(1)
-		EndTextCommandDisplayText(_x,_y)
-	end
-end

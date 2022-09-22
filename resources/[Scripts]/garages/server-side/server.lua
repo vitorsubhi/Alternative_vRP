@@ -337,7 +337,7 @@ function cRP.spawnVehicles(vehName,garageName)
 						if vRP.paymentFull(user_id,vehPrice * 0.5) then
 							vRP.execute("vehicles/arrestVehicles",{ user_id = parseInt(user_id), vehicle = vehName, arrest = 0, time = 0 })
 						else
-							TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+							TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 						end
 					end
 				elseif parseInt(vehicle[1]["arrest"]) >= 1 then
@@ -346,7 +346,7 @@ function cRP.spawnVehicles(vehName,garageName)
 						if vRP.paymentFull(user_id,vehPrice * 0.1) then
 							vRP.execute("vehicles/arrestVehicles",{ user_id = parseInt(user_id), vehicle = vehName, arrest = 0, time = 0 })
 						else
-							TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+							TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 						end
 					end
 				else
@@ -401,7 +401,7 @@ function cRP.spawnVehicles(vehName,garageName)
 										vehPlates[vehicle[1]["plate"]] = user_id
 										vehList[netVeh] = { user_id,vehName }
 									else
-										TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+										TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 									end
 								end
 							end

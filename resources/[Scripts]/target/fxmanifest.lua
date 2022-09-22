@@ -7,8 +7,11 @@ dependencies {
 
 ui_page "web-side/index.html"
 
+shared_scripts {
+	"@vrp/lib/utils.lua"
+}
+
 client_scripts {
-	"@vrp/lib/utils.lua",
 	"@PolyZone/client.lua",
 	"@PolyZone/BoxZone.lua",
 	"@PolyZone/EntityZone.lua",
@@ -18,7 +21,6 @@ client_scripts {
 }
 
 server_scripts {
-	"@vrp/lib/utils.lua",
 	"server-side/*"
 }
 

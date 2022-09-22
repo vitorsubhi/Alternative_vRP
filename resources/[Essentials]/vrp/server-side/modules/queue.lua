@@ -427,7 +427,7 @@ Citizen.CreateThread(function()
 					return
 				end
 
-				local message = string.format("Bahamas\n\n"..Lang.position.."%s\nEvite punições, fique por dentro das regras de conduta.\nAtualizações frequentes, deixe sua sugestão em nosso discord.",pos,#Queue.QueueList,dots)
+				local message = string.format("Alternative\n\n"..Lang.position.."%s\nEvite punições, fique por dentro das regras de conduta.\nAtualizações frequentes, deixe sua sugestão em nosso discord.",pos,#Queue.QueueList,dots)
 				data.deferrals.update(message)
 			end
 		end)

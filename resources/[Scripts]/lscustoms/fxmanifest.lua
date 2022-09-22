@@ -3,15 +3,16 @@ game "gta5"
 
 ui_page "web-side/index.html"
 
-client_scripts {
+shared_scripts {
 	"@vrp/lib/utils.lua",
-	"config.lua",
+	"config.lua"
+}
+
+client_scripts {
 	"client-side/*"
 }
 
 server_scripts {
-	"@vrp/lib/utils.lua",
-	"config.lua",
 	"server-side/*"
 }
 

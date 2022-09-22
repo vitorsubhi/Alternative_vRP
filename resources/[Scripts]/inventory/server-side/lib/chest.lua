@@ -158,7 +158,7 @@ function cRP.upgradeSystem(chestName)
 						vRP.execute("chests/upgradeChests",{ name = chestName })
 						TriggerClientEvent("Notify",source,"verde","Compra concluída.",3000)
 					else
-						TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+						TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 					end
 				end
 			end

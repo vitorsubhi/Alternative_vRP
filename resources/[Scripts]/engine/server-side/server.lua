@@ -24,7 +24,7 @@ function cRP.paymentFuel(price)
 		if vRP.paymentFull(user_id,price) then
 			return true
 		else
-			TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+			TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 			return false
 		end
 	end

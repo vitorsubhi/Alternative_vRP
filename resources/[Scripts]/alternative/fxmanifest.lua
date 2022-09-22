@@ -7,15 +7,16 @@ files {
 	"web-side/index.html"
 }
 
-client_scripts {
+shared_scripts {
 	"@vrp/lib/utils.lua",
-	"client-side/NativeUI/NativeUI.lua",
+}
+
+client_scripts {
 	"client-side/*.lua",
 	"metas-side/**/**/*"
 }
 
 server_scripts {
-	"@vrp/lib/utils.lua",
 	"server-side/*.lua"
 }
 

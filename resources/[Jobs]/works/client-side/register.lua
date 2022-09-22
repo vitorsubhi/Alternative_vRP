@@ -124,7 +124,7 @@ AddEventHandler("register:openSystem",function(shopId)
 		SetEntityHeading(ped,registers[shopId][4])
 		SetEntityCoords(ped,registers[shopId][1],registers[shopId][2],registers[shopId][3] - 1,1,0,0,0)
 
-		local safeCracking = exports["creative"]:safeCraking(1)
+		local safeCracking = exports["alternative"]:safeCraking(1)
 		if safeCracking then
 			vSERVER.paymentMethod()
 		end

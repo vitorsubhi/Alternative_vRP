@@ -34,47 +34,7 @@ AddEventHandler("player:kickSystem",function(message)
 		vRP.kick(user_id,message)
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- EMOTES
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("e",function(source,args,rawCommand)
-	if exports["chat"]:statusChat(source) then
-		local user_id = vRP.getUserId(source)
-		if user_id and vRP.getHealth(source) > 101 then
-			if args[2] == "friend" then
-				local otherPlayer = vRPC.nearestPlayer(source,3)
-				if otherPlayer then
-					if vRP.getHealth(otherPlayer) > 101 and not vCLIENT.getHandcuff(otherPlayer) then
-						local identity = vRP.userIdentity(user_id)
-						local request = vRP.request(otherPlayer,"Aceitar o pedido de <b>"..identity["name"].." "..identity["name2"].."</b> da animação <b>"..args[1].."</b>?",30)
-						if request then
-							TriggerClientEvent("emotes",otherPlayer,args[1])
-							TriggerClientEvent("emotes",source,args[1])
-						end
-					end
-				end
-			else
-				TriggerClientEvent("emotes",source,args[1])
-			end
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- EMOTES2
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("e2",function(source,args,rawCommand)
-	if exports["chat"]:statusChat(source) then
-		local user_id = vRP.getUserId(source)
-		if user_id and vRP.getHealth(source) > 101 then
-			local otherPlayer = vRPC.nearestPlayer(source,3)
-			if otherPlayer then
-				if vRP.hasPermission(user_id,"Paramedic") then
-					TriggerClientEvent("emotes",otherPlayer,args[1])
-				end
-			end
-		end
-	end
-end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHMENU:DOORS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -112,46 +72,7 @@ function cRP.receiveSalary()
 		end
 	end
 end
------------------------------------------------------------------------------------------------------------------------------------------
--- 911
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("911",function(source,args,rawCommand)
-	if exports["chat"]:statusChat(source) then
-		local user_id = vRP.getUserId(source)
-		if user_id and args[1] and vRP.getHealth(source) > 101 then
-			if vRP.hasPermission(user_id,"Police") then
-				local identity = vRP.userIdentity(user_id)
 
-				local policeResult = vRP.numPermission("Police")
-				for k,v in pairs(policeResult) do
-					async(function()
-						TriggerClientEvent("chatME",v,"^7"..identity["name"].." "..identity["name2"]..": ^4"..rawCommand:sub(4))
-					end)
-				end
-			end
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- 112
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("112",function(source,args,rawCommand)
-	if exports["chat"]:statusChat(source) then
-		local user_id = vRP.getUserId(source)
-		if user_id and args[1] and vRP.getHealth(source) > 101 then
-			if vRP.hasPermission(user_id,"Paramedic") then
-				local identity = vRP.userIdentity(user_id)
-
-				local paramedicResult = vRP.numPermission("Paramedic")
-				for k,v in pairs(paramedicResult) do
-					async(function()
-						TriggerClientEvent("chatME",v,"^5"..identity["name"].." "..identity["name2"]..": ^4"..rawCommand:sub(4))
-					end)
-				end
-			end
-		end
-	end
-end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PLAYER:SERVICEPOLICE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -593,26 +514,7 @@ AddEventHandler("player:outfitFunctions",function(mode)
 		end
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- REPOSE
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("repose",function(source,args,rawCommand)
-	if exports["chat"]:statusChat(source) then
-		local user_id = vRP.getUserId(source)
-		if user_id and parseInt(args[1]) > 0 and parseInt(args[2]) > 0 then
-			local timer = parseInt(args[2])
-			local nuser_id = parseInt(args[1])
-			local uSource = vRP.userSource(nuser_id)
-			if uSource then
-				local identity = vRP.userIdentity(nuser_id)
-				if vRP.request(source,"Deseja aplicar <b>"..timer.." minutos</b> de repouso no(a) <b>"..identity["name"].." "..identity["name2"].."</b>?.",30) then
-					TriggerClientEvent("Notify",source,"azul","Aplicou <b>"..timer.." minutos</b> de repouso.",10000)
-					vRP.reposeTimer(nuser_id,timer)
-				end
-			end
-		end
-	end
-end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- WALKING
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -677,55 +579,7 @@ local walking = {
 	{ "move_m@bag" },
 	{ "move_m@injured" }
 }
------------------------------------------------------------------------------------------------------------------------------------------
--- ANDAR
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("andar",function(source,args,rawCommand)
-	if args[1] and exports["chat"]:statusChat(source) then
-		vCLIENT.movementClip(source,walking[parseInt(args[1])][1])
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- ADD
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("add",function(source,args,rawCommand)
-	if exports["chat"]:statusChat(source) then
-		local user_id = vRP.getUserId(source)
-		if user_id and args[1] and parseInt(args[2]) > 0 then
-			if vRP.hasPermission(user_id,"service"..args[1]) then
-				vRP.cleanPermission(args[2])
 
-				if args[1] == "Police" or args[1] == "Paramedic" then
-					vRP.setPermission(args[2],"wait"..args[1])
-					TriggerClientEvent("Notify",source,"verde","Passaporte <b>"..parseFormat(args[2]).."</b> adicionado.",5000)
-				else
-					vRP.setPermission(args[2],args[1])
-					TriggerClientEvent("Notify",source,"verde","Passaporte <b>"..parseFormat(args[2]).."</b> adicionado.",5000)
-				end
-			end
-		end
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- REM
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("rem",function(source,args,rawCommand)
-	if exports["chat"]:statusChat(source) then
-		local user_id = vRP.getUserId(source)
-		if user_id and args[1] and parseInt(args[2]) > 0 then
-			if vRP.hasPermission(user_id,"service"..args[1]) then
-				if args[1] == "Police" or args[1] == "Paramedic" then
-					vRP.remPermission(args[2],args[1])
-					vRP.remPermission(args[2],"wait"..args[1])
-					TriggerClientEvent("Notify",source,"amarelo","Passaporte <b>"..parseFormat(args[2]).."</b> removido.",5000)
-				else
-					vRP.remPermission(args[2],args[1])
-					TriggerClientEvent("Notify",source,"amarelo","Passaporte <b>"..parseFormat(args[2]).."</b> removido.",5000)
-				end
-			end
-		end
-	end
-end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PLAYER:SERVICOFUNCTIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -832,7 +686,7 @@ local discordLinks = {
 RegisterNetEvent("discordLogs")
 AddEventHandler("discordLogs",function(webhook,message,color)
 	PerformHttpRequest(discordLinks[webhook],function(err,text,headers) end,"POST",json.encode({
-		username = "Bahamas",
+		username = "Alternative",
 		embeds = { { color = color, description = message } }
 	}),{ ["Content-Type"] = "application/json" })
 end)

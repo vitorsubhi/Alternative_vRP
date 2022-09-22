@@ -3,8 +3,8 @@ local Proxy = module("vrp", "lib/Proxy")
 local Tools = module("vrp", "lib/Tools")
 
 cRP = {}
-Tunnel.bindInterface("creative",cRP)
-vSERVER = Tunnel.getInterface("creative")
+Tunnel.bindInterface("alternative",cRP)
+vSERVER = Tunnel.getInterface("alternative")
 
 RegisterNUICallback('dev_tools',function()
 	vSERVER.Punicao()

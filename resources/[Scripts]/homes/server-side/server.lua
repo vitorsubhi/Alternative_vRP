@@ -1612,7 +1612,7 @@ AddEventHandler("homes:invokeSystem",function(mode)
 								TriggerClientEvent("Notify",source,"amarelo","Fique no local onde vai abrir a garagem e pressione a tecla <b>E</b>.",10000)
 								vCLIENT.homeGarage(source,homeName)
 							else
-								TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+								TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 							end
 						end
 					end
@@ -1645,7 +1645,7 @@ AddEventHandler("homes:invokeSystem",function(mode)
 									vRP.execute("propertys/updateTax",{ name = homeName, tax = os.time() })
 									TriggerClientEvent("Notify",source,"verde","Pagamento efetuado.",5000)
 								else
-									TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+									TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 								end
 							end
 						end
@@ -1658,7 +1658,7 @@ AddEventHandler("homes:invokeSystem",function(mode)
 								vRP.execute("propertys/updateVault",{ name = homeName })
 								TriggerClientEvent("Notify",source,"verde","Compra efetuada.",5000)
 							else
-								TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+								TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 							end
 						end
 					end
@@ -1670,7 +1670,7 @@ AddEventHandler("homes:invokeSystem",function(mode)
 								vRP.execute("propertys/updateFridge",{ name = homeName })
 								TriggerClientEvent("Notify",source,"verde","Compra efetuada.",5000)
 							else
-								TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+								TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 							end
 						end
 					end
@@ -1739,7 +1739,7 @@ RegisterCommand("prop",function(source,args,rawCommand)
 									TriggerClientEvent("Notify",source,"verde","Compra concluída.",5000)
 									homeBlips[homeName]["color"] = 6
 								else
-									TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+									TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 								end
 							end
 						end

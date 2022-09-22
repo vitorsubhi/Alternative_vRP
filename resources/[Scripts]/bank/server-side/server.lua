@@ -36,7 +36,7 @@ function cRP.bankDeposit(amount)
 			if vRP.tryGetInventoryItem(user_id,"dollars",value,true) then
 				vRP.addBank(user_id,value)
 			else
-				TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+				TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 			end
 		end
 	end
@@ -56,7 +56,7 @@ function cRP.bankWithdraw(amount)
 		local value = parseInt(amount)
 		if (vRP.inventoryWeight(user_id) + (itemWeight("dollars") * value)) <= vRP.getBackpack(user_id) then
 			if not vRP.withdrawCash(user_id,value) then
-				TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+				TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 			end
 		else
 			TriggerClientEvent("Notify",source,"vermelho","Mochila cheia.",5000)

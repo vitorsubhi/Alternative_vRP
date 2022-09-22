@@ -575,7 +575,7 @@ function cRP.functionShops(shopType,shopItem,shopAmount,slot)
 								vRP.generateItem(user_id,shopItem,parseInt(shopAmount),false,slot)
 								TriggerClientEvent("sounds:source",source,"cash",0.1)
 							else
-								TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+								TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 							end
 						end
 					elseif shops[shopType]["type"] == "Consume" then
@@ -677,7 +677,7 @@ AddEventHandler("shops:divingSuit",function()
 			if vRP.paymentFull(user_id,975) then
 				vRP.generateItem(user_id,"divingsuit",1,true)
 			else
-				TriggerClientEvent("Notify",source,"vermelho","Dólares insuficientes.",5000)
+				TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente.",5000)
 			end
 		end
 	end

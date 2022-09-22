@@ -4,8 +4,8 @@ local Tools = module("vrp", "lib/Tools")
 vRP = Proxy.getInterface("vRP")
 
 cRP = {}
-Tunnel.bindInterface("creative", cRP)
-vCLIENT = Tunnel.getInterface("creative")
+Tunnel.bindInterface("alternative", cRP)
+vCLIENT = Tunnel.getInterface("alternative")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DevTools
 -----------------------------------------------------------------------------------------------------------------------------------------
