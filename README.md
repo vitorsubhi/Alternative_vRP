@@ -1,6 +1,7 @@
 # Alternative vRP
 
 [![Discord Channel](https://img.shields.io/discord/1010002981023916122?label=Discord&logo=discord&logoColor=%23fff)](https://discord.gg/FztqPgXNFD)
+
 Gostaria de acompanhar o projeto de perto? Acesse o nosso [Discord](https://discord.gg/FztqPgXNFD).
 
 ## Project
