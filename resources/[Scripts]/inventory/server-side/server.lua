@@ -48,7 +48,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REQUESTBACKPACK
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.requestBackpack()
+function aRP.requestBackpack()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -95,7 +95,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- INVUPDATE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.invUpdate(slot,target,amount)
+function aRP.invUpdate(slot,target,amount)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -108,7 +108,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DROPITEM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.dropItem(nameItem,slot,amount,x,y,z,gridZone)
+function aRP.dropItem(nameItem,slot,amount,x,y,z,gridZone)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -192,7 +192,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DROPSTOCKADE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.dropStockade(x,y,z,gridZone)
+function aRP.dropStockade(x,y,z,gridZone)
 	if dropList[gridZone] == nil then
 		dropList[gridZone] = {}
 	end
@@ -218,7 +218,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ITEMPICKUP
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.itemPickup(pickupId,pickupAmount,pickupSlot,gridZone)
+function aRP.itemPickup(pickupId,pickupAmount,pickupSlot,gridZone)
 	local source = source
 	local dropId = tostring(pickupId)
 	local user_id = vRP.getUserId(source)
@@ -341,7 +341,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- USEITEM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.useItem(slot,rAmount)
+function aRP.useItem(slot,rAmount)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -1617,7 +1617,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STEALTRUNK
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.stealTrunk(Entity)
+function aRP.stealTrunk(Entity)
 	local source = source
 	local vehNet = Entity[4]
 	local vehPlate = Entity[1]
@@ -1791,7 +1791,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKINVENTORY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkInventory()
+function aRP.checkInventory()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -1805,7 +1805,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKEXISTWEAPON
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkExistWeapon(nameItem,weaponAmmo,equipeNow)
+function aRP.checkExistWeapon(nameItem,weaponAmmo,equipeNow)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -1834,7 +1834,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PREVENTWEAPON
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.preventWeapon(weaponHash,weaponAmmo)
+function aRP.preventWeapon(weaponHash,weaponAmmo)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then

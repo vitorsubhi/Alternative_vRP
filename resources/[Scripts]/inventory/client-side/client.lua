@@ -8,8 +8,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-cRP = {}
-Tunnel.bindInterface("inventory",cRP)
+aRP = {}
+Tunnel.bindInterface("inventory",aRP)
 vSERVER = Tunnel.getInterface("inventory")
 
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -150,7 +150,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DROPFUNCTIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.dropFunctions()
+function aRP.dropFunctions()
 	local ped = PlayerPedId()
 	local coords = GetOffsetFromEntityInWorldCoords(ped,0.0,0.5,0.0)
 
@@ -325,7 +325,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ENTERVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.enterVehicle()
+function aRP.enterVehicle()
 	local ped = PlayerPedId()
 	if GetVehiclePedIsTryingToEnter(ped) > 0 then
 		return true
@@ -356,7 +356,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PLATEVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.plateVehicle()
+function aRP.plateVehicle()
 	local ped = PlayerPedId()
 	if IsPedInAnyVehicle(ped) then
 		local vehicle = GetVehiclePedIsUsing(ped)
@@ -372,7 +372,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PLATEAPPLY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.plateApply(plate)
+function aRP.plateApply(plate)
 	local ped = PlayerPedId()
 	if IsPedInAnyVehicle(ped) then
 		local vehicle = GetVehiclePedIsUsing(ped)
@@ -454,7 +454,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PARACHUTECOLORS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.parachuteColors()
+function aRP.parachuteColors()
 	local ped = PlayerPedId()
 	GiveWeaponToPed(ped,"GADGET_PARACHUTE",1,false,true)
 	SetPedParachuteTintIndex(ped,math.random(7))
@@ -463,7 +463,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKFOUNTAIN
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkFountain()
+function aRP.checkFountain()
 	local ped = PlayerPedId()
 	local coords = GetEntityCoords(ped)
 
@@ -481,7 +481,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FISHINGANIM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.fishingAnim()
+function aRP.fishingAnim()
 	local ped = PlayerPedId()
 	if IsEntityPlayingAnim(ped,"amb@world_human_stand_fishing@idle_a","idle_c",3) then
 		return true
@@ -493,7 +493,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKWEAPON
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkWeapon()
+function aRP.checkWeapon()
 	local ped = PlayerPedId()
 	if (GetPedParachuteState(ped) == -1 or GetPedParachuteState(ped) == 0) and not IsPedInParachuteFreeFall(ped) and not IsPedSwimming(ped) then
 		if GetSelectedPedWeapon(ped) ~= GetHashKey("WEAPON_UNARMED") then
@@ -595,21 +595,21 @@ local weaponAttachs = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKATTACHS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkAttachs(nameItem,nameWeapon)
+function aRP.checkAttachs(nameItem,nameWeapon)
 	return weaponAttachs[nameItem][nameWeapon]
 end
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PUTATTACHS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.putAttachs(nameItem,nameWeapon)
+function aRP.putAttachs(nameItem,nameWeapon)
 	GiveWeaponComponentToPed(PlayerPedId(),nameWeapon,weaponAttachs[nameItem][nameWeapon])
 end
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PUTWEAPONHANDS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.putWeaponHands(weaponName,weaponAmmo)
+function aRP.putWeaponHands(weaponName,weaponAmmo)
 	if not putWeaponHands then
 		if weaponAmmo == nil or weaponAmmo > 0 then
 			weaponActive = true
@@ -658,7 +658,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STOREWEAPONHANDS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.storeWeaponHands()
+function aRP.storeWeaponHands()
 	if not storeWeaponHands then
 		storeWeaponHands = true
 		LocalPlayer["state"]["Cancel"] = true
@@ -700,7 +700,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- RECHARGECHECK
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.rechargeCheck(ammoType)
+function aRP.rechargeCheck(ammoType)
 	local weaponHash = nil
 	local ped = PlayerPedId()
 	local weaponStatus = false
@@ -723,7 +723,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- RECHARGEWEAPON
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.rechargeWeapon(weaponHash,ammoAmount)
+function aRP.rechargeWeapon(weaponHash,ammoAmount)
 	AddAmmoToPed(PlayerPedId(),weaponHash,ammoAmount)
 	weaponActive = true
 end
@@ -766,7 +766,7 @@ local adrenalineCds = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ADRENALINEDISTANCE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.adrenalineDistance()
+function aRP.adrenalineDistance()
 	local ped = PlayerPedId()
 	local coords = GetEntityCoords(ped)
 
@@ -804,7 +804,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKCRACKER
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkCracker()
+function aRP.checkCracker()
 	if fireTimers ~= nil then
 		return false
 	end
@@ -860,7 +860,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKWATER
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkWater()
+function aRP.checkWater()
 	return IsPedSwimming(PlayerPedId())
 end
 
@@ -917,7 +917,7 @@ local losSantos = PolyZone:Create({
 	vector2(-737.90,-3773.97)
 },{ name="santos" })
 
-function cRP.checkStockade(vehNet)
+function aRP.checkStockade(vehNet)
 	local ped = PlayerPedId()
 	local coords = GetEntityCoords(ped)
 
@@ -1079,7 +1079,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- WHEELCHAIR
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.wheelChair(vehPlate)
+function aRP.wheelChair(vehPlate)
 	local ped = PlayerPedId()
 	local vehName = "wheelchair"
 	local mHash = GetHashKey(vehName)
@@ -1180,7 +1180,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TYRESTATUS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.tyreStatus()
+function aRP.tyreStatus()
 	local ped = PlayerPedId()
 	if not IsPedInAnyVehicle(ped) then
 		local Vehicle = vRP.nearVehicle(5)
@@ -1204,7 +1204,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TYREHEALTH
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.tyreHealth(vehNet,Tyre)
+function aRP.tyreHealth(vehNet,Tyre)
 	if NetworkDoesNetworkIdExist(vehNet) then
 		local Vehicle = NetToEnt(vehNet)
 		if DoesEntityExist(Vehicle) then

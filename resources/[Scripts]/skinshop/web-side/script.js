@@ -1,4 +1,4 @@
-cReative = {}
+alternative = {}
 
 var selectedTab = ".characterTab"
 var lastCategory = "character"
@@ -36,7 +36,7 @@ $(document).on('click', '.clothing-menu-header-btn', function(e){
 	$(".clothing-menu-"+category+"-container").css({"display": "block"});
 })
 
-cReative.ResetItemTexture = function(obj, category) {
+alternative.ResetItemTexture = function(obj, category) {
 	var itemTexture = $(obj).parent().parent().find('[data-type="texture"]');
 	var defaultTextureValue = skinData[category].defaultTexture;
 	$(itemTexture).val(defaultTextureValue);
@@ -65,7 +65,7 @@ $(document).on('click', '.clothing-menu-option-item-right', function(e){
 			type: buttonType,
 		}));
 		if (buttonType == "item") {
-			cReative.ResetItemTexture(this, clothingCategory);
+			alternative.ResetItemTexture(this, clothingCategory);
 		}
 	} else {
 		if (buttonType == "item") {
@@ -87,7 +87,7 @@ $(document).on('click', '.clothing-menu-option-item-right', function(e){
 					}));
 				}
 			}
-			cReative.ResetItemTexture(this, clothingCategory);
+			alternative.ResetItemTexture(this, clothingCategory);
 		} else {
 			var buttonMax = $(this).parent().find('[data-headertype="texture-header"]').data('maxTexture');
 			if (newValue <= parseInt(buttonMax)) {
@@ -129,7 +129,7 @@ $(document).on('click', '.clothing-menu-option-item-left', function(e){
 				}));
 			}
 		}
-		cReative.ResetItemTexture(this, clothingCategory);
+		alternative.ResetItemTexture(this, clothingCategory);
 	} else {
 		if (newValue >= skinData[clothingCategory].defaultTexture) {
 			if (clothingCategory == "accessory" && newValue == 13) {
@@ -245,15 +245,15 @@ $(document).ready(function(){
 	window.addEventListener('message', function(event) {
 		switch(event.data.action) {
 			case "open":
-				cReative.Open(event.data);
+				alternative.Open(event.data);
 			break;
 
 			case "close":
-				cReative.Close();
+				alternative.Close();
 			break;
 
 			case "updateMax":
-				cReative.SetMaxValues(event.data.maxValues);
+				alternative.SetMaxValues(event.data.maxValues);
 			break;
 		}
 	})
@@ -261,17 +261,17 @@ $(document).ready(function(){
 
 $(document).on('click', "#save-menu", function(e){
 	e.preventDefault();
-	cReative.Close();
+	alternative.Close();
 	$.post('http://skinshop/saveClothing');
 });
 
 $(document).on('click', "#cancel-menu", function(e){
 	e.preventDefault();
-	cReative.Close();
+	alternative.Close();
 	$.post('http://skinshop/resetOutfit');
 });
 
-cReative.SetCurrentValues = function(clothingValues) {
+alternative.SetCurrentValues = function(clothingValues) {
 	$.each(clothingValues, function(i, item){
 		var itemCats = $(".clothing-menu-container").find('[data-type="'+i+'"]');
 		var input = $(itemCats).find('input[data-type="item"]');
@@ -282,7 +282,7 @@ cReative.SetCurrentValues = function(clothingValues) {
 	});
 }
 
-cReative.Open = function(data) {
+alternative.Open = function(data) {
 	clothingCategorys = data.currentClothing;
 	$(".clothing-menu-character-container").css("display","none");
 	$(".clothing-menu-clothing-container").css("display","none");
@@ -290,9 +290,9 @@ cReative.Open = function(data) {
 
 	$(".clothing-menu-container").css("display","block");
 
-	cReative.SetMaxValues(data.maxValues);
+	alternative.SetMaxValues(data.maxValues);
 	$(".clothing-menu-header").html("");
-	cReative.SetCurrentValues(data.currentClothing);
+	alternative.SetCurrentValues(data.currentClothing);
 	$.each(data.menus, function(i, menu){
 		if (menu.selected) {
 			$(".clothing-menu-header").append('<div class="clothing-menu-header-btn '+menu.menu+'Tab selected" data-category="'+menu.menu+'"><p>'+menu.label+'</p></div>')
@@ -310,7 +310,7 @@ cReative.Open = function(data) {
 	$(".clothing-menu-header-btn").css("width", menuWidth + "%");
 }
 
-cReative.Close = function() {
+alternative.Close = function() {
 	$.post("http://skinshop/close");
 	$(".clothing-menu-container").css("display","none");
 
@@ -321,7 +321,7 @@ cReative.Close = function() {
 	lastCategory = null;
 }
 
-cReative.SetMaxValues = function(maxValues) {
+alternative.SetMaxValues = function(maxValues) {
 	$.each(maxValues, function(i, cat){
 		if (cat.type == "character") {
 			var containers = $(".clothing-menu-character-container").find('[data-type="'+i+'"]');

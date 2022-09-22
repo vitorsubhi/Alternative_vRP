@@ -7,8 +7,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-cRP = {}
-Tunnel.bindInterface("homes",cRP)
+aRP = {}
+Tunnel.bindInterface("homes",aRP)
 vSERVER = Tunnel.getInterface("homes")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIAVEIS
@@ -199,7 +199,7 @@ local theftCoords = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- UPDATEHOMES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.updateHomes(homesTable)
+function aRP.updateHomes(homesTable)
 	local innerTable = {}
 
 	for k,v in pairs(homesTable) do
@@ -269,7 +269,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ENTRANCEHOMES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.entranceHomes(homeName,v,interior,theft)
+function aRP.entranceHomes(homeName,v,interior,theft)
 	DoScreenFadeOut(0)
 
 	homes["current"] = v
@@ -281,7 +281,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 	local ped = PlayerPedId()
 
 	if interior == "Middle" then
-		createShells(v[1],v[2],1500.0,"creative_middle")
+		createShells(v[1],v[2],1500.0,"alternative_middle")
 		SetEntityCoords(ped,v[1] + 1.36,v[2] - 14.23,1500.0 - 1,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] + 1.36,v[2] - 14.23,1499.5,"exit","SAIR" })
 
@@ -290,7 +290,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] - 0.54,v[2] - 2.46,1499.5,"fridge","ABRIR" })
 		end
 	elseif interior == "Mansion" then
-		createShells(v[1],v[2],1499.0,"creative_mansion")
+		createShells(v[1],v[2],1499.0,"alternative_mansion")
 		SetEntityCoords(ped,v[1] - 8.68,v[2] - 3.43,1501.0 - 0.5,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] - 8.68,v[2] - 3.43,1501.0,"exit","SAIR" })
 
@@ -299,7 +299,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] + 5.81,v[2] - 11.88,1500.5,"fridge","ABRIR" })
 		end
 	elseif interior == "Trailer" then
-		createShells(v[1],v[2],1500.0,"creative_trailer")
+		createShells(v[1],v[2],1500.0,"alternative_trailer")
 		SetEntityCoords(ped,v[1] - 1.44,v[2] - 2.02,1500.0 - 1,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] - 1.44,v[2] - 2.02,1499.5,"exit","SAIR" })
 
@@ -308,7 +308,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] + 0.20,v[2] + 1.70,1499.5,"fridge","ABRIR" })
 		end
 	elseif interior == "Beach" then
-		createShells(v[1],v[2],1500.0,"creative_beach")
+		createShells(v[1],v[2],1500.0,"alternative_beach")
 		SetEntityCoords(ped,v[1] + 0.11,v[2] - 3.68,1500.0 - 1,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] + 0.11,v[2] - 3.68,1499.5,"exit","SAIR" })
 
@@ -317,7 +317,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] - 1.47,v[2] - 0.96,1499.8,"fridge","ABRIR" })
 		end
 	elseif interior == "Simple" then
-		createShells(v[1],v[2],1500.0,"creative_simple")
+		createShells(v[1],v[2],1500.0,"alternative_simple")
 		SetEntityCoords(ped,v[1] - 4.89,v[2] - 4.15,1501.0 - 0.5,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] - 4.89,v[2] - 4.15,1501.0,"exit","SAIR" })
 
@@ -326,7 +326,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] - 3.33,v[2] + 2.63,1501.2,"fridge","ABRIR" })
 		end
 	elseif interior == "Motel" then
-		createShells(v[1],v[2],1500.0,"creative_motel")
+		createShells(v[1],v[2],1500.0,"alternative_motel")
 		SetEntityCoords(ped,v[1] + 4.6,v[2] - 6.36,1498.5 - 0.5,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] + 4.6,v[2] - 6.36,1498.5,"exit","SAIR" })
 
@@ -335,7 +335,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] + 4.89,v[2] + 3.40,1500.5,"fridge","ABRIR" })
 		end
 	elseif interior == "Modern" then
-		createShells(v[1],v[2],1500.0,"creative_modern")
+		createShells(v[1],v[2],1500.0,"alternative_modern")
 		SetEntityCoords(ped,v[1] - 1.63,v[2] - 5.94,1500.0 - 0.75,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] - 1.63,v[2] - 5.94,1499.7,"exit","SAIR" })
 
@@ -347,7 +347,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			end
 		end
 	elseif interior == "Hotel" then
-		createShells(v[1],v[2],1500.0,"creative_hotel")
+		createShells(v[1],v[2],1500.0,"alternative_hotel")
 		SetEntityCoords(ped,v[1] - 1.69,v[2] - 3.91,1500.0 - 0.5,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] - 1.69,v[2] - 3.91,1499.8,"exit","SAIR" })
 
@@ -355,7 +355,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] - 2.25,v[2] + 0.95,1499.4,"vault","ABRIR" })
 		end
 	elseif interior == "Franklin" then
-		createShells(v[1],v[2],1500.0,"creative_franklin")
+		createShells(v[1],v[2],1500.0,"alternative_franklin")
 		SetEntityCoords(ped,v[1] - 0.47,v[2] - 5.91,1500.0 - 1,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] - 0.47,v[2] - 5.91,1499.6,"exit","SAIR" })
 
@@ -364,7 +364,7 @@ function cRP.entranceHomes(homeName,v,interior,theft)
 			table.insert(homes["intern"],{ v[1] + 4.31,v[2] + 4.58,1499.8,"fridge","ABRIR" })
 		end
 	elseif interior == "Container" then
-		createShells(v[1],v[2],1499.0,"creative_container")
+		createShells(v[1],v[2],1499.0,"alternative_container")
 		SetEntityCoords(ped,v[1] - 1.14,v[2] - 1.38,1500.0,1,0,0,0)
 		table.insert(homes["intern"],{ v[1] - 1.14,v[2] - 1.38,1500.5,"exit","SAIR" })
 
@@ -582,7 +582,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HOMEGARAGE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.homeGarage(homeName)
+function aRP.homeGarage(homeName)
 	homes["garage"] = 0
 	local homeCoords = {}
 	homeCoords[homeName] = {}

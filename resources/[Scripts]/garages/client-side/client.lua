@@ -7,8 +7,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-cRP = {}
-Tunnel.bindInterface("garages",cRP)
+aRP = {}
+Tunnel.bindInterface("garages",aRP)
 vSERVER = Tunnel.getInterface("garages")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIAVEIS
@@ -312,7 +312,7 @@ local garageLocates = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- OPENGARAGE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.openGarage(garageName)
+function aRP.openGarage(garageName)
 	openGarage = garageName
 	SetNuiFocus(true,true)
 	SendNUIMessage({ action = "openNUI" })
@@ -402,7 +402,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SPAWNPOSITION
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.spawnPosition()
+function aRP.spawnPosition()
 	local checkSlot = 0
 	local checkPos = nil
 
@@ -427,7 +427,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CREATEVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.createVehicle(vehHash,vehNet,vehPlate,vehEngine,vehBody,vehFuel,vehCustom,vehWindows,vehDoors,vehTyres,vehBrakes)
+function aRP.createVehicle(vehHash,vehNet,vehPlate,vehEngine,vehBody,vehFuel,vehCustom,vehWindows,vehDoors,vehTyres,vehBrakes)
 	if NetworkDoesNetworkIdExist(vehNet) then
 		local nveh = NetToEnt(vehNet)
 		if DoesEntityExist(nveh) then
@@ -513,7 +513,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DELETEVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.deleteVehicle(vehicle)
+function aRP.deleteVehicle(vehicle)
 	if IsEntityAVehicle(vehicle) then
 		local vehWindows = {}
 		local vehDoors = {}
@@ -568,7 +568,7 @@ end)
 -- DELETEVEHICLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNUICallback("deleteVehicles",function(data)
-	cRP.deleteVehicle(vRP.nearVehicle(15))
+	aRP.deleteVehicle(vRP.nearVehicle(15))
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLELOCK
@@ -589,7 +589,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SEARCHBLIP
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.searchBlip(vehCoords)
+function aRP.searchBlip(vehCoords)
 	if DoesBlipExist(searchBlip) then
 		RemoveBlip(searchBlip)
 		searchBlip = nil
@@ -660,7 +660,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STARTANIMHOTWIRED
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.startAnimHotwired()
+function aRP.startAnimHotwired()
 	vehHotwired = true
 
 	RequestAnimDict(animDict)
@@ -673,7 +673,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STOPANIMHOTWIRED
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.stopAnimHotwired(vehicle)
+function aRP.stopAnimHotwired(vehicle)
 	RequestAnimDict(animDict)
 	while not HasAnimDictLoaded(animDict) do
 		Citizen.Wait(1)
@@ -703,7 +703,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- UPDATEHOTWIRED
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.updateHotwired(status)
+function aRP.updateHotwired(status)
 	vehHotwired = status
 end
 -----------------------------------------------------------------------------------------------------------------------------------------

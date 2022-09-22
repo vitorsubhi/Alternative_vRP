@@ -9,8 +9,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-cRP = {}
-Tunnel.bindInterface("inventory",cRP)
+aRP = {}
+Tunnel.bindInterface("inventory",aRP)
 vPLAYER = Tunnel.getInterface("player")
 vGARAGE = Tunnel.getInterface("garages")
 vTASKBAR = Tunnel.getInterface("taskbar")

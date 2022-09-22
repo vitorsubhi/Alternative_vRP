@@ -7,8 +7,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-cRP = {}
-Tunnel.bindInterface("spawn",cRP)
+aRP = {}
+Tunnel.bindInterface("spawn",aRP)
 vCLIENT = Tunnel.getInterface("spawn")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
@@ -17,7 +17,7 @@ local charActived = {}
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- INITSYSTEM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.initSystem()
+function aRP.initSystem()
 	local source = source
 	local characterList = {}
 	local steam = vRP.getIdentities(source)
@@ -34,7 +34,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHARACTERCHOSEN
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.characterChosen(user_id)
+function aRP.characterChosen(user_id)
 	local source = source
 	vRP.characterChosen(source,parseInt(user_id),nil)
 end
@@ -42,7 +42,7 @@ end
 -- NEWCHARACTER
 -----------------------------------------------------------------------------------------------------------------------------------------
 local charActived = {}
-function cRP.newCharacter(name,name2,sex)
+function aRP.newCharacter(name,name2,sex)
 	local source = source
 	if charActived[source] == nil then
 		charActived[source] = true

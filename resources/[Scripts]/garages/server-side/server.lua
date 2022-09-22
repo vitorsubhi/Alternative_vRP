@@ -8,8 +8,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-cRP = {}
-Tunnel.bindInterface("garages",cRP)
+aRP = {}
+Tunnel.bindInterface("garages",aRP)
 vPLAYER = Tunnel.getInterface("player")
 vCLIENT = Tunnel.getInterface("garages")
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -280,7 +280,7 @@ local workgarage = {
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- MYVEHICLES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.myVehicles(garageWork)
+function aRP.myVehicles(garageWork)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -309,7 +309,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SPAWNVEHICLES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.spawnVehicles(vehName,garageName)
+function aRP.spawnVehicles(vehName,garageName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -537,7 +537,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TRYDELETE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.tryDelete(vehNet,vehEngine,vehBody,vehFuel,vehDoors,vehWindows,vehTyres,vehPlate,vehBrake)
+function aRP.tryDelete(vehNet,vehEngine,vehBody,vehFuel,vehDoors,vehWindows,vehTyres,vehPlate,vehBrake)
 	if vehList[vehNet] and vehNet ~= 0 then
 		local user_id = vehList[vehNet][1]
 		local vehName = vehList[vehNet][2]
@@ -581,7 +581,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- RETURNGARAGES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.returnGarages(garageName)
+function aRP.returnGarages(garageName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then

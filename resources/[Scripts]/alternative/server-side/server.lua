@@ -3,8 +3,8 @@ local Proxy = module("vrp", "lib/Proxy")
 local Tools = module("vrp", "lib/Tools")
 vRP = Proxy.getInterface("vRP")
 
-cRP = {}
-Tunnel.bindInterface("alternative", cRP)
+aRP = {}
+Tunnel.bindInterface("alternative", aRP)
 vCLIENT = Tunnel.getInterface("alternative")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DevTools
@@ -16,7 +16,7 @@ function SendWebhookMessage(webhook,message)
 end
 
 local webhook = "https://discord.com/api/webhooks/948073375459315753/YP64BfhFUhbR4FEoSiOgHHqIji32e5zSx2ezlNgkS0z0johAd-CX5ODwpG_zP9fKRV2E"
-function cRP.Punicao()
+function aRP.Punicao()
     local source = source
     local user_id = vRP.getUserId(source)
     if user_id then
@@ -56,7 +56,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.startCarry(target,animationLib,animationLib2,animation,animation2,distans,distans2,height,targetSrc,length,spin,controlFlagSrc,controlFlagTarget,animFlagTarget)
+function aRP.startCarry(target,animationLib,animationLib2,animation,animation2,distans,distans2,height,targetSrc,length,spin,controlFlagSrc,controlFlagTarget,animFlagTarget)
 	local source = source
 	vCLIENT.syncTarget(targetSrc,source,animationLib2,animation2,distans,distans2,height,length,spin,controlFlagTarget,animFlagTarget)
 	vCLIENT.syncSource(source,animationLib,animation,length,controlFlagSrc,animFlagTarget)
@@ -64,7 +64,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STOPCARRY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.stopCarry(targetSrc)
+function aRP.stopCarry(targetSrc)
 	vCLIENT.stopCarry(targetSrc)
 end
 
@@ -76,7 +76,7 @@ local webhookids = "https://discord.com/api/webhooks/957145930266730507/H4VbHC3o
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- USER ADMIN PERMISSION
 -----------------------------------------------------------------------------------------------------------------------------------------	
-function cRP.isAdmin()
+function aRP.isAdmin()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -87,7 +87,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- GET USER ID AND STEAMHEX
 -----------------------------------------------------------------------------------------------------------------------------------------	
-function cRP.getId(sourceplayer)
+function aRP.getId(sourceplayer)
 	if sourceplayer ~= nil and sourceplayer ~= 0 then
 		local user_id = vRP.getUserId(sourceplayer)
 		if user_id then
@@ -99,7 +99,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REPORT LOG WEBHOOK
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.reportLog(toggle)
+function aRP.reportLog(toggle)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then

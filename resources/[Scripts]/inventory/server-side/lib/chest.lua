@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKINTPERMISSIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkIntPermissions(chestName)
+function aRP.checkIntPermissions(chestName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -23,7 +23,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TAKEITEM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.takeItem(nameItem,slot,amount,target,chestName)
+function aRP.takeItem(nameItem,slot,amount,target,chestName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -46,7 +46,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- OPENCHEST
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.openChest(chestName)
+function aRP.openChest(chestName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -120,7 +120,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STOREITEM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.storeItem(nameItem,slot,amount,target,chestName)
+function aRP.storeItem(nameItem,slot,amount,target,chestName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -144,7 +144,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- UPGRADESYSTEM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.upgradeSystem(chestName)
+function aRP.upgradeSystem(chestName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -169,7 +169,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- UPDATECHEST
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.updateChest(slot,target,amount,chestName)
+function aRP.updateChest(slot,target,amount,chestName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then

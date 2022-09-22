@@ -2,8 +2,8 @@ local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
 local Tools = module("vrp", "lib/Tools")
 
-cRP = {}
-Tunnel.bindInterface("alternative",cRP)
+aRP = {}
+Tunnel.bindInterface("alternative",aRP)
 vSERVER = Tunnel.getInterface("alternative")
 
 RegisterNUICallback('dev_tools',function()
@@ -57,7 +57,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SYNCTARGET
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.syncTarget(target,animationLib,animation2,distans,distans2,height,length,spin,controlFlag)
+function aRP.syncTarget(target,animationLib,animation2,distans,distans2,height,length,spin,controlFlag)
 	vRP.removeObjects()
 	local ped = PlayerPedId()
 	local targetPed = GetPlayerPed(GetPlayerFromServerId(target))
@@ -92,7 +92,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SYNCSOURCE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.syncSource(animationLib,animation,length,controlFlag,animFlag)
+function aRP.syncSource(animationLib,animation,length,controlFlag,animFlag)
 	local ped = PlayerPedId()
 
 	RequestAnimDict(animationLib)
@@ -115,7 +115,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STOPCARRY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.stopCarry()
+function aRP.stopCarry()
 	inCarry = false
 	inCarryBlock = false
 	LocalPlayer["state"]["Cancel"] = false

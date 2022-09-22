@@ -2,7 +2,7 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REQUESTPERM
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.requestPerm(craftType)
+function aRP.requestPerm(craftType)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -27,7 +27,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REQUESTCRAFTING
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.requestCrafting(craftType)
+function aRP.requestCrafting(craftType)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -76,7 +76,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FUNCTIONCRAFTING
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.functionCrafting(shopItem,shopType,shopAmount,slot)
+function aRP.functionCrafting(shopItem,shopType,shopAmount,slot)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -138,7 +138,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FUNCTIONDESTROY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.functionDestroy(shopItem,shopType,shopAmount,slot)
+function aRP.functionDestroy(shopItem,shopType,shopAmount,slot)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then

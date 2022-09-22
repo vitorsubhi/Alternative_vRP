@@ -2,8 +2,9 @@
 	box-sizing: border-box;
 }
 
-body {
+body {	
 	margin: 0;
 	font-family: Arial;
 	font-size: 17px;
+	background-image: url('background.png');
 }

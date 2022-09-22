@@ -7,14 +7,14 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-cRP = {}
-Tunnel.bindInterface("doors",cRP)
+aRP = {}
+Tunnel.bindInterface("doors",aRP)
 vTASKBAR = Tunnel.getInterface("taskbar")
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DOORSSTATISTICS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.doorsStatistics(doorNumber,doorStatus)
+function aRP.doorsStatistics(doorNumber,doorStatus)
 	local source = source
 
 	doors[doorNumber]["lock"] = doorStatus
@@ -30,7 +30,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DOORSPERMISSION
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.doorsPermission(doorNumber)
+function aRP.doorsPermission(doorNumber)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then

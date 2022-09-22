@@ -18,7 +18,7 @@ local deliveryAmount = {}
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- COLLECTCONSUME
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.collectConsume(serviceName)
+function aRP.collectConsume(serviceName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -100,7 +100,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DELIVERYCONSUME
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.deliveryConsume(serviceName)
+function aRP.deliveryConsume(serviceName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -162,7 +162,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKPERMISSION
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkPermission(serviceName)
+function aRP.checkPermission(serviceName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -189,7 +189,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- FINISHSERVICE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.finishService(serviceName)
+function aRP.finishService(serviceName)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id and activeWorks[serviceName] then
@@ -263,7 +263,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PAYMENTSERVICE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.paymentService()
+function aRP.paymentService()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -278,7 +278,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- INITSERVICE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.initService(status)
+function aRP.initService(status)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -295,7 +295,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKSWITCHBLADE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkSwitchblade()
+function aRP.checkSwitchblade()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -320,7 +320,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ANIMALPAYMENT
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.animalPayment()
+function aRP.animalPayment()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -462,7 +462,7 @@ local stockadeTimer = 0
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKSTOCKADE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkStockade()
+function aRP.checkStockade()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -494,7 +494,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STOCKADEINSERT
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.stockadeInsert(vehNet)
+function aRP.stockadeInsert(vehNet)
 	stockadeNet = parseInt(vehNet)
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -522,7 +522,7 @@ local boxTimers = {}
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- APPLYTIMERS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.applyTimers(boxId)
+function aRP.applyTimers(boxId)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -571,7 +571,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PAYMENTMETHOD
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.paymentMethod()
+function aRP.paymentMethod()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -586,7 +586,7 @@ local atmTimers = 0-- GetGameTimer() + (math.random(20,30) * 60000)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKSYSTEMS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkSystems()
+function aRP.checkSystems()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -622,7 +622,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PAYMENTSYSTEMS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.paymentSystems()
+function aRP.paymentSystems()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -635,7 +635,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CHECKROBBERY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.checkRobbery(robberyId)
+function aRP.checkRobbery(robberyId)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -680,7 +680,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PAYMENTROBBERY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function cRP.paymentRobbery(robberyId)
+function aRP.paymentRobbery(robberyId)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
