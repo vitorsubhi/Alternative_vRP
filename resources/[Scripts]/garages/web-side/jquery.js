@@ -33,7 +33,7 @@ const updateGarages = () => {
 					<div id="vehicleName">${item.name2}</div>
 
 					<div class="vehicle" data-name="${item.name}">
-						<img src="http://yeahrp.com/vehicles/${item.name}.png" onerror="this.onerror=null; this.src='http://yeahrp.com/vehicles/default.png'"/>
+						<img src="https://raw.githubusercontent.com/vitorsubhi/Alternative_Misc/master/vehicles/${item.name}.png" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/vitorsubhi/Alternative_Misc/master/vehicles/default.png'"/>
 						<div id="vehicleLegend">Motor:</div>
 						<div id="vehicleBack">
 							<div id="vehicleProgress" style="width: ${item.engine}%;"></div>
