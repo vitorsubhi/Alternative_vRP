@@ -352,8 +352,8 @@ function fowardPed(ped)
 
 	return { x = math.cos(heading) * 2.0, y = math.sin(heading) * 2.0 }
 end
-RegisterNetEvent('baseevents:enteringVehicle')
-AddEventHandler('baseevents:enteringVehicle', function(currentVehicle, currentSeat, vehicleDisplayName)
+RegisterNetEvent('baseevents:enteredVehicle')
+AddEventHandler('baseevents:enteredVehicle', function(currentVehicle, currentSeat, vehicleDisplayName)
     inVehicle = true
 	if not IsPedOnAnyBike(ped) and not IsPedInAnyHeli(ped) and not IsPedInAnyPlane(ped) then
 		showVelocimeter = true
