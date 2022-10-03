@@ -1,6 +1,3 @@
 [submodule "resources/[Smartphone]/smartphone-app"]
 	path = resources/[Smartphone]/smartphone-app
 	url = https://github.com/vitorsubhi/Smartphone-Apps
-[submodule "resources/[Essentials]/[Database]/oxmysql"]
-	path = resources/[Essentials]/[Database]/oxmysql
-	url = git@github.com:overextended/oxmysql.git
