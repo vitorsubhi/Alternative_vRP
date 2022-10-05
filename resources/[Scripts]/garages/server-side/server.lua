@@ -293,6 +293,10 @@ function aRP.myVehicles(garageWork)
 				local veh = vRP.query("vehicles/selectVehicles",{ user_id = parseInt(user_id), vehicle = v })
 				if veh[1] then
 					table.insert(myVehicle,{ name = veh[1]["vehicle"], name2 = vehicleName(veh[1]["vehicle"]), engine = parseInt(veh[1]["engine"] * 0.1), body = parseInt(veh[1]["body"] * 0.1), fuel = parseInt(veh[1]["fuel"]) })
+				else
+					vRP.execute("vehicles/addVehicles",{ user_id = parseInt(user_id), vehicle = v, plate = vRP.generatePlate(), work = tostring(true) })
+					local veh = vRP.query("vehicles/selectVehicles",{ user_id = parseInt(user_id), vehicle = v })
+					table.insert(myVehicle,{ name = veh[1]["vehicle"], name2 = vehicleName(veh[1]["vehicle"]), engine = parseInt(veh[1]["engine"] * 0.1), body = parseInt(veh[1]["body"] * 0.1), fuel = parseInt(veh[1]["fuel"]) })
 				end
 			end
 		else
