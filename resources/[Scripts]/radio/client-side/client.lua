@@ -29,7 +29,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("radio:openSystem")
 AddEventHandler("radio:openSystem",function()
-	if not exports["police"]:checkPrison() then
+	if not exports["emergency"]:checkPrison() then
 		SetNuiFocus(true,true)
 		SendNUIMessage({ action = "showMenu" })
 
